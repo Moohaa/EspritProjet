@@ -10,6 +10,9 @@ SDL_Event event;
 TTF_Font *font = NULL;
 MenuElement menuElement;
 SDL_Color color;
+SDL_Rect clip[3];
+int menuSelect = 0;
+SDL_Surface *buttons = NULL;
 
 SDL_Surface *load_image(char filename[])
 {
@@ -49,6 +52,7 @@ bool load_files()
     //Load the image
     background = load_image("assets/bmp/background.bmp");
     hello = load_image("assets/bmp/hello.bmp");
+    buttons = load_image("assets/png/restart.png");
 
     //If there was an error in loading the image
     if (background == NULL)
@@ -77,7 +81,7 @@ bool init()
         return false;
     }
 
-    if ((screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL)
+    if ((screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL)
     {
         printf("SDL video mode error %s", SDL_GetError());
         return false;
@@ -92,16 +96,21 @@ bool init()
     return true;
 }
 
-void apply_surface(int x, int y, SDL_Surface *source, SDL_Surface *destination)
+void apply_surface(int x, int y, SDL_Surface *source, SDL_Surface *destination, SDL_Rect *clip)
 {
     //Make a temporary rectangle to hold the offsets
     SDL_Rect offset;
+    if (clip != NULL)
+    {
+        offset.x = clip->x;
+        offset.y = clip->y;
+    }
 
     //Give the offsets to the rectangle
     offset.x = x;
     offset.y = y;
     //Blit the surface
-    SDL_BlitSurface(source, NULL, destination, &offset);
+    SDL_BlitSurface(source, clip, destination, &offset);
 }
 
 SDL_Surface *generateFontSurface(char file[50], int size, char text[50], SDL_Color color)
@@ -111,4 +120,13 @@ SDL_Surface *generateFontSurface(char file[50], int size, char text[50], SDL_Col
     TTF_CloseFont(font);
     printf("%d", surfaceText->h);
     return surfaceText;
+}
+
+void initBg(SDL_Surface *screen, SDL_Surface *background)
+{
+    apply_surface(0, 0, background, screen, NULL);
+    apply_surface(320, 0, background, screen, NULL);
+    apply_surface(0, 240, background, screen, NULL);
+    apply_surface(320, 240, background, screen, NULL);
+    apply_surface(180, 140, hello, screen, NULL);
 }

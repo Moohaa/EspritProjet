@@ -1,8 +1,7 @@
-#include "utils.h"
 #include "menu.h"
 
 void initMenu(Menu *menu)
 {
-    menu->posX = SCREEN_HEIGHT / 2;
-    menu->posX = SCREEN_WIDTH / 2;
+    menu->posX = (int)SCREEN_HEIGHT / 1.5;
+    menu->posX = (int)SCREEN_WIDTH / 1.5;
 }

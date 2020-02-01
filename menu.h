@@ -1,4 +1,3 @@
-#include "SDL/SDL.h"
 #include "utils.h"
 
 struct menuElement
