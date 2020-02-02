@@ -7,90 +7,60 @@ int main(int argc, char *args[])
     {
         return 1;
     }
+    next_time = SDL_GetTicks() + TICK_INTERVAL;
 
     //Apply the background to the screen
     initBg(screen, background);
-    color.b = 255;
-    //Clip range for the top left
-    clip[0].x = 0;
-    clip[0].y = 0;
-    clip[0].w = 200;
-    clip[0].h = 80;
-
-    //Clip range for the top right
-    clip[1].x = 200;
-    clip[1].y = 0;
-    clip[1].w = 200;
-    clip[1].h = 80;
-
-    //Clip range for the bottom left
-    clip[2].x = 400;
-    clip[2].y = 0;
-    clip[2].w = 200;
-    clip[2].h = 80;
-
-    //Apply the images to the screen
-    apply_surface(-30, 0, buttons, screen, &clip[0]);
-    apply_surface(-30, 80, buttons, screen, &clip[1]);
-    apply_surface(-30, 160, buttons, screen, &clip[2]);
-
-    SDL_Surface *text = generateFontSurface("assets/ttf/ARCADECLASSIC.TTF", 32, "Hello", color);
-    apply_surface(0, 0, text, screen, NULL);
+    color.b = 155;
 
     while (quit == false)
     {
-        SDL_Delay(15);
-        SDL_Flip(screen);
+
+        initBg(screen, background);
+        SDL_Delay(33);
 
         if (running == true)
         {
             char time[50];
-            sprintf(time, "%d", SDL_GetTicks() - start);
+            sprintf(time, "%d", SDL_GetTicks());
             SDL_Surface *seconds = generateFontSurface("", 50, time, color);
-            apply_surface((SCREEN_WIDTH - seconds->w) / 2, 50, seconds, screen, NULL);
-            SDL_FreeSurface(seconds);
-            SDL_FreeSurface(screen);
+            apply_surface((SCREEN_WIDTH - seconds->w) / 2, 100, seconds, screen, NULL);
         }
 
-        while (SDL_PollEvent(&event))
+        char menuselectchar[10];
+        sprintf(menuselectchar, "%d", menuSelect);
+        SDL_Surface *menuSelection = generateFontSurface("", 40, menuselectchar, color);
+        apply_surface((SCREEN_WIDTH - menuSelection->w) / 2, 50, menuSelection, screen, NULL);
+
+        SDL_PollEvent(&event);
+        switch (event.type)
         {
-            if (event.type == SDL_QUIT)
+        case SDL_QUIT:
+            quit = true;
+            break;
+        case SDL_KEYDOWN:
+            switch (event.key.keysym.sym)
             {
-                quit = true;
-            }
-            if (event.type == SDL_KEYDOWN)
-            {
-                switch (event.key.keysym.sym)
+            case SDLK_UP:
+                //if (menuSelect != 0)
                 {
-                case SDLK_UP:
-                    if (menuSelect != 0)
-                    {
-                        menuSelect--;
-                    }
-
-                    break;
-                case SDLK_DOWN:
-                    if (menuSelect != 3)
-                    {
-                        menuSelect++;
-                    }
-                    break;
-
-                case (SDLK_s):
-
-                    if (running == true)
-                    {
-                        running = false;
-                        start = 0;
-                    }
-                    else
-                    {
-                        running = true;
-                        start = SDL_GetTicks();
-                    }
+                    menuSelect--;
                 }
+                break;
+            case SDLK_DOWN:
+                //if (menuSelect != 3)
+                {
+                    menuSelect++;
+                }
+                break;
+            case (SDLK_s):
+                running == !running;
             }
+            break;
+        default:
+            break;
         }
+        SDL_Flip(screen);
     }
     clean_up();
     return 0;

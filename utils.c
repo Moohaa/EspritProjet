@@ -20,6 +20,7 @@ bool cap = true;
 bool quit = false;
 Uint32 start = 0;
 bool running = true;
+Uint32 next_time;
 
 SDL_Surface *load_image(char filename[])
 {
@@ -119,7 +120,6 @@ SDL_Surface *generateFontSurface(char file[50], int size, char text[50], SDL_Col
     font = TTF_OpenFont("assets/ttf/ARCADECLASSIC.TTF", size);
     SDL_Surface *surfaceText = TTF_RenderText_Blended(font, text, color);
     TTF_CloseFont(font);
-    printf("%d", surfaceText->h);
     return surfaceText;
 }
 
@@ -130,4 +130,15 @@ void initBg(SDL_Surface *screen, SDL_Surface *background)
     apply_surface(0, 240, background, screen, NULL);
     apply_surface(320, 240, background, screen, NULL);
     apply_surface(180, 140, hello, screen, NULL);
+}
+
+Uint32 time_left(void)
+{
+    Uint32 now;
+
+    now = SDL_GetTicks();
+    if (next_time <= now)
+        return 0;
+    else
+        return next_time - now;
 }

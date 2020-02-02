@@ -32,6 +32,8 @@ extern bool cap;
 extern bool quit;
 extern Uint32 start;
 extern bool running;
+#define TICK_INTERVAL 30;
+extern Uint32 next_time;
 
 extern SDL_Surface *buttons;
 
@@ -42,3 +44,4 @@ void clean_up();
 SDL_Surface *load_image(char filename[]);
 SDL_Surface *generateFontSurface(char file[], int size, char text[], SDL_Color color);
 void initBg(SDL_Surface *screen, SDL_Surface *background);
+Uint32 time_left();
