@@ -13,6 +13,13 @@ SDL_Color color;
 SDL_Rect clip[3];
 int menuSelect = 0;
 SDL_Surface *buttons = NULL;
+const int FRAMES_PER_SECOND = 20;
+//The frames per second
+int frame = 0;
+bool cap = true;
+bool quit = false;
+Uint32 start = 0;
+bool running = true;
 
 SDL_Surface *load_image(char filename[])
 {
@@ -100,12 +107,6 @@ void apply_surface(int x, int y, SDL_Surface *source, SDL_Surface *destination, 
 {
     //Make a temporary rectangle to hold the offsets
     SDL_Rect offset;
-    if (clip != NULL)
-    {
-        offset.x = clip->x;
-        offset.y = clip->y;
-    }
-
     //Give the offsets to the rectangle
     offset.x = x;
     offset.y = y;

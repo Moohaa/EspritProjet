@@ -34,17 +34,28 @@ int main(int argc, char *args[])
     apply_surface(-30, 80, buttons, screen, &clip[1]);
     apply_surface(-30, 160, buttons, screen, &clip[2]);
 
-    //SDL_Surface *text = generateFontSurface("assets/ttf/ARCADECLASSIC.TTF", 32, "Hello", color);
-    //apply_surface(0, 0, text, screen, NULL);
+    SDL_Surface *text = generateFontSurface("assets/ttf/ARCADECLASSIC.TTF", 32, "Hello", color);
+    apply_surface(0, 0, text, screen, NULL);
 
-    SDL_Flip(SDL_GetVideoSurface());
     while (quit == false)
     {
+        SDL_Delay(15);
+        SDL_Flip(screen);
+
+        if (running == true)
+        {
+            char time[50];
+            sprintf(time, "%d", SDL_GetTicks() - start);
+            SDL_Surface *seconds = generateFontSurface("", 50, time, color);
+            apply_surface((SCREEN_WIDTH - seconds->w) / 2, 50, seconds, screen, NULL);
+            SDL_FreeSurface(seconds);
+            SDL_FreeSurface(screen);
+        }
+
         while (SDL_PollEvent(&event))
         {
             if (event.type == SDL_QUIT)
             {
-                //Quit the program
                 quit = true;
             }
             if (event.type == SDL_KEYDOWN)
@@ -54,7 +65,6 @@ int main(int argc, char *args[])
                 case SDLK_UP:
                     if (menuSelect != 0)
                     {
-
                         menuSelect--;
                     }
 
@@ -62,10 +72,22 @@ int main(int argc, char *args[])
                 case SDLK_DOWN:
                     if (menuSelect != 3)
                     {
-
-                        menuSelect--;
+                        menuSelect++;
                     }
                     break;
+
+                case (SDLK_s):
+
+                    if (running == true)
+                    {
+                        running = false;
+                        start = 0;
+                    }
+                    else
+                    {
+                        running = true;
+                        start = SDL_GetTicks();
+                    }
                 }
             }
         }

@@ -25,6 +25,14 @@ extern SDL_Surface rect;
 extern SDL_Rect clip[3];
 extern int menuSelect;
 
+//The frames per second
+extern const int FRAMES_PER_SECOND;
+extern int frame;
+extern bool cap;
+extern bool quit;
+extern Uint32 start;
+extern bool running;
+
 extern SDL_Surface *buttons;
 
 void apply_surface(int x, int y, SDL_Surface *source, SDL_Surface *destination, SDL_Rect *clip);
