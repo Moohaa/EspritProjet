@@ -5,12 +5,10 @@ int main(int argc, char *args[])
     bool quit = false;
     if (init() == false || load_files() == false)
     {
-        return 1;
+        printf("Initialization Failed \n");
+        return -1;
     }
-    next_time = SDL_GetTicks() + TICK_INTERVAL;
 
-    //Apply the background to the screen
-    initBg(screen, background);
     color.b = 155;
 
     while (quit == false)
@@ -41,20 +39,19 @@ int main(int argc, char *args[])
         case SDL_KEYDOWN:
             switch (event.key.keysym.sym)
             {
+            case SDLK_ESCAPE:
+                quit = true;
+                break;
             case SDLK_UP:
-                //if (menuSelect != 0)
-                {
+                if (menuSelect != 0)
                     menuSelect--;
-                }
                 break;
             case SDLK_DOWN:
-                //if (menuSelect != 3)
-                {
+                if (menuSelect != 3)
                     menuSelect++;
-                }
                 break;
             case (SDLK_s):
-                running == !running;
+                running == false;
             }
             break;
         default:
