@@ -10,3 +10,19 @@ typedef int bool;
 
 typedef struct menu Menu;
 typedef struct menuElement MenuElement;
+
+typedef int Level;
+#define MAIN_MENU 0;
+#define SETTINGS 1;
+#define MAP 2;
+#define LEVEL1 3;
+
+#include "SDL/SDL.h"
+#include "SDL/SDL_image.h"
+#include "SDL/SDL_ttf.h"
+#include "SDL/SDL_mixer.h"
+#include "SDL/SDL_timer.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>

@@ -8,11 +8,9 @@ int main(int argc, char *args[])
         printf("Initialization Failed \n");
         return -1;
     }
-    menuSelect = 0;
-
+    int menuSelect = 0;
     while (quit == false)
     {
-
         while (SDL_PollEvent(&event))
         {
             initBg(screen, background);
@@ -32,6 +30,8 @@ int main(int argc, char *args[])
                     if (menuSelect == 2)
                         quit = true;
                     break;
+                case SDLK_BACKSPACE:
+                    break;
                 case SDLK_ESCAPE:
                     quit = true;
                     break;
@@ -44,7 +44,7 @@ int main(int argc, char *args[])
                         menuSelect++;
                     break;
                 case (SDLK_s):
-                    running == false;
+                    running = !running;
                 }
                 break;
             default:

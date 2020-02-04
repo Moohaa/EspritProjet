@@ -1,13 +1,3 @@
-#include "SDL/SDL.h"
-#include "SDL/SDL_image.h"
-#include "SDL/SDL_ttf.h"
-#include "SDL/SDL_mixer.h"
-#include "SDL/SDL_timer.h"
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 #include "defs.h"
 
 //Surfaces and Ressources as global Variables
@@ -18,12 +8,8 @@ extern SDL_Surface *background;
 extern SDL_Surface *image;
 extern SDL_Event event;
 extern TTF_Font *font;
-extern Menu menu;
-extern MenuElement menuElement;
 extern SDL_Color color;
 extern SDL_Surface rect;
-extern SDL_Rect clip[3];
-extern int menuSelect;
 
 extern SDL_Surface *menu1;
 extern SDL_Surface *menu2;
@@ -32,17 +18,18 @@ extern SDL_Surface *menu1Hover;
 extern SDL_Surface *menu2Hover;
 extern SDL_Surface *menu3Hover;
 
-//The frames per second
-extern const int FRAMES_PER_SECOND;
-extern int frame;
-extern bool cap;
-extern bool quit;
-extern Uint32 start;
 extern bool running;
-#define TICK_INTERVAL 30;
-extern Uint32 next_time;
+extern Level scene;
+
+extern int fxVolume;
+extern int musicVolume;
 
 extern SDL_Surface *buttons;
+extern Mix_Music *music;
+extern Mix_Chunk *scratch;
+extern Mix_Chunk *high;
+extern Mix_Chunk *med;
+extern Mix_Chunk *low;
 
 void apply_surface(int x, int y, SDL_Surface *source, SDL_Surface *destination, SDL_Rect *clip);
 bool init();
@@ -53,5 +40,5 @@ SDL_Surface *generateFontSurface(char file[], int size, char text[], SDL_Color c
 void initBg(SDL_Surface *screen, SDL_Surface *background);
 Uint32 time_left();
 void initMenu(int menuSelect);
-
 void loadMenuFiles();
+bool loadMusic();

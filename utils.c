@@ -8,27 +8,28 @@ SDL_Surface *background = NULL;
 SDL_Surface *image = NULL;
 SDL_Event event;
 TTF_Font *font = NULL;
-MenuElement menuElement;
 SDL_Color color;
-SDL_Rect clip[3];
-int menuSelect = 0;
 SDL_Surface *buttons = NULL;
-const int FRAMES_PER_SECOND = 20;
-//The frames per second
-int frame = 0;
-bool cap = true;
-bool quit = false;
-Uint32 start = 0;
 bool running = true;
 Uint32 next_time;
 
 SDL_Surface *menu1 = NULL;
 SDL_Surface *menu2 = NULL;
 SDL_Surface *menu3 = NULL;
-
 SDL_Surface *menu1Hover = NULL;
 SDL_Surface *menu2Hover = NULL;
 SDL_Surface *menu3Hover = NULL;
+
+int fxVolume = 100;
+int musicVolume = 100;
+
+Level Scene = MAIN_MENU;
+
+Mix_Music *music = NULL;
+Mix_Chunk *scratch = NULL;
+Mix_Chunk *high = NULL;
+Mix_Chunk *med = NULL;
+Mix_Chunk *low = NULL;
 
 SDL_Surface *load_image(char filename[], int colorKey)
 {
@@ -67,8 +68,21 @@ void clean_up()
     SDL_FreeSurface(image);
     SDL_FreeSurface(hello);
     SDL_FreeSurface(screen);
+    SDL_FreeSurface(menu1);
+    SDL_FreeSurface(menu2);
+    SDL_FreeSurface(menu3);
+    SDL_FreeSurface(menu1Hover);
+    SDL_FreeSurface(menu2Hover);
+    SDL_FreeSurface(menu3Hover);
     SDL_FreeSurface(background);
-
+    Mix_FreeChunk(scratch);
+    Mix_FreeChunk(high);
+    Mix_FreeChunk(med);
+    Mix_FreeChunk(low);
+    Mix_FreeMusic(music);
+    TTF_CloseFont(font);
+    Mix_CloseAudio();
+    TTF_Quit();
     SDL_Quit();
 }
 
@@ -143,10 +157,6 @@ SDL_Surface *generateFontSurface(char file[50], int size, char text[50], SDL_Col
 void initBg(SDL_Surface *screen, SDL_Surface *background)
 {
     apply_surface(0, 0, background, screen, NULL);
-    //    apply_surface(320, 0, background, screen, NULL);
-    //   apply_surface(0, 240, background, screen, NULL);
-    // apply_surface(320, 240, background, screen, NULL);
-    //apply_surface(180, 140, hello, screen, NULL);
 }
 
 Uint32 time_left(void)
@@ -190,4 +200,26 @@ void initMenu(int menuSelect)
         apply_surface((SCREEN_WIDTH - menu2->w) / 2, 200, menu2, screen, NULL);
         apply_surface((SCREEN_WIDTH - menu3Hover->w) / 2, 300, menu3Hover, screen, NULL);
     }
+}
+
+bool loadMusic()
+{
+    if (Mix_OpenAudio(41000, MIX_DEFAULT_FORMAT, 2, 4096) == -1)
+    {
+        return false;
+    }
+    music = Mix_LoadMUS("beat.wav");
+    if (music == NULL)
+    {
+        return false;
+    }
+    scratch = Mix_LoadWAV("scratch.wav");
+    high = Mix_LoadWAV("high.wav");
+    med = Mix_LoadWAV("medium.wav");
+    low = Mix_LoadWAV("low.wav");
+    if ((scratch == NULL) || (high == NULL) || (med == NULL) || (low == NULL))
+    {
+        return false;
+    }
+    return true;
 }
