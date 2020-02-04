@@ -48,7 +48,7 @@ void apply_surface(int x, int y, SDL_Surface *source, SDL_Surface *destination, 
 bool init();
 bool load_files();
 void clean_up();
-SDL_Surface *load_image(char filename[]);
+SDL_Surface *load_image(char filename[], int colorKey);
 SDL_Surface *generateFontSurface(char file[], int size, char text[], SDL_Color color);
 void initBg(SDL_Surface *screen, SDL_Surface *background);
 Uint32 time_left();

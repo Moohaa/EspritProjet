@@ -30,7 +30,7 @@ SDL_Surface *menu1Hover = NULL;
 SDL_Surface *menu2Hover = NULL;
 SDL_Surface *menu3Hover = NULL;
 
-SDL_Surface *load_image(char filename[])
+SDL_Surface *load_image(char filename[], int colorKey)
 {
     //Temporary storage for the image that's loaded
     SDL_Surface *loadedImage = NULL;
@@ -44,9 +44,13 @@ SDL_Surface *load_image(char filename[])
     {
         //Create an optimized image
         optimizedImage = SDL_DisplayFormat(loadedImage);
-
         //Free the old image
         SDL_FreeSurface(loadedImage);
+        if (colorKey)
+        {
+            Uint32 colorkey = SDL_MapRGB(optimizedImage->format, 0, 0, 0);
+            SDL_SetColorKey(optimizedImage, SDL_SRCCOLORKEY, colorkey);
+        }
     }
     else
     {
@@ -71,9 +75,9 @@ void clean_up()
 bool load_files()
 {
     //Load the image
-    background = load_image("assets/bmp/background.bmp");
-    hello = load_image("assets/bmp/hello.bmp");
-    buttons = load_image("assets/png/restart.png");
+    background = load_image("assets/jpg/1.jpg", 0);
+    hello = load_image("assets/bmp/hello.bmp", 0);
+    buttons = load_image("assets/png/restart.png", 0);
 
     //If there was an error in loading the image
     if (background == NULL)
@@ -139,10 +143,10 @@ SDL_Surface *generateFontSurface(char file[50], int size, char text[50], SDL_Col
 void initBg(SDL_Surface *screen, SDL_Surface *background)
 {
     apply_surface(0, 0, background, screen, NULL);
-    apply_surface(320, 0, background, screen, NULL);
-    apply_surface(0, 240, background, screen, NULL);
-    apply_surface(320, 240, background, screen, NULL);
-    apply_surface(180, 140, hello, screen, NULL);
+    //    apply_surface(320, 0, background, screen, NULL);
+    //   apply_surface(0, 240, background, screen, NULL);
+    // apply_surface(320, 240, background, screen, NULL);
+    //apply_surface(180, 140, hello, screen, NULL);
 }
 
 Uint32 time_left(void)
@@ -158,19 +162,19 @@ Uint32 time_left(void)
 
 void loadMenuFiles()
 {
-    menu1 = load_image("assets/png/new.png");
-    menu2 = load_image("assets/png/settings.png");
-    menu3 = load_image("assets/png/exit.png");
-    menu1Hover = load_image("assets/png/new_hover.png");
-    menu2Hover = load_image("assets/png/settings_hover.png");
-    menu3Hover = load_image("assets/png/exit_hover.png");
+    menu1 = load_image("assets/png/new.png", 1);
+    menu2 = load_image("assets/png/settings.png", 1);
+    menu3 = load_image("assets/png/exit.png", 1);
+    menu1Hover = load_image("assets/png/new_hover.png", 1);
+    menu2Hover = load_image("assets/png/settings_hover.png", 1);
+    menu3Hover = load_image("assets/png/exit_hover.png", 1);
 }
 
 void initMenu(int menuSelect)
 {
     if (menuSelect == 0)
     {
-        apply_surface((SCREEN_WIDTH) / 2, 100, menu1Hover, screen, NULL);
+        apply_surface((SCREEN_WIDTH - menu1Hover->w) / 2, 100, menu1Hover, screen, NULL);
         apply_surface((SCREEN_WIDTH - menu2->w) / 2, 200, menu2, screen, NULL);
         apply_surface((SCREEN_WIDTH - menu3->w) / 2, 300, menu3, screen, NULL);
     }
