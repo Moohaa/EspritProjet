@@ -7,6 +7,7 @@
         "sdl_video.h": "c",
         "cstdio": "cpp",
         "cstdlib": "c",
-        "menu.h": "c"
+        "menu.h": "c",
+        "utils.h": "c"
     }
 }
