@@ -18,8 +18,6 @@ int main(int argc, char *args[])
         SDL_Surface *text = generateFontSurface("assets/ttf/ARCADECLASSIC.TTF", 32, "Hello", color);
         apply_surface(0, 0, text, screen, NULL);
 
-        color.b = 155;
-
         if (running == true)
         {
             char time[50];
