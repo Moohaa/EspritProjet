@@ -6,6 +6,7 @@
         "sdl_main.h": "c",
         "sdl_video.h": "c",
         "cstdio": "cpp",
-        "cstdlib": "c"
+        "cstdlib": "c",
+        "menu.h": "c"
     }
 }

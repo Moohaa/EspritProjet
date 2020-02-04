@@ -23,3 +23,22 @@
 
     SDL_Surface *text = generateFontSurface("assets/ttf/ARCADECLASSIC.TTF", 32, "Hello", color);
     apply_surface(0, 0, text, screen, NULL);
+
+
+        /*
+        if (running == true)
+        {
+            char time[50];
+            sprintf(time, "%d", SDL_GetTicks());
+            SDL_Surface *seconds = generateFontSurface("", 50, time, color);
+            apply_surface((SCREEN_WIDTH - seconds->w) / 2, 100, seconds, screen, NULL);
+        }
+/**/
+        /*
+        char menuselectchar[10];
+        sprintf(menuselectchar, "%d", menuSelect);
+        SDL_Surface *menuSelection = generateFontSurface("", 40, menuselectchar, color);
+        apply_surface((SCREEN_WIDTH - menuSelection->w) / 2, 50, menuSelection, screen, NULL);
+*/
+
+color.b = 155;

@@ -25,6 +25,13 @@ extern SDL_Surface rect;
 extern SDL_Rect clip[3];
 extern int menuSelect;
 
+extern SDL_Surface *menu1;
+extern SDL_Surface *menu2;
+extern SDL_Surface *menu3;
+extern SDL_Surface *menu1Hover;
+extern SDL_Surface *menu2Hover;
+extern SDL_Surface *menu3Hover;
+
 //The frames per second
 extern const int FRAMES_PER_SECOND;
 extern int frame;
@@ -45,3 +52,6 @@ SDL_Surface *load_image(char filename[]);
 SDL_Surface *generateFontSurface(char file[], int size, char text[], SDL_Color color);
 void initBg(SDL_Surface *screen, SDL_Surface *background);
 Uint32 time_left();
+void initMenu(int menuSelect);
+
+void loadMenuFiles();

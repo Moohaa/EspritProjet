@@ -8,14 +8,17 @@ int main(int argc, char *args[])
         printf("Initialization Failed \n");
         return -1;
     }
-
-    color.b = 155;
+    menuSelect = 0;
 
     while (quit == false)
     {
-
         initBg(screen, background);
         SDL_Delay(33);
+
+        SDL_Surface *text = generateFontSurface("assets/ttf/ARCADECLASSIC.TTF", 32, "Hello", color);
+        apply_surface(0, 0, text, screen, NULL);
+
+        color.b = 155;
 
         if (running == true)
         {
@@ -29,7 +32,10 @@ int main(int argc, char *args[])
         sprintf(menuselectchar, "%d", menuSelect);
         SDL_Surface *menuSelection = generateFontSurface("", 40, menuselectchar, color);
         apply_surface((SCREEN_WIDTH - menuSelection->w) / 2, 50, menuSelection, screen, NULL);
-
+        /*
+        loadMenuFiles();
+        initMenu(menuSelect);
+        */
         SDL_PollEvent(&event);
         switch (event.type)
         {
@@ -47,18 +53,19 @@ int main(int argc, char *args[])
                     menuSelect--;
                 break;
             case SDLK_DOWN:
-                if (menuSelect != 3)
+                if (menuSelect != 2)
                     menuSelect++;
-                break;
+                break; /*
             case (SDLK_s):
                 running == false;
             }
-            break;
-        default:
-            break;
+            break;*/
+            default:
+                break;
+            }
+            SDL_Flip(screen);
         }
-        SDL_Flip(screen);
+        clean_up();
+        return 0;
     }
-    clean_up();
-    return 0;
 }

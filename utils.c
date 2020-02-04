@@ -22,6 +22,14 @@ Uint32 start = 0;
 bool running = true;
 Uint32 next_time;
 
+SDL_Surface *menu1 = NULL;
+SDL_Surface *menu2 = NULL;
+SDL_Surface *menu3 = NULL;
+
+SDL_Surface *menu1Hover = NULL;
+SDL_Surface *menu2Hover = NULL;
+SDL_Surface *menu3Hover = NULL;
+
 SDL_Surface *load_image(char filename[])
 {
     //Temporary storage for the image that's loaded
@@ -40,6 +48,11 @@ SDL_Surface *load_image(char filename[])
         //Free the old image
         SDL_FreeSurface(loadedImage);
     }
+    else
+    {
+        printf("Error loading images %s\n", SDL_GetError());
+    }
+
     //Return the optimized image
     return optimizedImage;
 }
@@ -89,7 +102,7 @@ bool init()
         return false;
     }
 
-    if ((screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL)
+    if ((screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL)
     {
         printf("SDL video mode error %s", SDL_GetError());
         return false;
@@ -141,4 +154,36 @@ Uint32 time_left(void)
         return 0;
     else
         return next_time - now;
+}
+
+void loadMenuFiles()
+{
+    menu1 = load_image("assets/png/new.png");
+    menu2 = load_image("assets/png/settings.png");
+    menu3 = load_image("assets/png/exit.png");
+    menu1Hover = load_image("assets/png/new_hover.png");
+    menu2Hover = load_image("assets/png/settings_hover.png");
+    menu3Hover = load_image("assets/png/exit_hover.png");
+}
+
+void initMenu(int menuSelect)
+{
+    if (menuSelect == 0)
+    {
+        apply_surface((SCREEN_WIDTH) / 2, 100, menu1Hover, screen, NULL);
+        apply_surface((SCREEN_WIDTH - menu2->w) / 2, 200, menu2, screen, NULL);
+        apply_surface((SCREEN_WIDTH - menu3->w) / 2, 300, menu3, screen, NULL);
+    }
+    if (menuSelect == 1)
+    {
+        apply_surface((SCREEN_WIDTH - menu1->w) / 2, 100, menu1, screen, NULL);
+        apply_surface((SCREEN_WIDTH - menu2Hover->w) / 2, 200, menu2Hover, screen, NULL);
+        apply_surface((SCREEN_WIDTH - menu3->w) / 2, 300, menu3, screen, NULL);
+    }
+    if (menuSelect == 2)
+    {
+        apply_surface((SCREEN_WIDTH - menu1->w) / 2, 100, menu1, screen, NULL);
+        apply_surface((SCREEN_WIDTH - menu2->w) / 2, 200, menu2, screen, NULL);
+        apply_surface((SCREEN_WIDTH - menu3Hover->w) / 2, 300, menu3Hover, screen, NULL);
+    }
 }

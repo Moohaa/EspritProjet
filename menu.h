@@ -23,6 +23,5 @@ struct menu
     int nElements;
 };
 
-void initMenu(Menu *menu);
 void createMenuElement(MenuElement *menuElement);
 void addMenuElements(MenuElement menuElement[10], int n, Menu menu);
