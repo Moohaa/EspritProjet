@@ -30,10 +30,10 @@ int main(int argc, char *args[])
         sprintf(menuselectchar, "%d", menuSelect);
         SDL_Surface *menuSelection = generateFontSurface("", 40, menuselectchar, color);
         apply_surface((SCREEN_WIDTH - menuSelection->w) / 2, 50, menuSelection, screen, NULL);
-        /*
+
         loadMenuFiles();
         initMenu(menuSelect);
-        */
+
         SDL_PollEvent(&event);
         switch (event.type)
         {
@@ -53,17 +53,16 @@ int main(int argc, char *args[])
             case SDLK_DOWN:
                 if (menuSelect != 2)
                     menuSelect++;
-                break; /*
+                break;
             case (SDLK_s):
                 running == false;
             }
-            break;*/
-            default:
-                break;
-            }
-            SDL_Flip(screen);
+            break;
+        default:
+            break;
         }
-        clean_up();
-        return 0;
+        SDL_Flip(screen);
     }
+    clean_up();
+    return 0;
 }
