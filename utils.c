@@ -1,5 +1,4 @@
 #include "utils.h"
-#include "menu.h"
 
 SDL_Surface *hello = NULL;
 SDL_Surface *screen = NULL;
@@ -33,19 +32,12 @@ Mix_Chunk *low = NULL;
 
 SDL_Surface *load_image(char filename[], int colorKey)
 {
-    //Temporary storage for the image that's loaded
     SDL_Surface *loadedImage = NULL;
-
-    //The optimized image that will be used
     SDL_Surface *optimizedImage = NULL;
-    //Load the image
     loadedImage = IMG_Load(filename);
-    //If nothing went wrong in loading the image
     if (loadedImage != NULL)
     {
-        //Create an optimized image
         optimizedImage = SDL_DisplayFormat(loadedImage);
-        //Free the old image
         SDL_FreeSurface(loadedImage);
         if (colorKey)
         {
@@ -57,12 +49,9 @@ SDL_Surface *load_image(char filename[], int colorKey)
     {
         printf("Error loading images %s\n", SDL_GetError());
     }
-
-    //Return the optimized image
     return optimizedImage;
 }
 
-//Free all surfaces and quit SDL
 void clean_up()
 {
     SDL_FreeSurface(image);
@@ -88,30 +77,16 @@ void clean_up()
 
 bool load_files()
 {
-    //Load the image
     background = load_image("assets/jpg/1.jpg", 0);
     hello = load_image("assets/bmp/hello.bmp", 0);
     buttons = load_image("assets/png/restart.png", 0);
-
-    //If there was an error in loading the image
     if (background == NULL)
-    {
         return false;
-    }
     if (hello == NULL)
-    {
         return false;
-    }
-
-    //If everything loaded fine
     return true;
 }
 
-//Initialize all SDL subsystems
-//Set up the screen
-//If there was an error in setting up the screen
-//Set the window caption
-//If everything initialized fine returns true
 bool init()
 {
     if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
@@ -119,15 +94,12 @@ bool init()
         printf("SDL init error %s ", SDL_GetError());
         return false;
     }
-
     if ((screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL)
     {
         printf("SDL video mode error %s", SDL_GetError());
         return false;
     }
-
     SDL_WM_SetCaption("Esprit Projet Jeu Video", "Esprit Projet Jeu Video");
-    //Initialize SDL_ttf
     if (TTF_Init() == -1)
     {
         return false;
@@ -137,12 +109,9 @@ bool init()
 
 void apply_surface(int x, int y, SDL_Surface *source, SDL_Surface *destination, SDL_Rect *clip)
 {
-    //Make a temporary rectangle to hold the offsets
     SDL_Rect offset;
-    //Give the offsets to the rectangle
     offset.x = x;
     offset.y = y;
-    //Blit the surface
     SDL_BlitSurface(source, clip, destination, &offset);
 }
 
@@ -162,7 +131,6 @@ void initBg(SDL_Surface *screen, SDL_Surface *background)
 Uint32 time_left(void)
 {
     Uint32 now;
-
     now = SDL_GetTicks();
     if (next_time <= now)
         return 0;
@@ -205,21 +173,15 @@ void initMenu(int menuSelect)
 bool loadMusic()
 {
     if (Mix_OpenAudio(41000, MIX_DEFAULT_FORMAT, 2, 4096) == -1)
-    {
         return false;
-    }
     music = Mix_LoadMUS("beat.wav");
     if (music == NULL)
-    {
         return false;
-    }
     scratch = Mix_LoadWAV("scratch.wav");
     high = Mix_LoadWAV("high.wav");
     med = Mix_LoadWAV("medium.wav");
     low = Mix_LoadWAV("low.wav");
     if ((scratch == NULL) || (high == NULL) || (med == NULL) || (low == NULL))
-    {
         return false;
-    }
     return true;
 }

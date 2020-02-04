@@ -8,6 +8,7 @@
         "cstdio": "cpp",
         "cstdlib": "c",
         "menu.h": "c",
-        "utils.h": "c"
+        "utils.h": "c",
+        "defs.h": "c"
     }
 }

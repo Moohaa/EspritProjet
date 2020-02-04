@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${vcpkgRoot}/x64-linux/include"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc ",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "compilerArgs": [
+                "-lSDL ",
+                "-lSDL-image ",
+                "-lSDL-mixer",
+                "-lSDL-"
+            ],
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}
