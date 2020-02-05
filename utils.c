@@ -89,7 +89,7 @@ bool load_files()
 
 bool init()
 {
-    if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
+    if (SDL_Init(SDL_INIT_AUDIO || SDL_INIT_VIDEO) == -1)
     {
         printf("SDL init error %s ", SDL_GetError());
         return false;
@@ -172,8 +172,11 @@ void initMenu(int menuSelect)
 
 bool loadMusic()
 {
-    if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096) == -1)
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) != -1)
+    {
+        printf("%s", Mix_GetError());
         return false;
+    }
     music = Mix_LoadMUS("/assets/wav/beat.wav");
     if (music == NULL)
         return false;

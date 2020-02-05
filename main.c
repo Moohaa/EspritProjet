@@ -2,10 +2,22 @@
 
 int main(int argc, char *args[])
 {
-    bool quit = false;
-    if (init() == false || load_files() == false || loadMusic() == false)
+    SDL_Init(SDL_INIT_AUDIO);
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)
     {
-        printf("Initialization Failed \n");
+        printf("%s", Mix_GetError());
+    }
+
+    Mix_AllocateChannels(32);
+    scratch = Mix_LoadWAV("beat.wav");
+
+    Mix_PlayChannel(1, scratch, 0);
+    music = Mix_LoadMUS("/assets/mp3/beep.mp3");
+    Mix_PlayChannel(1, scratch, 0);
+    bool quit = false;
+    if (init() == false || load_files() == false)
+    {
+        printf("Initialization Failed \n %s ", SDL_GetError());
         return -1;
     }
     int menuSelect = 0;
@@ -42,6 +54,7 @@ int main(int argc, char *args[])
                         menuSelect--;
                     break;
                 case SDLK_DOWN:
+                    Mix_PlayChannel(1, scratch, 0);
                     Mix_PlayChannel(-1, low, 0);
                     if (menuSelect != 2)
                         menuSelect++;
@@ -56,6 +69,10 @@ int main(int argc, char *args[])
             SDL_Flip(screen);
         }
     }
+    Mix_FreeChunk(scratch);
+    Mix_CloseAudio();
+
     clean_up();
+
     return 0;
 }
