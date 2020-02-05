@@ -3,7 +3,7 @@
 int main(int argc, char *args[])
 {
     bool quit = false;
-    if (init() == false || load_files() == false)
+    if (init() == false || load_files() == false || loadMusic() == false)
     {
         printf("Initialization Failed \n");
         return -1;
@@ -22,7 +22,7 @@ int main(int argc, char *args[])
             {
             case SDL_QUIT:
                 quit = true;
-                break;
+                Mix_PlayChannel(-1, low, 0);
             case SDL_KEYDOWN:
                 switch (event.key.keysym.sym)
                 {
@@ -31,15 +31,18 @@ int main(int argc, char *args[])
                         quit = true;
                     break;
                 case SDLK_BACKSPACE:
+                    Mix_PlayChannel(-1, med, 0);
                     break;
                 case SDLK_ESCAPE:
                     quit = true;
                     break;
                 case SDLK_UP:
+                    Mix_PlayChannel(-1, low, 0);
                     if (menuSelect != 0)
                         menuSelect--;
                     break;
                 case SDLK_DOWN:
+                    Mix_PlayChannel(-1, low, 0);
                     if (menuSelect != 2)
                         menuSelect++;
                     break;

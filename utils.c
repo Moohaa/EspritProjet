@@ -172,15 +172,15 @@ void initMenu(int menuSelect)
 
 bool loadMusic()
 {
-    if (Mix_OpenAudio(41000, MIX_DEFAULT_FORMAT, 2, 4096) == -1)
+    if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096) == -1)
         return false;
-    music = Mix_LoadMUS("beat.wav");
+    music = Mix_LoadMUS("/assets/wav/beat.wav");
     if (music == NULL)
         return false;
-    scratch = Mix_LoadWAV("scratch.wav");
-    high = Mix_LoadWAV("high.wav");
-    med = Mix_LoadWAV("medium.wav");
-    low = Mix_LoadWAV("low.wav");
+    scratch = Mix_LoadWAV("/assets/wav/scratch.wav");
+    high = Mix_LoadWAV("/assets/wav/high.wav");
+    med = Mix_LoadWAV("/assets/wav/medium.wav");
+    low = Mix_LoadWAV("/assets/wav/low.wav");
     if ((scratch == NULL) || (high == NULL) || (med == NULL) || (low == NULL))
         return false;
     return true;
