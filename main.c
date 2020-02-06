@@ -7,10 +7,8 @@ int main(int argc, char *args[])
     {
         printf("%s", Mix_GetError());
     }
-
     Mix_AllocateChannels(32);
     scratch = Mix_LoadWAV("beat.wav");
-
     Mix_PlayChannel(1, scratch, 0);
     music = Mix_LoadMUS("/assets/mp3/beep.mp3");
     Mix_PlayChannel(1, scratch, 0);
@@ -69,9 +67,9 @@ int main(int argc, char *args[])
             SDL_Flip(screen);
         }
     }
+
     Mix_FreeChunk(scratch);
     Mix_CloseAudio();
-
     clean_up();
 
     return 0;

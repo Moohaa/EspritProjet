@@ -64,11 +64,12 @@ void clean_up()
     SDL_FreeSurface(menu2Hover);
     SDL_FreeSurface(menu3Hover);
     SDL_FreeSurface(background);
+    /*
     Mix_FreeChunk(scratch);
     Mix_FreeChunk(high);
     Mix_FreeChunk(med);
     Mix_FreeChunk(low);
-    Mix_FreeMusic(music);
+    Mix_FreeMusic(music);*/
     TTF_CloseFont(font);
     Mix_CloseAudio();
     TTF_Quit();
