@@ -22,6 +22,7 @@ extern Level scene;
 
 extern int fxVolume;
 extern int musicVolume;
+extern SDL_Surface *volume;
 
 extern bool fullscreen;
 
@@ -31,6 +32,9 @@ extern Mix_Chunk *scratch;
 extern Mix_Chunk *high;
 extern Mix_Chunk *med;
 extern Mix_Chunk *low;
+
+extern int fullscreenWidth;
+extern int fullscreenHeight;
 
 void apply_surface(int x, int y, SDL_Surface *source, SDL_Surface *destination, SDL_Rect *clip);
 bool init();

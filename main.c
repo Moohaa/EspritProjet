@@ -3,21 +3,14 @@
 int main(int argc, char *args[])
 {
     int FPS = 50;
+    SDL_Init(SDL_INIT_VIDEO);
+
     bool quit = false;
     int menuSelect = 0;
     if (init() == false || load_files() == false || loadMusic() == false)
     {
         printf("Initialization Failed \n %s ", SDL_GetError());
         return -1;
-    }
-    music = Mix_LoadMUS("assets/wav/music.wav");
-    if (Mix_PlayingMusic() == 0)
-    {
-        //Play the music
-        if (Mix_PlayMusic(music, -1) == -1)
-        {
-            return 1;
-        }
     }
 
     loadMenuFiles();
@@ -49,7 +42,7 @@ int main(int argc, char *args[])
                     break;
                 case SDLK_d:
                     if (fullscreen == false)
-                        screen = SDL_SetVideoMode(1920, 1080, SCREEN_BPP, SDL_HWSURFACE | SDL_FULLSCREEN | SDL_DOUBLEBUF);
+                        screen = SDL_SetVideoMode(fullscreenWidth, fullscreenHeight, SCREEN_BPP, SDL_HWSURFACE | SDL_FULLSCREEN | SDL_DOUBLEBUF);
                     else
                         SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_HWSURFACE | SDL_DOUBLEBUF);
                     fullscreen = !fullscreen;

@@ -21,6 +21,8 @@ SDL_Surface *menu3Hover = NULL;
 
 int fxVolume = 100;
 int musicVolume = 100;
+SDL_Surface *volume = 100;
+SDL_VideoInfo *info = NULL;
 
 Level Scene = MAIN_MENU;
 
@@ -29,6 +31,9 @@ Mix_Chunk *scratch = NULL;
 Mix_Chunk *high = NULL;
 Mix_Chunk *med = NULL;
 Mix_Chunk *low = NULL;
+
+int fullscreenWidth = 0;
+int fullscreenHeight = 0;
 
 SDL_Surface *load_image(char filename[], int colorKey)
 {
@@ -94,6 +99,11 @@ bool init()
         printf("SDL init error %s ", SDL_GetError());
         return false;
     }
+    const SDL_VideoInfo *info = SDL_GetVideoInfo();
+    fullscreenHeight = info->current_h;
+    fullscreenWidth = info->current_w;
+    printf("%d %d ", fullscreenHeight, fullscreenWidth);
+
     if ((screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_HWSURFACE | SDL_RESIZABLE | SDL_DOUBLEBUF)) == NULL)
     {
         printf("SDL video mode error %s", SDL_GetError());
@@ -187,5 +197,13 @@ bool loadMusic()
     Mix_PlayChannel(1, med, 0);
     Mix_PlayChannel(1, low, 0);
     music = Mix_LoadMUS("assets/mp3/beep.mp3");
+    music = Mix_LoadMUS("assets/wav/music.wav");
+    if (Mix_PlayingMusic() == 0)
+    {
+        if (Mix_PlayMusic(music, -1) == -1)
+        {
+            return 1;
+        }
+    }
     return true;
 }
