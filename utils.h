@@ -23,6 +23,8 @@ extern Level scene;
 extern int fxVolume;
 extern int musicVolume;
 
+extern bool fullscreen;
+
 extern SDL_Surface *buttons;
 extern Mix_Music *music;
 extern Mix_Chunk *scratch;

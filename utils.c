@@ -10,6 +10,7 @@ TTF_Font *font = NULL;
 SDL_Color color;
 SDL_Surface *buttons = NULL;
 Uint32 next_time;
+bool fullscreen = 0;
 
 SDL_Surface *menu1 = NULL;
 SDL_Surface *menu2 = NULL;
@@ -93,7 +94,7 @@ bool init()
         printf("SDL init error %s ", SDL_GetError());
         return false;
     }
-    if ((screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL)
+    if ((screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_HWSURFACE | SDL_RESIZABLE | SDL_DOUBLEBUF)) == NULL)
     {
         printf("SDL video mode error %s", SDL_GetError());
         return false;

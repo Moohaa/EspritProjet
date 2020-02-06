@@ -37,6 +37,13 @@ int main(int argc, char *args[])
                 case SDLK_ESCAPE:
                     quit = true;
                     break;
+                case SDLK_d:
+                    if (fullscreen == false)
+                        screen = SDL_SetVideoMode(1920, 1080, SCREEN_BPP, SDL_HWSURFACE | SDL_FULLSCREEN | SDL_DOUBLEBUF);
+                    else
+                        SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_HWSURFACE | SDL_DOUBLEBUF);
+                    fullscreen = !fullscreen;
+                    break;
                 case SDLK_UP:
                     Mix_PlayChannel(-1, high, 0);
                     if (menuSelect != 0)
@@ -47,7 +54,6 @@ int main(int argc, char *args[])
                     if (menuSelect != 2)
                         menuSelect++;
                     break;
-                case (SDLK_s):
                 }
                 break;
             default:
