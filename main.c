@@ -10,6 +10,16 @@ int main(int argc, char *args[])
         printf("Initialization Failed \n %s ", SDL_GetError());
         return -1;
     }
+    music = Mix_LoadMUS("assets/wav/music.wav");
+    if (Mix_PlayingMusic() == 0)
+    {
+        //Play the music
+        if (Mix_PlayMusic(music, -1) == -1)
+        {
+            return 1;
+        }
+    }
+
     loadMenuFiles();
     while (!quit)
     {
