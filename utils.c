@@ -173,19 +173,20 @@ void initMenu(int menuSelect)
 
 bool loadMusic()
 {
-    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) != -1)
+    SDL_Init(SDL_INIT_AUDIO);
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)
     {
         printf("%s", Mix_GetError());
-        return false;
     }
-    music = Mix_LoadMUS("/assets/wav/beat.wav");
-    if (music == NULL)
-        return false;
-    scratch = Mix_LoadWAV("/assets/wav/scratch.wav");
-    high = Mix_LoadWAV("/assets/wav/high.wav");
-    med = Mix_LoadWAV("/assets/wav/medium.wav");
-    low = Mix_LoadWAV("/assets/wav/low.wav");
-    if ((scratch == NULL) || (high == NULL) || (med == NULL) || (low == NULL))
-        return false;
+    Mix_AllocateChannels(32);
+    scratch = Mix_LoadWAV("beat.wav");
+    high = Mix_LoadWAV("assets/wav/high.wav");
+    med = Mix_LoadWAV("assets/wav/medium.wav");
+    low = Mix_LoadWAV("assets/wav/low.wav");
+    Mix_PlayChannel(1, scratch, 0);
+    Mix_PlayChannel(1, high, 0);
+    Mix_PlayChannel(1, med, 0);
+    Mix_PlayChannel(1, low, 0);
+    music = Mix_LoadMUS("/assets/mp3/beep.mp3");
     return true;
 }
