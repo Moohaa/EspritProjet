@@ -18,7 +18,6 @@ extern SDL_Surface *menu1Hover;
 extern SDL_Surface *menu2Hover;
 extern SDL_Surface *menu3Hover;
 
-extern bool running;
 extern Level scene;
 
 extern int fxVolume;

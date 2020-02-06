@@ -9,6 +9,7 @@
         "cstdlib": "c",
         "menu.h": "c",
         "utils.h": "c",
-        "defs.h": "c"
+        "defs.h": "c",
+        "numeric": "c"
     }
 }

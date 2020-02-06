@@ -2,28 +2,28 @@
 
 int main(int argc, char *args[])
 {
-    loadMusic();
+    int FPS = 50;
     bool quit = false;
-    if (init() == false || load_files() == false)
+    int menuSelect = 0;
+    if (init() == false || load_files() == false || loadMusic() == false)
     {
         printf("Initialization Failed \n %s ", SDL_GetError());
         return -1;
     }
-    int menuSelect = 0;
-    while (quit == false)
+    loadMenuFiles();
+    while (!quit)
     {
-        while (SDL_PollEvent(&event))
+        Uint32 start_time = SDL_GetTicks();
+        if (SDL_WaitEvent(&event) != 0)
         {
             initBg(screen, background);
-            SDL_Delay(33);
-
-            loadMenuFiles();
             initMenu(menuSelect);
             switch (event.type)
             {
             case SDL_QUIT:
                 quit = true;
                 Mix_PlayChannel(-1, low, 0);
+                break;
             case SDL_KEYDOWN:
                 switch (event.key.keysym.sym)
                 {
@@ -48,18 +48,16 @@ int main(int argc, char *args[])
                         menuSelect++;
                     break;
                 case (SDLK_s):
-                    running = !running;
                 }
                 break;
             default:
                 break;
             }
             SDL_Flip(screen);
+            if ((1000 / FPS) > (SDL_GetTicks() - start_time))
+                SDL_Delay((1000 / FPS) - (SDL_GetTicks() - start_time));
         }
     }
-    Mix_FreeChunk(scratch);
-    Mix_CloseAudio();
     clean_up();
-
     return 0;
 }
