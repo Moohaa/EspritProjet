@@ -11,6 +11,10 @@ SDL_Color color;
 SDL_Surface *buttons = NULL;
 Uint32 next_time;
 bool fullscreen = 0;
+SDL_Surface *volumeSurface = NULL;
+SDL_Surface *windowState = NULL;
+
+char windowStateChar[15] = "Windowed";
 
 SDL_Surface *menu1 = NULL;
 SDL_Surface *menu2 = NULL;
@@ -21,7 +25,6 @@ SDL_Surface *menu3Hover = NULL;
 
 int fxVolume = 100;
 int musicVolume = 100;
-SDL_Surface *volume = 100;
 SDL_VideoInfo *info = NULL;
 
 Level Scene = MAIN_MENU;
@@ -112,6 +115,7 @@ bool init()
     SDL_WM_SetCaption("Esprit Projet Jeu Video", "Esprit Projet Jeu Video");
     if (TTF_Init() == -1)
     {
+        printf("TTF Init Failed");
         return false;
     }
     return true;
@@ -198,6 +202,7 @@ bool loadMusic()
     Mix_PlayChannel(1, low, 0);
     music = Mix_LoadMUS("assets/mp3/beep.mp3");
     music = Mix_LoadMUS("assets/wav/music.wav");
+
     if (Mix_PlayingMusic() == 0)
     {
         if (Mix_PlayMusic(music, -1) == -1)

@@ -2,9 +2,9 @@
 
 int main(int argc, char *args[])
 {
-    int FPS = 50;
+    int FPS = 60;
     SDL_Init(SDL_INIT_VIDEO);
-
+    musicVolume = 100;
     bool quit = false;
     int menuSelect = 0;
     if (init() == false || load_files() == false || loadMusic() == false)
@@ -12,7 +12,7 @@ int main(int argc, char *args[])
         printf("Initialization Failed \n %s ", SDL_GetError());
         return -1;
     }
-
+    color.b = 255;
     loadMenuFiles();
     while (!quit)
     {
@@ -21,6 +21,11 @@ int main(int argc, char *args[])
         {
             initBg(screen, background);
             initMenu(menuSelect);
+            char volumeChar[4];
+            sprintf(volumeChar, "%d", musicVolume);
+            volumeSurface = generateFontSurface("", 100, volumeChar, color);
+            //windowState = generateFontSurface("", 100, fullscreen, color);
+            apply_surface(100, 50, volumeSurface, screen, NULL);
             switch (event.type)
             {
             case SDL_QUIT:
@@ -42,10 +47,16 @@ int main(int argc, char *args[])
                     break;
                 case SDLK_d:
                     if (fullscreen == false)
+                    {
                         screen = SDL_SetVideoMode(fullscreenWidth, fullscreenHeight, SCREEN_BPP, SDL_HWSURFACE | SDL_FULLSCREEN | SDL_DOUBLEBUF);
+                    }
                     else
+                    {
                         SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_HWSURFACE | SDL_DOUBLEBUF);
+                    }
                     fullscreen = !fullscreen;
+                    strcmp(windowStateChar, "Windowed") ? strcpy(windowStateChar, "Fullscreen") : "Windowed";
+                    printf(windowStateChar);
                     break;
                 case SDLK_UP:
                     Mix_PlayChannel(-1, high, 0);
@@ -56,6 +67,14 @@ int main(int argc, char *args[])
                     Mix_PlayChannel(-1, low, 0);
                     if (menuSelect != 2)
                         menuSelect++;
+                    break;
+                case SDLK_RIGHT:
+                    Mix_Volume(-1, ++musicVolume);
+                    Mix_VolumeMusic(musicVolume);
+                    break;
+                case SDLK_LEFT:
+                    Mix_Volume(-1, --musicVolume);
+                    Mix_VolumeMusic(musicVolume);
                     break;
                 }
                 break;

@@ -22,7 +22,6 @@ extern Level scene;
 
 extern int fxVolume;
 extern int musicVolume;
-extern SDL_Surface *volume;
 
 extern bool fullscreen;
 
@@ -32,6 +31,10 @@ extern Mix_Chunk *scratch;
 extern Mix_Chunk *high;
 extern Mix_Chunk *med;
 extern Mix_Chunk *low;
+
+extern SDL_Surface *volumeSurface;
+extern SDL_Surface *windowState;
+extern char windowStateChar[15];
 
 extern int fullscreenWidth;
 extern int fullscreenHeight;
