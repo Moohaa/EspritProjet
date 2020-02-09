@@ -2,9 +2,9 @@
 
 int main(int argc, char *args[])
 {
-    int FPS = 60;
+    int FPS = 500;
     SDL_Init(SDL_INIT_VIDEO);
-    musicVolume = 100;
+    musicVolume = 10;
     bool quit = false;
     int menuSelect = 0;
     if (init() == false || load_files() == false || loadMusic() == false)
@@ -14,23 +14,65 @@ int main(int argc, char *args[])
     }
     color.b = 255;
     loadMenuFiles();
+    Mix_Volume(-1, musicVolume);
+    Mix_VolumeMusic(musicVolume);
     while (!quit)
     {
         Uint32 start_time = SDL_GetTicks();
-        if (SDL_WaitEvent(&event) != 0)
+        if (SDL_PollEvent(&event) != 0)
         {
-            initBg(screen, background);
+            if (!playState)
+            {
+                initBg(screen, background);
+            }
+            else
+            {
+                background = load_image("assets/jpg/2.jpg", NULL);
+                initBg(screen, background);
+            }
             initMenu(menuSelect);
-            char volumeChar[4];
-            sprintf(volumeChar, "%d", musicVolume);
-            volumeSurface = generateFontSurface("", 100, volumeChar, color);
+            char volumeChar[20];
+            sprintf(volumeChar, "Volume %d", musicVolume);
+            volumeSurface = generateFontSurface("", 20, volumeChar, color);
             //windowState = generateFontSurface("", 100, fullscreen, color);
-            apply_surface(100, 50, volumeSurface, screen, NULL);
+            apply_surface(SCREEN_WIDTH - volumeSurface->w, SCREEN_HEIGHT - volumeSurface->h, volumeSurface, screen, NULL);
+            printf("W %d WE %d H %d HE %d\n", (SCREEN_WIDTH - menu1->w) / 2,
+                   ((SCREEN_WIDTH - menu1->w) / 2) + menu1->w,
+                   (100),
+                   ((100) + menu1->h));
             switch (event.type)
             {
+            case SDL_MOUSEMOTION:
+                mouseX = event.motion.x;
+                mouseY = event.motion.y;
+                if ((mouseX > (SCREEN_WIDTH - menu1->w) / 2) && (mouseX < ((SCREEN_WIDTH - menu1->w) / 2) + menu1->w) && (mouseY > ((100)) && (mouseY > (100)) + menu1->h))
+                {
+                    menuSelect = 0;
+                }
+                if ((mouseX > (SCREEN_WIDTH - menu2->w) / 2) && (mouseX < ((SCREEN_WIDTH - menu2->w) / 2) + menu2->w) && (mouseY > ((200)) && (mouseY > (200)) + menu2->h))
+                {
+                    menuSelect = 1;
+                }
+                if ((mouseX > (SCREEN_WIDTH - menu3->w) / 2) && (mouseX < ((SCREEN_WIDTH - menu3->w) / 2) + menu3->w) && (mouseY > ((300)) && (mouseY > (300)) + menu3->h))
+                {
+                    menuSelect = 2;
+                }
+                printf("x%d y%d\n", mouseX, mouseY);
+                break;
             case SDL_QUIT:
                 quit = true;
                 Mix_PlayChannel(-1, low, 0);
+                break;
+            case SDL_MOUSEBUTTONDOWN:
+                Mix_PlayChannel(-1, med, 0);
+                if (menuSelect == 2)
+                {
+                    quit = true;
+                }
+                if (menuSelect == 0)
+                {
+                    playState = true;
+                }
                 break;
             case SDL_KEYDOWN:
                 switch (event.key.keysym.sym)
@@ -38,7 +80,13 @@ int main(int argc, char *args[])
                 case SDLK_RETURN:
                     Mix_PlayChannel(-1, med, 0);
                     if (menuSelect == 2)
+                    {
                         quit = true;
+                    }
+                    if (menuSelect == 0)
+                    {
+                        playState = true;
+                    }
                     break;
                 case SDLK_BACKSPACE:
                     break;

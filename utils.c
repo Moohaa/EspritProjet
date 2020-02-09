@@ -14,6 +14,9 @@ bool fullscreen = 0;
 SDL_Surface *volumeSurface = NULL;
 SDL_Surface *windowState = NULL;
 
+int mouseX;
+int mouseY;
+
 char windowStateChar[15] = "Windowed";
 
 SDL_Surface *menu1 = NULL;
@@ -26,6 +29,8 @@ SDL_Surface *menu3Hover = NULL;
 int fxVolume = 100;
 int musicVolume = 100;
 SDL_VideoInfo *info = NULL;
+
+bool playState = false;
 
 Level Scene = MAIN_MENU;
 
@@ -77,7 +82,10 @@ void clean_up()
     Mix_FreeChunk(med);
     Mix_FreeChunk(low);
     Mix_FreeMusic(music);
-    TTF_CloseFont(font);
+    if (font == NULL)
+    {
+        TTF_CloseFont(font);
+    }
     Mix_CloseAudio();
     TTF_Quit();
     SDL_Quit();

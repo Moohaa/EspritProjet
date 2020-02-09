@@ -31,6 +31,10 @@ extern Mix_Chunk *scratch;
 extern Mix_Chunk *high;
 extern Mix_Chunk *med;
 extern Mix_Chunk *low;
+extern int mouseX;
+extern int mouseY;
+
+extern bool playState;
 
 extern SDL_Surface *volumeSurface;
 extern SDL_Surface *windowState;
