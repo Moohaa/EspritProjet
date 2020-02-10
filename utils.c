@@ -54,8 +54,7 @@ SDL_Surface *load_image(char filename[], int colorKey)
         SDL_FreeSurface(loadedImage);
         if (colorKey)
         {
-            Uint32 colorkey = SDL_MapRGB(optimizedImage->format, 0, 0, 0);
-            SDL_SetColorKey(optimizedImage, SDL_SRCCOLORKEY, colorkey);
+            SDL_SetColorKey(optimizedImage, SDL_SRCCOLORKEY, SDL_MapRGB(optimizedImage->format, 0, 0, 0));
         }
     }
     else
@@ -162,12 +161,12 @@ Uint32 time_left(void)
 
 void loadMenuFiles()
 {
-    menu1 = load_image("assets/png/new.png", 1);
-    menu2 = load_image("assets/png/settings.png", 1);
-    menu3 = load_image("assets/png/exit.png", 1);
-    menu1Hover = load_image("assets/png/new_hover.png", 1);
-    menu2Hover = load_image("assets/png/settings_hover.png", 1);
-    menu3Hover = load_image("assets/png/exit_hover.png", 1);
+    menu1 = load_image("assets/png/buttons/ng_ns.png", 0);
+    menu2 = load_image("assets/png/buttons/s_ns.png", 0);
+    menu3 = load_image("assets/png/buttons/q_ns.png", 0);
+    menu1Hover = load_image("assets/png/buttons/ng_h.png", 0);
+    menu2Hover = load_image("assets/png/buttons/s_h.png", 0);
+    menu3Hover = load_image("assets/png/buttons/q_h.png", 0);
 }
 
 void initMenu(int menuSelect)
