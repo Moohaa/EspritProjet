@@ -43,6 +43,8 @@ extern char windowStateChar[15];
 extern int fullscreenWidth;
 extern int fullscreenHeight;
 
+extern SDL_Surface *animation;
+
 void apply_surface(int x, int y, SDL_Surface *source, SDL_Surface *destination, SDL_Rect *clip);
 bool init();
 bool load_files();
@@ -54,3 +56,4 @@ Uint32 time_left();
 void initMenu(int menuSelect);
 void loadMenuFiles();
 bool loadMusic();
+void loadAnimationFile(int frame);

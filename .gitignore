@@ -22,6 +22,14 @@
 *.la
 *.lo
 
+# Assets
+*.jpg
+*.png
+*.mp3
+*.wav
+*.bmp
+*.ttf
+
 # Shared objects (inc. Windows DLLs)
 *.dll
 *.so

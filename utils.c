@@ -1,5 +1,10 @@
 #include "utils.h"
 
+#define VALUE_LIMIT 0.001
+#define GUARD_ROWS (2)
+
+#include <math.h>
+
 SDL_Surface *hello = NULL;
 SDL_Surface *screen = NULL;
 SDL_Surface *message = NULL;
@@ -39,6 +44,8 @@ Mix_Chunk *scratch = NULL;
 Mix_Chunk *high = NULL;
 Mix_Chunk *med = NULL;
 Mix_Chunk *low = NULL;
+
+SDL_Surface *animation;
 
 int fullscreenWidth = 0;
 int fullscreenHeight = 0;
@@ -104,6 +111,8 @@ bool load_files()
 
 bool init()
 {
+
+    SDL_Init(SDL_INIT_VIDEO);
     if (SDL_Init(SDL_INIT_AUDIO || SDL_INIT_VIDEO) == -1)
     {
         printf("SDL init error %s ", SDL_GetError());
@@ -207,8 +216,7 @@ bool loadMusic()
     Mix_PlayChannel(1, high, 0);
     Mix_PlayChannel(1, med, 0);
     Mix_PlayChannel(1, low, 0);
-    music = Mix_LoadMUS("assets/mp3/beep.mp3");
-    music = Mix_LoadMUS("assets/wav/music.wav");
+    music = Mix_LoadMUS("assets/mp3/song.mp3");
 
     if (Mix_PlayingMusic() == 0)
     {
@@ -218,4 +226,12 @@ bool loadMusic()
         }
     }
     return true;
+}
+
+void loadAnimationFile(int frame)
+{
+
+    char filePath[50];
+    sprintf(filePath, "assets/animation/%d.png", frame);
+    background = load_image(filePath, 0);
 }
