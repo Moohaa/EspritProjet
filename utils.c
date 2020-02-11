@@ -1,59 +1,61 @@
 #include "utils.h"
 
-#define VALUE_LIMIT 0.001
-#define GUARD_ROWS (2)
-
 #include <math.h>
 
-SDL_Surface *hello = NULL;
-SDL_Surface *screen = NULL;
-SDL_Surface *message = NULL;
-SDL_Surface *background = NULL;
-SDL_Surface *image = NULL;
+SDL_Surface *hello;
+SDL_Surface *screen;
+SDL_Surface *message;
+SDL_Surface *background;
+SDL_Surface *image;
 SDL_Event event;
-TTF_Font *font = NULL;
+TTF_Font *font;
 SDL_Color color;
-SDL_Surface *buttons = NULL;
+SDL_Surface *buttons;
 Uint32 next_time;
-bool fullscreen = 0;
-SDL_Surface *volumeSurface = NULL;
-SDL_Surface *windowState = NULL;
+int fullscreen = 0;
+SDL_Surface *volumeSurface;
+SDL_Surface *windowState;
 
 int mouseX;
 int mouseY;
 
 char windowStateChar[15] = "Windowed";
 
-SDL_Surface *menu1 = NULL;
-SDL_Surface *menu2 = NULL;
-SDL_Surface *menu3 = NULL;
-SDL_Surface *menu1Hover = NULL;
-SDL_Surface *menu2Hover = NULL;
-SDL_Surface *menu3Hover = NULL;
+SDL_Surface *menu1;
+SDL_Surface *menu2;
+SDL_Surface *menu3;
+SDL_Surface *menu1Hover;
+SDL_Surface *menu2Hover;
+SDL_Surface *menu3Hover;
 
 int fxVolume = 100;
-int musicVolume = 100;
-SDL_VideoInfo *info = NULL;
+SDL_VideoInfo *info;
 
-bool playState = false;
+int playState = 0;
 
 Level Scene = MAIN_MENU;
 
-Mix_Music *music = NULL;
-Mix_Chunk *scratch = NULL;
-Mix_Chunk *high = NULL;
-Mix_Chunk *med = NULL;
-Mix_Chunk *low = NULL;
+Mix_Music *music;
+Mix_Chunk *scratch;
+Mix_Chunk *high;
+Mix_Chunk *med;
+Mix_Chunk *low;
 
 SDL_Surface *animation;
 
 int fullscreenWidth = 0;
 int fullscreenHeight = 0;
 
+int FPS = 60;
+int musicVolume = 10;
+int frame = 1;
+int quit = 0;
+int menuSelect = 0;
+
 SDL_Surface *load_image(char filename[], int colorKey)
 {
-    SDL_Surface *loadedImage = NULL;
-    SDL_Surface *optimizedImage = NULL;
+    SDL_Surface *loadedImage;
+    SDL_Surface *optimizedImage;
     loadedImage = IMG_Load(filename);
     if (loadedImage != NULL)
     {
@@ -97,44 +99,44 @@ void clean_up()
     SDL_Quit();
 }
 
-bool load_files()
+int load_files()
 {
     background = load_image("assets/jpg/1.jpg", 0);
     hello = load_image("assets/bmp/hello.bmp", 0);
     buttons = load_image("assets/png/restart.png", 0);
     if (background == NULL)
-        return false;
+        return 0;
     if (hello == NULL)
-        return false;
-    return true;
+        return 0;
+    return 1;
 }
 
-bool init()
+int init()
 {
 
     SDL_Init(SDL_INIT_VIDEO);
     if (SDL_Init(SDL_INIT_AUDIO || SDL_INIT_VIDEO) == -1)
     {
         printf("SDL init error %s ", SDL_GetError());
-        return false;
+        return 0;
     }
-    const SDL_VideoInfo *info = SDL_GetVideoInfo();
-    fullscreenHeight = info->current_h;
-    fullscreenWidth = info->current_w;
+    const SDL_VideoInfo *videoInformation = SDL_GetVideoInfo();
+    fullscreenHeight = videoInformation->current_h;
+    fullscreenWidth = videoInformation->current_w;
     printf("%d %d ", fullscreenHeight, fullscreenWidth);
 
     if ((screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_HWSURFACE | SDL_RESIZABLE | SDL_DOUBLEBUF)) == NULL)
     {
         printf("SDL video mode error %s", SDL_GetError());
-        return false;
+        return 0;
     }
     SDL_WM_SetCaption("Esprit Projet Jeu Video", "Esprit Projet Jeu Video");
     if (TTF_Init() == -1)
     {
         printf("TTF Init Failed");
-        return false;
+        return 0;
     }
-    return true;
+    return 1;
 }
 
 void apply_surface(int x, int y, SDL_Surface *source, SDL_Surface *destination, SDL_Rect *clip)
@@ -145,9 +147,9 @@ void apply_surface(int x, int y, SDL_Surface *source, SDL_Surface *destination, 
     SDL_BlitSurface(source, clip, destination, &offset);
 }
 
-SDL_Surface *generateFontSurface(char file[50], int size, char text[50], SDL_Color color)
+SDL_Surface *generateFontSurface(int size, char text[50], SDL_Color color)
 {
-    font = TTF_OpenFont("assets/ttf/ARCADECLASSIC.TTF", size);
+    font = TTF_OpenFont(MENU_FONT, size);
     SDL_Surface *surfaceText = TTF_RenderText_Blended(font, text, color);
     TTF_CloseFont(font);
     return surfaceText;
@@ -200,7 +202,7 @@ void initMenu(int menuSelect)
     }
 }
 
-bool loadMusic()
+int loadMusic()
 {
     SDL_Init(SDL_INIT_AUDIO);
     if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)
@@ -225,13 +227,37 @@ bool loadMusic()
             return 1;
         }
     }
-    return true;
+    return 1;
 }
 
 void loadAnimationFile(int frame)
 {
-
     char filePath[50];
     sprintf(filePath, "assets/animation/%d.png", frame);
+    SDL_FreeSurface(background);
     background = load_image(filePath, 0);
+}
+
+int initAll()
+{
+    if (init() == 0 || load_files() == 0 || loadMusic() == 0)
+    {
+        printf("Initialization Failed \n %s ", SDL_GetError());
+        return -1;
+    }
+    loadMenuFiles();
+    Mix_Volume(-1, musicVolume);
+    Mix_VolumeMusic(musicVolume);
+}
+
+void frameLimiter(Uint32 start_time)
+{
+    SDL_Flip(screen);
+    if ((1000 / FPS) > (SDL_GetTicks() - start_time))
+        SDL_Delay((1000 / FPS) - (SDL_GetTicks() - start_time));
+    frame++;
+    if (frame == 581)
+    {
+        frame = 1;
+    }
 }
