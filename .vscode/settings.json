@@ -10,6 +10,7 @@
         "menu.h": "c",
         "utils.h": "c",
         "defs.h": "c",
-        "numeric": "c"
+        "numeric": "c",
+        "inits.h": "c"
     }
 }
