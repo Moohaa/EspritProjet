@@ -1,4 +1,5 @@
 #include "utils.h"
+#include "inits.h"
 
 SDL_Surface *hello;
 SDL_Surface *screen;
@@ -151,7 +152,7 @@ void menuHandler(SDL_Event event)
         {
         case SDLK_RETURN:
             Mix_PlayChannel(-1, med, 0);
-            if (settingsState = 0)
+            if (settingsState == 0)
             {
                 if (menuSelect == 0)
                     playState = 1;
@@ -163,7 +164,7 @@ void menuHandler(SDL_Event event)
                 else if (menuSelect == 2)
                     quit = 1;
             }
-            else if (settingsState = 1)
+            else if (settingsState == 1)
             {
                 if (menuSelect == 0)
                 {

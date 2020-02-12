@@ -1,5 +1,4 @@
 #include "defs.h"
-#include "utils.h"
 
 void initBg(SDL_Surface *screen, SDL_Surface *background);
 void initMenu(int menuSelect);

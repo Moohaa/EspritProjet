@@ -8,3 +8,4 @@ SDL_Surface *load_image(char filename[], int colorKey);
 SDL_Surface *generateFontSurface(int size, char text[], SDL_Color color);
 Uint32 time_left();
 void renderFrame(State state);
+void menuHandler(SDL_Event event);
