@@ -15,6 +15,13 @@ int fullscreen = 0;
 SDL_Surface *volumeSurface;
 SDL_Surface *windowState;
 
+SDL_Surface *menuBackground;
+SDL_Surface *menuButtonNormalState;
+SDL_Surface *menuButtonClickedState;
+SDL_Surface *infoBar;
+SDL_Surface *slider;
+SDL_Surface *sliderBar;
+
 int mouseX;
 int mouseY;
 
@@ -33,6 +40,9 @@ SDL_VideoInfo *info;
 int playState = 0;
 
 State state = MAIN_MENU;
+
+SDL_Color selected;
+SDL_Color n_selected;
 
 Mix_Music *music;
 Mix_Chunk *scratch;
@@ -107,7 +117,7 @@ void frameLimiter(Uint32 start_time)
     if ((1000 / FPS) > (SDL_GetTicks() - start_time))
         SDL_Delay((1000 / FPS) - (SDL_GetTicks() - start_time));
     frame++;
-    if (frame == 581)
+    if (frame == 1161)
     {
         frame = 1;
     }

@@ -42,7 +42,7 @@ int loadMusic()
 void loadAnimationFile(int frame)
 {
     char filePath[50];
-    sprintf(filePath, "assets/animation/%d.png", frame);
+    sprintf(filePath, "assets/newan/%d.png", frame);
     SDL_FreeSurface(background);
     background = load_image(filePath, 0);
 }
@@ -55,10 +55,29 @@ void loadMenuFiles()
     menu1Hover = load_image("assets/png/buttons/ng_h.png", 0);
     menu2Hover = load_image("assets/png/buttons/s_h.png", 0);
     menu3Hover = load_image("assets/png/buttons/q_h.png", 0);
+    menuButtonNormalState = load_image("assets/menu/b_ns.png", 0);
+    menuButtonClickedState = load_image("assets/menu/b_p.png", 0);
 }
 
 void initMenu(int menuSelect)
 {
+    apply_surface(MENU_POS_W, MENU_POS_H, menuBackground, screen, NULL);
+    apply_surface(INFO_POS_W, INFO_POS_H, infoBar, screen, NULL);
+    apply_surface((SCREEN_WIDTH - menuButtonNormalState->w) / 2, (SCREEN_HEIGHT - menuButtonNormalState->h) / 2, menuButtonNormalState, screen, NULL);
+    apply_surface((SCREEN_WIDTH - menuButtonClickedState->w) / 2, (SCREEN_HEIGHT - menuButtonClickedState->h) / 2 + 100, menuButtonClickedState, screen, NULL);
+
+    SDL_Surface *newGame = generateFontSurface(36, "New Game", selected);
+    SDL_Surface *settings = generateFontSurface(36, "Settings", n_selected);
+    SDL_Surface *quit = generateFontSurface(12, "Quit", selected);
+    apply_surface((SCREEN_WIDTH - newGame->w) / 2, ((SCREEN_HEIGHT - newGame->h) / 2) - 5, newGame, screen, NULL);
+    apply_surface((SCREEN_WIDTH - settings->w) / 2, ((SCREEN_HEIGHT - settings->h) / 2) - 5, settings, screen, NULL);
+    apply_surface((SCREEN_WIDTH - quit->w) / 2, ((SCREEN_HEIGHT - quit->h) / 2) - 5, quit, screen, NULL);
+    SDL_Surface *title = generateFontSurface(36, "Esprit Projet", n_selected);
+    apply_surface(INFO_POS_W + 23, INFO_POS_H, title, screen, 0);
+    apply_surface(0, 0, newGame, screen, NULL);
+    apply_surface(0, 100, settings, screen, NULL);
+
+    /*
     if (menuSelect == 0)
     {
         apply_surface((SCREEN_WIDTH - menu1Hover->w) / 2, 100, menu1Hover, screen, NULL);
@@ -76,7 +95,7 @@ void initMenu(int menuSelect)
         apply_surface((SCREEN_WIDTH - menu1->w) / 2, 100, menu1, screen, NULL);
         apply_surface((SCREEN_WIDTH - menu2->w) / 2, 200, menu2, screen, NULL);
         apply_surface((SCREEN_WIDTH - menu3Hover->w) / 2, 300, menu3Hover, screen, NULL);
-    }
+    }*/
 }
 
 void initBg(SDL_Surface *screen, SDL_Surface *background)
@@ -115,6 +134,8 @@ int load_files()
     background = load_image("assets/jpg/1.jpg", 0);
     hello = load_image("assets/bmp/hello.bmp", 0);
     buttons = load_image("assets/png/restart.png", 0);
+    menuBackground = load_image("assets/menu/bgm.png", 0);
+    infoBar = load_image("assets/menu/ttlbar.png", 0);
     if (background == NULL)
         return 0;
     if (hello == NULL)
@@ -147,5 +168,12 @@ int init()
         printf("TTF Init Failed");
         return 0;
     }
+    selected.r = 255;
+    selected.g = 255;
+    selected.b = 0;
+    n_selected.r = 0;
+    n_selected.g = 0;
+    n_selected.b = 0;
+
     return 1;
 }
