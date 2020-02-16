@@ -51,6 +51,13 @@ State state = MAIN_MENU;
 SDL_Color selected;
 SDL_Color n_selected;
 
+SDL_Surface *settingsText;
+SDL_Surface *modeText;
+SDL_Surface *fullScreenText;
+SDL_Surface *windowedText;
+SDL_Surface *volumeText;
+SDL_Surface *exitText;
+
 Mix_Music *music;
 Mix_Chunk *click;
 Mix_Chunk *switcher;
@@ -65,12 +72,13 @@ SDL_Surface *text1;
 SDL_Surface *text2;
 SDL_Surface *text3;
 
-int FPS = 10;
+int FPS = 30;
 int musicVolume = 50;
 int frame = 1;
 int quit = 0;
 int menuSelect = 0;
 
+int keyPressed = 0;
 int settingsState = 0;
 int volumeSlider = 0;
 
@@ -127,12 +135,8 @@ void frameLimiter(Uint32 start_time)
     unsigned int elapsed;
     unsigned int lasttime = SDL_GetTicks();
     SDL_Flip(screen);
-    /*if ((1000 / FPS) > (SDL_GetTicks() - start_time))
-        SDL_Delay((1000 / FPS) - (SDL_GetTicks() - start_time));*/
-    elapsed = SDL_GetTicks() - lasttime;
-    if (elapsed < 33)
-        SDL_Delay(33 - elapsed);
-
+    if ((1000 / FPS) > (SDL_GetTicks() - start_time))
+        SDL_Delay((1000 / FPS) - (SDL_GetTicks() - start_time));
     frame++;
     if (frame == 1161)
     {
@@ -142,123 +146,227 @@ void frameLimiter(Uint32 start_time)
 
 void menuHandler(SDL_Event event, int state)
 {
-    switch (event.type)
+
+    if (settingsState == 1)
     {
-    case SDL_MOUSEMOTION:
-        if ((event.motion.x > (SCREEN_WIDTH - menu1->w) / 2) && (event.motion.x < ((SCREEN_WIDTH - menu1->w) / 2) + menu1->w) && (event.motion.y > ((100)) && (event.motion.y > (100)) + menu1->h))
+        if ((mouseX > (SCREEN_WIDTH - newGameButton->w) / 2) &&
+            (mouseX < (SCREEN_WIDTH - newGameButton->w) / 2 + newGameButton->w) &&
+            (mouseY > ((MENU_POS_H) + 125)) &&
+            ((mouseY < (MENU_POS_H) + 125 + newGameButton->h)))
         {
             menuSelect = 0;
         }
-        if ((event.motion.x > (SCREEN_WIDTH - menu2->w) / 2) && (event.motion.x < ((SCREEN_WIDTH - menu2->w) / 2) + menu2->w) && (event.motion.y > ((200)) && (event.motion.y > (200)) + menu2->h))
+        else if ((mouseX > (SCREEN_WIDTH - newGameButton->w) / 2) &&
+                 (mouseX < (SCREEN_WIDTH - newGameButton->w) / 2 + newGameButton->w) &&
+                 (mouseY > ((MENU_POS_H) + 250)) &&
+                 ((mouseY < (MENU_POS_H) + 250 + newGameButton->h)))
         {
             menuSelect = 1;
         }
-        if ((event.motion.x > (SCREEN_WIDTH - menu3->w) / 2) && (event.motion.x < ((SCREEN_WIDTH - menu3->w) / 2) + menu3->w) && (event.motion.y > ((300)) && (event.motion.y > (300)) + menu3->h))
+        else if ((mouseX > (SCREEN_WIDTH - newGameButton->w) / 2) &&
+                 (mouseX < (SCREEN_WIDTH - newGameButton->w) / 2 + newGameButton->w) &&
+                 (mouseY > ((MENU_POS_H) + 375)) &&
+                 ((mouseY < (MENU_POS_H) + 375 + newGameButton->h)))
         {
             menuSelect = 2;
         }
-        printf("x%d y%d\n", event.motion.x, event.motion.y);
-        break;
-    case SDL_QUIT:
-        quit = 1;
-        Mix_PlayChannel(-1, click, 0);
-        break;
-    case SDL_MOUSEBUTTONDOWN:
-        Mix_PlayChannel(-1, click, 0);
-        if (menuSelect == 2)
+        switch (event.type)
         {
+
+        case SDL_QUIT:
             quit = 1;
-        }
-        if (menuSelect == 0)
-        {
-            playState = 1;
-        }
-        break;
-    case SDL_KEYDOWN:
-        switch (event.key.keysym.sym)
-        {
-        case SDLK_RETURN:
             Mix_PlayChannel(-1, click, 0);
-            if (settingsState == 0)
+            break;
+        case SDL_MOUSEBUTTONDOWN:
+            if (keyPressed == 0)
             {
+                Mix_PlayChannel(-1, click, 0);
                 if (menuSelect == 0)
+                {
                     playState = 1;
-                else if (menuSelect == 1)
-                {
-                    settingsState = 1;
-                    menuSelect = 0;
                 }
-                else if (menuSelect == 2)
-                    quit = 1;
-            }
-            else if (settingsState == 1)
-            {
-                if (menuSelect == 0)
+                if (menuSelect == 1)
                 {
                 }
-                else if (menuSelect == 1)
+                if (menuSelect == 2)
                 {
-                }
-                else if (menuSelect == 2)
-                {
-                    menuSelect = 0;
                     settingsState = 0;
                 }
+                keyPressed = 1;
             }
+            break;
+        case SDL_MOUSEBUTTONUP:
+            keyPressed = 0;
+        case SDL_KEYUP:
+            keyPressed = 0;
+            break;
+        case SDL_KEYDOWN:
+            if (keyPressed == 0)
+            {
+                switch (event.key.keysym.sym)
+                {
+                case SDLK_RETURN:
+                    Mix_PlayChannel(-1, click, 0);
 
-            break;
-        case SDLK_ESCAPE:
-            quit = 1;
-            break;
-        case SDLK_s:
-            settingsState = !settingsState;
-            break;
-        case SDLK_d:
-            if (fullscreen == 0)
-            {
-                screen = SDL_SetVideoMode(fullscreenWidth, fullscreenHeight, SCREEN_BPP, SDL_HWSURFACE | SDL_FULLSCREEN | SDL_DOUBLEBUF);
+                    if (menuSelect == 0)
+                    {
+                        if (fullscreen == 0)
+                        {
+                            screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_HWSURFACE | SDL_FULLSCREEN | SDL_DOUBLEBUF);
+                        }
+                        else
+                        {
+                            SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_HWSURFACE | SDL_DOUBLEBUF);
+                        }
+                        if (fullscreen)
+                            strcpy(windowStateChar, "Windowed");
+                        else
+                            strcpy(windowStateChar, "Fullscreen");
+                        fullscreen = !fullscreen;
+                        playState = 1;
+                    }
+                    else if (menuSelect == 1)
+                    {
+                        settingsState = 1;
+                        menuSelect = 0;
+                    }
+                    else if (menuSelect == 2)
+                        quit = 1;
+                    break;
+                case SDLK_ESCAPE:
+                    quit = 1;
+                    break;
+                case SDLK_UP:
+                    Mix_PlayChannel(-1, switcher, 0);
+                    if (menuSelect != 0)
+                        menuSelect--;
+                    break;
+                case SDLK_DOWN:
+                    Mix_PlayChannel(-1, switcher, 0);
+                    if (menuSelect != 2)
+                        menuSelect++;
+                    break;
+                case SDLK_RIGHT:
+                    if (menuSelect == 1)
+                    {
+                        Mix_Volume(-1, ++musicVolume);
+                        Mix_VolumeMusic(musicVolume);
+                        if (musicVolume > 100)
+                        {
+                            musicVolume = 100;
+                        }
+                    }
+                    break;
+                case SDLK_LEFT:
+                    if (menuSelect == 1)
+                    {
+                        Mix_Volume(-1, --musicVolume);
+                        Mix_VolumeMusic(musicVolume);
+                        if (musicVolume < 0)
+                        {
+                            musicVolume = 0;
+                        }
+                    }
+                }
             }
-            else
-            {
-                SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_HWSURFACE | SDL_DOUBLEBUF);
-            }
-            if (fullscreen)
-                strcpy(windowStateChar, "Windowed");
-            else
-                strcpy(windowStateChar, "Fullscreen");
-            printf("%s", windowStateChar);
-            fullscreen = !fullscreen;
+            keyPressed = 1;
             break;
-        case SDLK_UP:
-            Mix_PlayChannel(-1, switcher, 0);
-            if (menuSelect != 0)
-                menuSelect--;
-            break;
-        case SDLK_DOWN:
-            Mix_PlayChannel(-1, switcher, 0);
-            if (menuSelect != 2)
-                menuSelect++;
-            break;
-        case SDLK_RIGHT:
-            Mix_Volume(-1, ++musicVolume);
-            Mix_VolumeMusic(musicVolume);
-            if (musicVolume > 100)
-            {
-                musicVolume = 100;
-            }
-            break;
-        case SDLK_LEFT:
-            Mix_Volume(-1, --musicVolume);
-            Mix_VolumeMusic(musicVolume);
-            if (musicVolume < 0)
-            {
-                musicVolume = 0;
-            }
+        default:
             break;
         }
-        break;
-    default:
-        break;
+    }
+    else if (settingsState == 0)
+    {
+        if ((mouseX > (SCREEN_WIDTH - newGameButton->w) / 2) &&
+            (mouseX < (SCREEN_WIDTH - newGameButton->w) / 2 + newGameButton->w) &&
+            (mouseY > ((MENU_POS_H) + 125)) &&
+            ((mouseY < (MENU_POS_H) + 125 + newGameButton->h)))
+        {
+            menuSelect = 0;
+        }
+        else if ((mouseX > (SCREEN_WIDTH - newGameButton->w) / 2) &&
+                 (mouseX < (SCREEN_WIDTH - newGameButton->w) / 2 + newGameButton->w) &&
+                 (mouseY > ((MENU_POS_H) + 250)) &&
+                 ((mouseY < (MENU_POS_H) + 250 + newGameButton->h)))
+        {
+            menuSelect = 1;
+        }
+        else if ((mouseX > (SCREEN_WIDTH - newGameButton->w) / 2) &&
+                 (mouseX < (SCREEN_WIDTH - newGameButton->w) / 2 + newGameButton->w) &&
+                 (mouseY > ((MENU_POS_H) + 375)) &&
+                 ((mouseY < (MENU_POS_H) + 375 + newGameButton->h)))
+        {
+            menuSelect = 2;
+        }
+        switch (event.type)
+        {
+
+        case SDL_QUIT:
+            quit = 1;
+            break;
+        case SDL_MOUSEBUTTONDOWN:
+            if (keyPressed == 0)
+            {
+                Mix_PlayChannel(-1, click, 0);
+                if (menuSelect == 2)
+                {
+                    quit = 1;
+                }
+                if (menuSelect == 0)
+                {
+                    playState = 1;
+                }
+                if (menuSelect == 1)
+                {
+                    settingsState = 1;
+                }
+            }
+            keyPressed = 1;
+            break;
+        case SDL_MOUSEBUTTONUP:
+            keyPressed = 0;
+            break;
+        case SDL_KEYUP:
+            keyPressed = 0;
+            break;
+        case SDL_KEYDOWN:
+            if (keyPressed == 0)
+            {
+                switch (event.key.keysym.sym)
+                {
+                case SDLK_RETURN:
+                    Mix_PlayChannel(-1, click, 0);
+
+                    if (menuSelect == 0)
+                        playState = 1;
+                    else if (menuSelect == 1)
+                    {
+                        settingsState = 1;
+                        menuSelect = 0;
+                    }
+                    else if (menuSelect == 2)
+                        quit = 1;
+                    break;
+                case SDLK_ESCAPE:
+                    quit = 1;
+                    break;
+                case SDLK_UP:
+                    Mix_PlayChannel(-1, switcher, 0);
+                    if (menuSelect != 0)
+                        menuSelect--;
+                    break;
+                case SDLK_DOWN:
+                    Mix_PlayChannel(-1, switcher, 0);
+                    if (menuSelect != 2)
+                        menuSelect++;
+                    break;
+                }
+            }
+            keyPressed = 1;
+            break;
+        default:
+            break;
+        }
     }
 }
 
@@ -282,7 +390,7 @@ void renderFrame(State state)
         initSetting(menuSelect);
     }
 }
-/*
+
 void UpdateEvents(input_t *in)
 {
     SDL_Event event;
@@ -298,12 +406,6 @@ void UpdateEvents(input_t *in)
         case SDL_KEYUP:
             in->key[event.key.keysym.sym] = 0;
             break;
-        case SDL_MOUSEMOTION:
-            in->mousex = event.motion.x;
-            in->mousey = event.motion.y;
-            in->mousexrel = event.motion.xrel;
-            in->mouseyrel = event.motion.yrel;
-            break;
         case SDL_MOUSEBUTTONDOWN:
             in->mousebuttons[event.button.button] = 1;
             break;
@@ -318,4 +420,4 @@ void UpdateEvents(input_t *in)
             break;
         }
     }
-}*/
+}

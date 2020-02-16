@@ -96,14 +96,31 @@ void initMenu(int menuSelect)
 
 void initSetting(int menuSelect)
 {
-    SDL_Surface *fullscreenSurface;
-    fullscreenSurface = generateFontSurface(32, "Fullscreen Mode", n_selected);
 
-    SDL_Surface *settingsText = generateFontSurface(32, "Settings", n_selected);
-    SDL_Surface *modeText = generateFontSurface(32, "Mode", n_selected);
-    SDL_Surface *fullScreenText = generateFontSurface(32, "Fullscreen", n_selected);
-    SDL_Surface *windowedText = generateFontSurface(32, "Windowed", n_selected);
-    SDL_Surface *volumeText = generateFontSurface(32, "Volume", n_selected);
+    if (menuSelect == 0)
+    {
+        modeText = generateFontSurface(32, "Mode", selected);
+        fullScreenText = generateFontSurface(32, "Fullscreen", selected);
+        windowedText = generateFontSurface(32, "Windowed", selected);
+        volumeText = generateFontSurface(32, "Volume", n_selected);
+        exitText = generateFontSurface(32, "return", n_selected);
+    }
+    else if (menuSelect == 1)
+    {
+        modeText = generateFontSurface(32, "Mode", n_selected);
+        fullScreenText = generateFontSurface(32, "Fullscreen", n_selected);
+        windowedText = generateFontSurface(32, "Windowed", n_selected);
+        volumeText = generateFontSurface(32, "Volume", selected);
+        exitText = generateFontSurface(32, "return", n_selected);
+    }
+    else if (menuSelect == 2)
+    {
+        modeText = generateFontSurface(32, "Mode", n_selected);
+        fullScreenText = generateFontSurface(32, "Fullscreen", n_selected);
+        windowedText = generateFontSurface(32, "Windowed", n_selected);
+        volumeText = generateFontSurface(32, "Volume", n_selected);
+        exitText = generateFontSurface(32, "return", selected);
+    }
 
     apply_surface(MENU_POS_W, MENU_POS_H, menuBackground, screen, NULL);
     apply_surface(INFO_POS_W, INFO_POS_H, infoBar, screen, NULL);
@@ -114,7 +131,6 @@ void initSetting(int menuSelect)
 
     if (fullscreen == 0)
     {
-
         apply_surface(MENU_POS_W + 175, MENU_POS_H + 150, fullScreenText, screen, NULL);
     }
     else
@@ -122,14 +138,14 @@ void initSetting(int menuSelect)
         apply_surface(MENU_POS_W + 175, MENU_POS_H + 150, windowedText, screen, NULL);
     }
     apply_surface(MENU_POS_W + 175, MENU_POS_H + 270, volumeSelector, screen, NULL);
+    apply_surface(MENU_POS_W + 150, MENU_POS_H + 375, exitText, screen, NULL);
 
     char volumeChar[20];
     sprintf(volumeChar, "%d %%", musicVolume);
-    volumeSurface = generateFontSurface(20, volumeChar, selected);
+    volumeSurface = generateFontSurface(20, volumeChar, n_selected);
     int x = MENU_POS_W + 175;
     int y = x + volumeSelector->w;
     float step = (float)(((float)y - (float)x) / 100);
-    printf("%f %d %d %d \n", step, x, y, musicVolume);
     apply_surface(MENU_POS_W + 175 + (step * musicVolume), MENU_POS_H + 255, volumeBar, screen, NULL);
     apply_surface(MENU_POS_W + 225, MENU_POS_H + 290, volumeSurface, screen, 0);
 }
@@ -188,7 +204,6 @@ int init()
     const SDL_VideoInfo *videoInformation = SDL_GetVideoInfo();
     fullscreenHeight = videoInformation->current_h;
     fullscreenWidth = videoInformation->current_w;
-    printf("%d %d ", fullscreenHeight, fullscreenWidth);
 
     if ((screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_HWSURFACE | SDL_RESIZABLE | SDL_DOUBLEBUF)) == NULL)
     {

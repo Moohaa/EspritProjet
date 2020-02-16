@@ -99,11 +99,11 @@ extern SDL_Surface *text1;
 extern SDL_Surface *text2;
 extern SDL_Surface *text3;
 
-typedef struct
-{
-    char key[SDLK_LAST];
-    int mousex, mousey;
-    int mousexrel, mouseyrel;
-    char mousebuttons[8];
-    char quit;
-} input_t;
+extern SDL_Surface *settingsText;
+extern SDL_Surface *modeText;
+extern SDL_Surface *fullScreenText;
+extern SDL_Surface *windowedText;
+extern SDL_Surface *volumeText;
+extern SDL_Surface *exitText;
+
+extern int keyPressed;
