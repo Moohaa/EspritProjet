@@ -10,7 +10,7 @@ int main()
         Uint32 start_time = SDL_GetTicks();
         renderFrame(1);
         SDL_PollEvent(&event);
-        menuHandler(event);
+        menuHandler(event, settingsState);
         frameLimiter(start_time);
     }
     clean_up();

@@ -19,14 +19,14 @@ int loadMusic()
     if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)
         printf("%s", Mix_GetError());
     Mix_AllocateChannels(32);
-    scratch = Mix_LoadWAV("beat.wav");
-    high = Mix_LoadWAV("assets/wav/high.wav");
-    med = Mix_LoadWAV("assets/wav/medium.wav");
-    low = Mix_LoadWAV("assets/wav/low.wav");
-    Mix_PlayChannel(1, scratch, 0);
-    Mix_PlayChannel(1, high, 0);
-    Mix_PlayChannel(1, med, 0);
-    Mix_PlayChannel(1, low, 0);
+
+    click = Mix_LoadWAV("assets/wav/click.wav");
+    fullscreenSound = Mix_LoadWAV("assets/wav/fullscreenSound.wav");
+    switcher = Mix_LoadWAV("assets/wav/switcher.wav");
+
+    Mix_PlayChannel(1, click, 0);
+    Mix_PlayChannel(1, fullscreenSound, 0);
+    Mix_PlayChannel(1, switcher, 0);
     music = Mix_LoadMUS("assets/mp3/song.mp3");
     if (Mix_PlayingMusic() == 0)
     {
@@ -150,10 +150,6 @@ void clean_up()
     SDL_FreeSurface(menu2Hover);
     SDL_FreeSurface(menu3Hover);
     SDL_FreeSurface(background);
-    Mix_FreeChunk(scratch);
-    Mix_FreeChunk(high);
-    Mix_FreeChunk(med);
-    Mix_FreeChunk(low);
     Mix_FreeMusic(music);
     if (font == NULL)
     {

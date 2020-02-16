@@ -52,10 +52,9 @@ SDL_Color selected;
 SDL_Color n_selected;
 
 Mix_Music *music;
-Mix_Chunk *scratch;
-Mix_Chunk *high;
-Mix_Chunk *med;
-Mix_Chunk *low;
+Mix_Chunk *click;
+Mix_Chunk *switcher;
+Mix_Chunk *fullscreenSound;
 
 SDL_Surface *animation;
 
@@ -66,8 +65,8 @@ SDL_Surface *text1;
 SDL_Surface *text2;
 SDL_Surface *text3;
 
-int FPS = 60;
-int musicVolume = 10;
+int FPS = 10;
+int musicVolume = 50;
 int frame = 1;
 int quit = 0;
 int menuSelect = 0;
@@ -124,9 +123,16 @@ Uint32 time_left(void)
 
 void frameLimiter(Uint32 start_time)
 {
+
+    unsigned int elapsed;
+    unsigned int lasttime = SDL_GetTicks();
     SDL_Flip(screen);
-    if ((1000 / FPS) > (SDL_GetTicks() - start_time))
-        SDL_Delay((1000 / FPS) - (SDL_GetTicks() - start_time));
+    /*if ((1000 / FPS) > (SDL_GetTicks() - start_time))
+        SDL_Delay((1000 / FPS) - (SDL_GetTicks() - start_time));*/
+    elapsed = SDL_GetTicks() - lasttime;
+    if (elapsed < 33)
+        SDL_Delay(33 - elapsed);
+
     frame++;
     if (frame == 1161)
     {
@@ -134,7 +140,7 @@ void frameLimiter(Uint32 start_time)
     }
 }
 
-void menuHandler(SDL_Event event)
+void menuHandler(SDL_Event event, int state)
 {
     switch (event.type)
     {
@@ -155,10 +161,10 @@ void menuHandler(SDL_Event event)
         break;
     case SDL_QUIT:
         quit = 1;
-        Mix_PlayChannel(-1, low, 0);
+        Mix_PlayChannel(-1, click, 0);
         break;
     case SDL_MOUSEBUTTONDOWN:
-        Mix_PlayChannel(-1, med, 0);
+        Mix_PlayChannel(-1, click, 0);
         if (menuSelect == 2)
         {
             quit = 1;
@@ -172,7 +178,7 @@ void menuHandler(SDL_Event event)
         switch (event.key.keysym.sym)
         {
         case SDLK_RETURN:
-            Mix_PlayChannel(-1, med, 0);
+            Mix_PlayChannel(-1, click, 0);
             if (settingsState == 0)
             {
                 if (menuSelect == 0)
@@ -224,12 +230,12 @@ void menuHandler(SDL_Event event)
             fullscreen = !fullscreen;
             break;
         case SDLK_UP:
-            Mix_PlayChannel(-1, med, 0);
+            Mix_PlayChannel(-1, switcher, 0);
             if (menuSelect != 0)
                 menuSelect--;
             break;
         case SDLK_DOWN:
-            Mix_PlayChannel(-1, low, 0);
+            Mix_PlayChannel(-1, switcher, 0);
             if (menuSelect != 2)
                 menuSelect++;
             break;
@@ -276,3 +282,40 @@ void renderFrame(State state)
         initSetting(menuSelect);
     }
 }
+/*
+void UpdateEvents(input_t *in)
+{
+    SDL_Event event;
+    in->mousebuttons[SDL_BUTTON_WHEELUP] = 0;
+    in->mousebuttons[SDL_BUTTON_WHEELDOWN] = 0;
+    while (SDL_PollEvent(&event))
+    {
+        switch (event.type)
+        {
+        case SDL_KEYDOWN:
+            in->key[event.key.keysym.sym] = 1;
+            break;
+        case SDL_KEYUP:
+            in->key[event.key.keysym.sym] = 0;
+            break;
+        case SDL_MOUSEMOTION:
+            in->mousex = event.motion.x;
+            in->mousey = event.motion.y;
+            in->mousexrel = event.motion.xrel;
+            in->mouseyrel = event.motion.yrel;
+            break;
+        case SDL_MOUSEBUTTONDOWN:
+            in->mousebuttons[event.button.button] = 1;
+            break;
+        case SDL_MOUSEBUTTONUP:
+            if (event.button.button != SDL_BUTTON_WHEELUP && event.button.button != SDL_BUTTON_WHEELDOWN)
+                in->mousebuttons[event.button.button] = 0;
+            break;
+        case SDL_QUIT:
+            in->quit = 1;
+            break;
+        default:
+            break;
+        }
+    }
+}*/

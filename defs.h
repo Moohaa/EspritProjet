@@ -62,10 +62,6 @@ extern int fullscreen;
 
 extern SDL_Surface *buttons;
 extern Mix_Music *music;
-extern Mix_Chunk *scratch;
-extern Mix_Chunk *high;
-extern Mix_Chunk *med;
-extern Mix_Chunk *low;
 extern int mouseX;
 extern int mouseY;
 
@@ -92,9 +88,22 @@ extern int menuSelect;
 extern SDL_Surface *screen;
 extern SDL_Surface *background;
 
+extern Mix_Chunk *click;
+extern Mix_Chunk *switcher;
+extern Mix_Chunk *fullscreenSound;
+
 extern int settingsState;
 extern int volumeSlider;
 
 extern SDL_Surface *text1;
 extern SDL_Surface *text2;
 extern SDL_Surface *text3;
+
+typedef struct
+{
+    char key[SDLK_LAST];
+    int mousex, mousey;
+    int mousexrel, mouseyrel;
+    char mousebuttons[8];
+    char quit;
+} input_t;
