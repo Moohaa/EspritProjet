@@ -375,11 +375,7 @@ void renderFrame(State state)
     color.b = 255;
     if (!playState)
         initBg(screen, background);
-    else
-    {
-        background = load_image("assets/jpg/2.jpg", 0);
-        initBg(screen, background);
-    }
+
     loadAnimationFile(frame);
     if (settingsState == 0)
     {
@@ -388,6 +384,11 @@ void renderFrame(State state)
     else if (settingsState == 1)
     {
         initSetting(menuSelect);
+    }
+    if (playState)
+    {
+        background = load_image("assets/jpg/3.jpg", 0);
+        initBg(screen, background);
     }
 }
 
