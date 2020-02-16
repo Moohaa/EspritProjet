@@ -55,49 +55,84 @@ void loadMenuFiles()
     menu1Hover = load_image("assets/png/buttons/ng_h.png", 0);
     menu2Hover = load_image("assets/png/buttons/s_h.png", 0);
     menu3Hover = load_image("assets/png/buttons/q_h.png", 0);
-    menuButtonNormalState = load_image("assets/menu/b_ns.png", 0);
-    menuButtonClickedState = load_image("assets/menu/b_p.png", 0);
+    newGameButton = load_image("assets/menu/b_ns.png", 0);
+    settingsButton = load_image("assets/menu/b_ns.png", 0);
+    quitButton = load_image("assets/menu/b_ns.png", 0);
 }
 
 void initMenu(int menuSelect)
 {
-    apply_surface(MENU_POS_W, MENU_POS_H, menuBackground, screen, NULL);
-    apply_surface(INFO_POS_W, INFO_POS_H, infoBar, screen, NULL);
-    apply_surface((SCREEN_WIDTH - menuButtonNormalState->w) / 2, (SCREEN_HEIGHT - menuButtonNormalState->h) / 2, menuButtonNormalState, screen, NULL);
-    apply_surface((SCREEN_WIDTH - menuButtonClickedState->w) / 2, (SCREEN_HEIGHT - menuButtonClickedState->h) / 2 + 100, menuButtonClickedState, screen, NULL);
-
-    SDL_Surface *newGame = generateFontSurface(36, "New Game", selected);
-    SDL_Surface *settings = generateFontSurface(36, "Settings", n_selected);
-    SDL_Surface *quit = generateFontSurface(12, "Quit", selected);
-    apply_surface((SCREEN_WIDTH - newGame->w) / 2, ((SCREEN_HEIGHT - newGame->h) / 2) - 5, newGame, screen, NULL);
-    apply_surface((SCREEN_WIDTH - settings->w) / 2, ((SCREEN_HEIGHT - settings->h) / 2) - 5, settings, screen, NULL);
-    apply_surface((SCREEN_WIDTH - quit->w) / 2, ((SCREEN_HEIGHT - quit->h) / 2) - 5, quit, screen, NULL);
-    SDL_Surface *title = generateFontSurface(36, "Esprit Projet", n_selected);
-    apply_surface(INFO_POS_W + 23, INFO_POS_H, title, screen, 0);
-    apply_surface(0, 0, newGame, screen, NULL);
-    apply_surface(0, 100, settings, screen, NULL);
-
-    /*
     if (menuSelect == 0)
     {
-        apply_surface((SCREEN_WIDTH - menu1Hover->w) / 2, 100, menu1Hover, screen, NULL);
-        apply_surface((SCREEN_WIDTH - menu2->w) / 2, 200, menu2, screen, NULL);
-        apply_surface((SCREEN_WIDTH - menu3->w) / 2, 300, menu3, screen, NULL);
+        text1 = generateFontSurface(32, "New Game", selected);
+        text2 = generateFontSurface(32, "Settings", n_selected);
+        text3 = generateFontSurface(32, "Quit", n_selected);
     }
-    if (menuSelect == 1)
+    else if (menuSelect == 1)
     {
-        apply_surface((SCREEN_WIDTH - menu1->w) / 2, 100, menu1, screen, NULL);
-        apply_surface((SCREEN_WIDTH - menu2Hover->w) / 2, 200, menu2Hover, screen, NULL);
-        apply_surface((SCREEN_WIDTH - menu3->w) / 2, 300, menu3, screen, NULL);
+        text1 = generateFontSurface(32, "New Game", n_selected);
+        text2 = generateFontSurface(32, "Settings", selected);
+        text3 = generateFontSurface(32, "Quit", n_selected);
     }
-    if (menuSelect == 2)
+    else if (menuSelect == 2)
     {
-        apply_surface((SCREEN_WIDTH - menu1->w) / 2, 100, menu1, screen, NULL);
-        apply_surface((SCREEN_WIDTH - menu2->w) / 2, 200, menu2, screen, NULL);
-        apply_surface((SCREEN_WIDTH - menu3Hover->w) / 2, 300, menu3Hover, screen, NULL);
-    }*/
+        text1 = generateFontSurface(32, "New Game", n_selected);
+        text2 = generateFontSurface(32, "Settings", n_selected);
+        text3 = generateFontSurface(32, "Quit", selected);
+    }
+    SDL_Surface *menuText = generateFontSurface(32, "Menu", n_selected);
+    apply_surface(20, newGameButton->h * 0.10, text1, newGameButton, NULL);
+    apply_surface(35, newGameButton->h * 0.10, text2, settingsButton, NULL);
+    apply_surface(55, newGameButton->h * 0.10, text3, quitButton, NULL);
+
+    apply_surface(MENU_POS_W, MENU_POS_H, menuBackground, screen, NULL);
+    apply_surface(INFO_POS_W, INFO_POS_H, infoBar, screen, NULL);
+    apply_surface(INFO_POS_W + 75, INFO_POS_H + 5, menuText, screen, NULL);
+
+    apply_surface((SCREEN_WIDTH - newGameButton->w) / 2, (MENU_POS_H) + 125, newGameButton, screen, NULL);
+    apply_surface((SCREEN_WIDTH - newGameButton->w) / 2, (MENU_POS_H) + 250, settingsButton, screen, NULL);
+    apply_surface((SCREEN_WIDTH - newGameButton->w) / 2, (MENU_POS_H) + 375, quitButton, screen, NULL);
 }
 
+void initSetting(int menuSelect)
+{
+    SDL_Surface *fullscreenSurface;
+    fullscreenSurface = generateFontSurface(32, "Fullscreen Mode", n_selected);
+
+    SDL_Surface *settingsText = generateFontSurface(32, "Settings", n_selected);
+    SDL_Surface *modeText = generateFontSurface(32, "Mode", n_selected);
+    SDL_Surface *fullScreenText = generateFontSurface(32, "Fullscreen", n_selected);
+    SDL_Surface *windowedText = generateFontSurface(32, "Windowed", n_selected);
+    SDL_Surface *volumeText = generateFontSurface(32, "Volume", n_selected);
+
+    apply_surface(MENU_POS_W, MENU_POS_H, menuBackground, screen, NULL);
+    apply_surface(INFO_POS_W, INFO_POS_H, infoBar, screen, NULL);
+    apply_surface(INFO_POS_W + 61, INFO_POS_H + 5, settingsText, screen, NULL);
+
+    apply_surface(MENU_POS_W + 65, MENU_POS_H + 150, modeText, screen, NULL);
+    apply_surface(MENU_POS_W + 65, MENU_POS_H + 250, volumeText, screen, NULL);
+
+    if (fullscreen == 0)
+    {
+
+        apply_surface(MENU_POS_W + 175, MENU_POS_H + 150, fullScreenText, screen, NULL);
+    }
+    else
+    {
+        apply_surface(MENU_POS_W + 175, MENU_POS_H + 150, windowedText, screen, NULL);
+    }
+    apply_surface(MENU_POS_W + 175, MENU_POS_H + 270, volumeSelector, screen, NULL);
+
+    char volumeChar[20];
+    sprintf(volumeChar, "%d %%", musicVolume);
+    volumeSurface = generateFontSurface(20, volumeChar, selected);
+    int x = MENU_POS_W + 175;
+    int y = x + volumeSelector->w;
+    float step = (float)(((float)y - (float)x) / 100);
+    printf("%f %d %d %d \n", step, x, y, musicVolume);
+    apply_surface(MENU_POS_W + 175 + (step * musicVolume), MENU_POS_H + 255, volumeBar, screen, NULL);
+    apply_surface(MENU_POS_W + 225, MENU_POS_H + 290, volumeSurface, screen, 0);
+}
 void initBg(SDL_Surface *screen, SDL_Surface *background)
 {
     apply_surface(0, 0, background, screen, NULL);
@@ -136,6 +171,8 @@ int load_files()
     buttons = load_image("assets/png/restart.png", 0);
     menuBackground = load_image("assets/menu/bgm.png", 0);
     infoBar = load_image("assets/menu/ttlbar.png", 0);
+    volumeSelector = load_image("assets/menu/bar.png", 0);
+    volumeBar = load_image("assets/menu/l_bar.png", 0);
     if (background == NULL)
         return 0;
     if (hello == NULL)

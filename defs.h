@@ -46,6 +46,8 @@ extern SDL_Surface *slider;
 extern SDL_Surface *sliderBar;
 extern SDL_Color selected;
 extern SDL_Color n_selected;
+extern SDL_Surface *volumeBar;
+extern SDL_Surface *volumeSelector;
 
 #define MENU_POS_W (SCREEN_WIDTH - menuBackground->w) / 2
 #define MENU_POS_H (SCREEN_HEIGHT - menuBackground->h) / 2
@@ -76,6 +78,10 @@ extern char windowStateChar[15];
 extern int fullscreenWidth;
 extern int fullscreenHeight;
 
+extern SDL_Surface *newGameButton;
+extern SDL_Surface *settingsButton;
+extern SDL_Surface *quitButton;
+
 extern SDL_Surface *animation;
 
 extern int FPS;
@@ -88,3 +94,7 @@ extern SDL_Surface *background;
 
 extern int settingsState;
 extern int volumeSlider;
+
+extern SDL_Surface *text1;
+extern SDL_Surface *text2;
+extern SDL_Surface *text3;

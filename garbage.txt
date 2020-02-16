@@ -61,3 +61,36 @@ color.b = 155;
 
             SDL_Surface *text = generateFontSurface("assets/ttf/ARCADECLASSIC.TTF", 32, "Hello", color);
             apply_surface(0, 0, text, screen, NULL);
+
+MENUUUUUUUUUUUUUUUU
+
+/*
+    apply_surface((SCREEN_WIDTH - menuButtonNormalState->w) / 2, (SCREEN_HEIGHT - menuButtonNormalState->h) / 2, menuButtonNormalState, screen, NULL);
+    apply_surface((SCREEN_WIDTH - menuButtonClickedState->w) / 2, (SCREEN_HEIGHT - menuButtonClickedState->h) / 2 + 100, menuButtonClickedState, screen, NULL);
+
+    SDL_Surface *title = generateFontSurface(36, "Esprit Projet", n_selected);
+    apply_surface(INFO_POS_W + 23, INFO_POS_H, title, screen, 0);
+
+    
+    if (menuSelect == 0)
+    {
+        SDL_Surface *newGame = generateFontSurface(36, "New Game", selected);
+        SDL_Surface *settings = generateFontSurface(36, "Settings", n_selected);
+        SDL_Surface *quit = generateFontSurface(36, "Quit", n_selected);
+    }
+    else if (menuSelect == 1)
+    {
+        SDL_Surface *newGame = generateFontSurface(36, "New Game", n_selected);
+        SDL_Surface *settings = generateFontSurface(36, "Settings", selected);
+        SDL_Surface *quit = generateFontSurface(36, "Quit", n_selected);
+    }
+    else if (menuSelect == 2)
+    {
+        SDL_Surface *newGame = generateFontSurface(36, "New Game", n_selected);
+        SDL_Surface *settings = generateFontSurface(36, "Settings", n_selected);
+        SDL_Surface *quit = generateFontSurface(36, "Quit", selected);
+    }*/
+                                                                  /*
+    apply_surface(0, 0, newGame, infoBar, NULL);
+    apply_surface((SCREEN_WIDTH - settings->w) / 2, ((SCREEN_HEIGHT - settings->h) / 2) - 5, settings, screen, NULL);
+    apply_surface((SCREEN_WIDTH - quit->w) / 2, ((SCREEN_HEIGHT - quit->h) / 2) - 5, quit, screen, NULL);*/

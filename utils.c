@@ -15,6 +15,9 @@ int fullscreen = 0;
 SDL_Surface *volumeSurface;
 SDL_Surface *windowState;
 
+SDL_Surface *volumeBar;
+SDL_Surface *volumeSelector;
+
 SDL_Surface *menuBackground;
 SDL_Surface *menuButtonNormalState;
 SDL_Surface *menuButtonClickedState;
@@ -33,6 +36,10 @@ SDL_Surface *menu3;
 SDL_Surface *menu1Hover;
 SDL_Surface *menu2Hover;
 SDL_Surface *menu3Hover;
+
+SDL_Surface *newGameButton;
+SDL_Surface *settingsButton;
+SDL_Surface *quitButton;
 
 int fxVolume = 100;
 SDL_VideoInfo *info;
@@ -54,6 +61,10 @@ SDL_Surface *animation;
 
 int fullscreenWidth = 0;
 int fullscreenHeight = 0;
+
+SDL_Surface *text1;
+SDL_Surface *text2;
+SDL_Surface *text3;
 
 int FPS = 60;
 int musicVolume = 10;
@@ -193,6 +204,9 @@ void menuHandler(SDL_Event event)
         case SDLK_ESCAPE:
             quit = 1;
             break;
+        case SDLK_s:
+            settingsState = !settingsState;
+            break;
         case SDLK_d:
             if (fullscreen == 0)
             {
@@ -222,10 +236,18 @@ void menuHandler(SDL_Event event)
         case SDLK_RIGHT:
             Mix_Volume(-1, ++musicVolume);
             Mix_VolumeMusic(musicVolume);
+            if (musicVolume > 100)
+            {
+                musicVolume = 100;
+            }
             break;
         case SDLK_LEFT:
             Mix_Volume(-1, --musicVolume);
             Mix_VolumeMusic(musicVolume);
+            if (musicVolume < 0)
+            {
+                musicVolume = 0;
+            }
             break;
         }
         break;
@@ -244,12 +266,13 @@ void renderFrame(State state)
         background = load_image("assets/jpg/2.jpg", 0);
         initBg(screen, background);
     }
-    initMenu(menuSelect);
     loadAnimationFile(frame);
-    char volumeChar[20];
-    sprintf(volumeChar, "Volume %d", musicVolume);
-    volumeSurface = generateFontSurface(20, volumeChar, color);
-    windowState = generateFontSurface(100, windowStateChar, color);
-    apply_surface(SCREEN_WIDTH - volumeSurface->w, SCREEN_HEIGHT - volumeSurface->h, volumeSurface, screen, 0);
-    apply_surface(SCREEN_WIDTH - windowState->w, SCREEN_HEIGHT - windowState->h, windowState, screen, 0);
+    if (settingsState == 0)
+    {
+        initMenu(menuSelect);
+    }
+    else if (settingsState == 1)
+    {
+        initSetting(menuSelect);
+    }
 }

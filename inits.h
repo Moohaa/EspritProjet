@@ -9,3 +9,4 @@ int loadMusic();
 int initAll();
 int init();
 int load_files();
+void initSetting(int menuSelect);
