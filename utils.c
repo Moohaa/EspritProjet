@@ -183,7 +183,19 @@ void menuHandler(SDL_Event event, int state)
                 Mix_PlayChannel(-1, click, 0);
                 if (menuSelect == 0)
                 {
-                    playState = 1;
+                    if (fullscreen == 0)
+                    {
+                        screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_HWSURFACE | SDL_FULLSCREEN | SDL_DOUBLEBUF);
+                    }
+                    else
+                    {
+                        SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_HWSURFACE | SDL_DOUBLEBUF);
+                    }
+                    if (fullscreen)
+                        strcpy(windowStateChar, "Windowed");
+                    else
+                        strcpy(windowStateChar, "Fullscreen");
+                    fullscreen = !fullscreen;
                 }
                 if (menuSelect == 1)
                 {
@@ -223,15 +235,12 @@ void menuHandler(SDL_Event event, int state)
                         else
                             strcpy(windowStateChar, "Fullscreen");
                         fullscreen = !fullscreen;
-                        playState = 1;
                     }
                     else if (menuSelect == 1)
                     {
-                        settingsState = 1;
-                        menuSelect = 0;
                     }
                     else if (menuSelect == 2)
-                        quit = 1;
+                        settingsState = 0;
                     break;
                 case SDLK_ESCAPE:
                     quit = 1;

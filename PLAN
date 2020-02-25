@@ -1,0 +1,55 @@
+hazem 
+afficher enigmes 1 
+gen random enigme 3 
+resolution enigme 2 
+
+ahmoud 
+collision 2
+animation perso 3 
+init perso 1 
+
+raed
+deplacement perso clavier 2
+deplacement perso souris 3 
+gestion de vie et score 1 
+
+houssem
+entite secondaires 1
+afficher perso 2 
+animation 3
+
+ahemd
+gest temps 2 
+init enig 1 
+
+
+
+
+nassim
+
+
+
+
+Initialiser personnage	1 MAHMOUD
+Initialiser entités secondaire (tableau) 1 HOUSSEM
+Gestion de vie et score	1  RAED
+Afficher les entités secondaires 1 AHMED
+Initialiser Énigmes 	1 NASSIM	
+Afficher Enigmes	1	HAZEM
+
+Déplacer personnage moyennant le clavier 2 RAED 
+Afficher Personnage : HOUSSEM 
+Détection de collision entre deux entités en mouvement: Bounding box 2 : MAHMOUD
+Détection de collision entre un personnage et le background (perfect pixel) 2 NASSIM 
+Gestion de temps dans le jeu et dans l'énigme	2 AHMED	
+Résolution Énigme	2 HAZEM
+
+-------Intégration---------- 
+
+Scrolling (verticale et/ou horizontale)	3 AHMED
+Animation Personnage (à gauche et à droite)	3 MAHMOUD
+Déplacer aléatoirement une entité secondaire	3
+Déplacer Personnage moyennant la souris	3 	RAED
+Animation entité secondaire (à gauche et à droite)	3 HOUSSEM
+Génération aléatoire de l'Énigme (avec ou sans fichier)	3 	HAZEM
+Génération automatique d'une réponse à l'énigme ( si sans fichier ) 3 NASSIM
