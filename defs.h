@@ -17,9 +17,13 @@
 typedef int State;
 #define MAIN_MENU 0
 #define SETTINGS 1
-#define VOLUMESLIDER 2
-#define MAP 3
-#define LEVEL1 4
+#define MAP 2
+#define LEVEL1 3
+#define LEVEL2 4
+#define LEVEL3 5
+#define LEVEL4 6
+#define ENIGMEDYN 7
+#define ENIGMESTATIQUE 8
 
 #define MENU_FONT "assets/ttf/BMYEONSUNG_ttf.ttf"
 

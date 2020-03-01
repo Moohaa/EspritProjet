@@ -94,3 +94,46 @@ MENUUUUUUUUUUUUUUUU
     apply_surface(0, 0, newGame, infoBar, NULL);
     apply_surface((SCREEN_WIDTH - settings->w) / 2, ((SCREEN_HEIGHT - settings->h) / 2) - 5, settings, screen, NULL);
     apply_surface((SCREEN_WIDTH - quit->w) / 2, ((SCREEN_HEIGHT - quit->h) / 2) - 5, quit, screen, NULL);*/
+
+
+hazen :
+
+nigmes 
+
+type enigme
+struct enigme
+1 0 : static dynamique 
+
+statique -> 
+Question 
+A B C D 
+
+question 
+char 4 repoonses possile 
+char A B C D reponse *
+
+
+dynamique 
+a + b  = c 
+generate a b random 
+int c = a +b ;;
+repose lmaooooooooooooooo
+
+
+
+
+personnage : 
+int int intintininitintint
+health 
+pos x pos y
+
+eventkey  
+-> x > 
+<- x <
+y 
+
+jump fluide 
+
+event mouse click 
+mouse x mousey 
+mousey 
