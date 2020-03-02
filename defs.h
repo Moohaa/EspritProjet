@@ -53,6 +53,8 @@ extern SDL_Color n_selected;
 extern SDL_Surface *volumeBar;
 extern SDL_Surface *volumeSelector;
 
+extern int seconds;
+
 #define MENU_POS_W (SCREEN_WIDTH - menuBackground->w) / 2
 #define MENU_POS_H (SCREEN_HEIGHT - menuBackground->h) / 2
 #define INFO_POS_W ((SCREEN_WIDTH - infoBar->w) / 2)

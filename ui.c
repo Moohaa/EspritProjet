@@ -34,3 +34,8 @@ SDL_Surface *generateSurfaces(UI ui)
     SDL_Surface *temp;
     return temp;
 }
+
+UI initTimer(SDL_Surface timer, UI ui)
+{
+    sprintf(ui.secondsChar, "%d", seconds);
+}

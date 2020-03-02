@@ -10,11 +10,12 @@ typedef struct ui
     int y;
     int w;
     int h;
+    char secondsChar[5];
     SDL_Color color;
 } UI;
 
 void showUI(UI ui, SDL_Surface *screen);
-UI initTimer(SDL_Surface timer);
+UI initTimer(SDL_Surface timer, UI ui);
 UI updateScore(UI ui, int score);
 UI updateLife(UI ui, int life);
 UI initUI();

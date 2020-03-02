@@ -9,12 +9,14 @@ typedef struct personnage
     int acceleration;
     int speed;
     int frameImmuninty;
-    SDL_Surface *sprites[10];
     int posX;
     int posY;
     int animationFrame;
+    int animationFramesTotal;
+    int direction;
+    SDL_Surface *currentFrame;
 } Personnage;
 
-void loadSprites(Personnage personnage, SDL_Surface *frames[10]);
 void affichePersonnage(Personnage personnage, SDL_Surface *background);
 Personnage initPersonnage();
+void loadSprite(Personnage *personnage);

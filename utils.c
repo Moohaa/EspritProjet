@@ -46,6 +46,8 @@ SDL_VideoInfo *info;
 
 int playState = 0;
 
+int seconds = 0;
+
 State state = MAIN_MENU;
 
 SDL_Color selected;
@@ -142,6 +144,7 @@ void frameLimiter(Uint32 start_time)
     {
         frame = 1;
     }
+    seconds = seconds + 1;
 }
 
 void menuHandler(SDL_Event event, int state)
@@ -399,6 +402,14 @@ void renderFrame(State state)
         background = load_image("assets/jpg/3.jpg", 0);
         initBg(screen, background);
     }
+}
+
+void renderGameFrame()
+{
+}
+
+void gameHandler(SDL_Event event, int state)
+{
 }
 
 void UpdateEvents(input_t *in)

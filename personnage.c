@@ -1,9 +1,8 @@
 #include "personnage.h"
 
-void loadSprites(Personnage personnage, SDL_Surface *frames[10]);
 void affichePersonnage(Personnage personnage, SDL_Surface *background)
 {
-    apply_surface(personnage.posX, personnage.posY, personnage.sprites[personnage.animationFrame], background, NULL);
+    apply_surface(personnage.posX, personnage.posY, personnage.currentFrame, background, NULL);
 }
 
 Personnage initPersonnage()
@@ -13,4 +12,17 @@ Personnage initPersonnage()
     personnage.posY = 0;
     personnage.hp = 100;
     return personnage;
+}
+
+void loadSprite(Personnage *personnage)
+{
+    if (personnage->direction == 1)
+    {
+        char filePath[50];
+        sprintf(filePath, "assets/m2/%d.png", personnage->currentFrame);
+        personnage->currentFrame = load_image(filePath, 0);
+    }
+    else
+    {
+    }
 }

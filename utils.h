@@ -19,3 +19,5 @@ Uint32 time_left();
 void renderFrame(State state);
 void menuHandler(SDL_Event event, int state);
 void UpdateEvents(input_t *in);
+void renderGameFrame();
+void gameHandler(SDL_Event event, int state);

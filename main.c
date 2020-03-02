@@ -25,7 +25,7 @@ int main()
     {
         memset(&in, 0, sizeof(in));
         Uint32 start_time = SDL_GetTicks();
-        renderFrame(1);
+        //renderFrame(1);
         SDL_PollEvent(&event);
         //UpdateEvents(&in);
         menuHandler(event, settingsState);
