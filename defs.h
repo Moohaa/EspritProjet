@@ -27,6 +27,21 @@ typedef int State;
 
 #define MENU_FONT "assets/ttf/BMYEONSUNG_ttf.ttf"
 
+typedef struct personnage
+{
+    int hp;
+    int velocity;
+    int acceleration;
+    int speed;
+    int frameImmuninty;
+    int posX;
+    int posY;
+    int animationFrame;
+    int animationFramesTotal;
+    int direction;
+    SDL_Surface *currentFrame;
+} Personnage;
+
 extern SDL_Surface *hello;
 extern SDL_Surface *message;
 extern SDL_Surface *image;
@@ -41,6 +56,8 @@ extern SDL_Surface *menu3;
 extern SDL_Surface *menu1Hover;
 extern SDL_Surface *menu2Hover;
 extern SDL_Surface *menu3Hover;
+
+extern Personnage personnage;
 
 extern SDL_Surface *menuBackground;
 extern SDL_Surface *menuButtonNormalState;
