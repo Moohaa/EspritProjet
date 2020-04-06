@@ -1,5 +1,7 @@
-#include "defs.h"
+//AHMED
 
+//#include "defs.h"
+/*
 int main()
 {
     SDL_Surface *ecran = NULL;
@@ -37,3 +39,4 @@ int main()
     SDL_Quit();
     return EXIT_SUCCESS;
 }
+*/

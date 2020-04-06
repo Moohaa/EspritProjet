@@ -26,22 +26,7 @@ typedef int State;
 #define ENIGMESTATIQUE 8
 
 #define MENU_FONT "assets/ttf/BMYEONSUNG_ttf.ttf"
-
-typedef struct personnage
-{
-    int hp;
-    int velocity;
-    int acceleration;
-    int speed;
-    int frameImmuninty;
-    int posX;
-    int posY;
-    int animationFrame;
-    int animationFramesTotal;
-    int direction;
-    SDL_Surface *currentFrame;
-} Personnage;
-
+typedef struct personnage Personnage;
 extern SDL_Surface *hello;
 extern SDL_Surface *message;
 extern SDL_Surface *image;
@@ -130,3 +115,7 @@ extern SDL_Surface *volumeText;
 extern SDL_Surface *exitText;
 
 extern int keyPressed;
+
+extern int score;
+
+extern Uint32 next_time;

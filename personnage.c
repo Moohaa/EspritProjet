@@ -19,7 +19,7 @@ void loadSprite(Personnage *personnage)
     if (personnage->direction == 1)
     {
         char filePath[50];
-        sprintf(filePath, "assets/m2/%d.png", personnage->currentFrame);
+        sprintf(filePath, "assets/m2/%d.png", personnage->animationFrame);
         personnage->currentFrame = load_image(filePath, 0);
     }
     else

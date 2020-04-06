@@ -9,8 +9,6 @@ typedef struct
     char quit;
 } input_t;
 
-//Surfaces and Ressources as global Variables
-
 void apply_surface(int x, int y, SDL_Surface *source, SDL_Surface *destination, SDL_Rect *clip);
 void frameLimiter(Uint32 start_time);
 SDL_Surface *load_image(char filename[], int colorKey);

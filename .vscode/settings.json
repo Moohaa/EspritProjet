@@ -11,6 +11,8 @@
         "utils.h": "c",
         "defs.h": "c",
         "numeric": "c",
-        "inits.h": "c"
+        "inits.h": "c",
+        "animation.h": "c",
+        "enig.h": "c"
     }
 }
