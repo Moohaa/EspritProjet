@@ -3,7 +3,7 @@
 
 typedef struct enigme
 {
-    int type;
+    int type; // 0 dynamique ; 1 Statique
     char question[60];
     char reponses[4][60];
     char reponse;
@@ -18,7 +18,6 @@ typedef struct enigme
 void afficherEnigme(Enigme enigme, SDL_Surface *screen);
 Enigme generateEnigme(int type);
 Enigme loadRandomEnigmeFile();
-int randomEnigmeType();
 
 int randomEnigmeType();
 void afficherReponseEnigme(Enigme enigme, SDL_Surface *screen);
