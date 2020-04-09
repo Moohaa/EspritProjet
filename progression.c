@@ -1,4 +1,4 @@
-#include "progression.h"
+/*#include "progression.h"
 
 void updateTimer(Values values)
 {
@@ -6,4 +6,4 @@ void updateTimer(Values values)
     sprintf(time, "%d", SDL_GetTicks());
     SDL_Surface *seconds = generateFontSurface("", 50, time, color);
     apply_surface((SCREEN_WIDTH - seconds->w) / 2, 100, seconds, screen, NULL);
-}
+}*/

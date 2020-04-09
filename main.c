@@ -14,14 +14,12 @@ int FilterEvents(const SDL_Event *event)
 int main()
 
 {
-    input_t in;
     if (!initAll())
         return 0;
     Mix_PlayMusic(music, -1);
     SDL_SetEventFilter(FilterEvents);
     while (!quit)
     {
-        memset(&in, 0, sizeof(in));
         Uint32 start_time = SDL_GetTicks();
         renderFrame(1);
         SDL_PollEvent(&event);

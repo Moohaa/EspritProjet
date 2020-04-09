@@ -1,5 +1,6 @@
 #include "utils.h"
 #include "inits.h"
+#include "enigme.h"
 
 SDL_Surface *load_image(char filename[], int colorKey)
 {
@@ -316,8 +317,7 @@ void renderFrame(State state)
     }
     if (playState)
     {
-        background = load_image("assets/jpg/3.jpg", 0);
-        initBg(screen, background);
+        EnigmePipeline();
     }
 }
 
@@ -327,35 +327,4 @@ void renderGameFrame()
 
 void gameHandler(SDL_Event event, int state)
 {
-}
-
-void UpdateEvents(input_t *in)
-{
-    SDL_Event event;
-    in->mousebuttons[SDL_BUTTON_WHEELUP] = 0;
-    in->mousebuttons[SDL_BUTTON_WHEELDOWN] = 0;
-    while (SDL_PollEvent(&event))
-    {
-        switch (event.type)
-        {
-        case SDL_KEYDOWN:
-            in->key[event.key.keysym.sym] = 1;
-            break;
-        case SDL_KEYUP:
-            in->key[event.key.keysym.sym] = 0;
-            break;
-        case SDL_MOUSEBUTTONDOWN:
-            in->mousebuttons[event.button.button] = 1;
-            break;
-        case SDL_MOUSEBUTTONUP:
-            if (event.button.button != SDL_BUTTON_WHEELUP && event.button.button != SDL_BUTTON_WHEELDOWN)
-                in->mousebuttons[event.button.button] = 0;
-            break;
-        case SDL_QUIT:
-            in->quit = 1;
-            break;
-        default:
-            break;
-        }
-    }
 }

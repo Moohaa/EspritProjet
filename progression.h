@@ -1,4 +1,4 @@
-#include "defs.h"
+/*#include "defs.h"
 #include "utils.h"
 
 typedef struct values
@@ -7,4 +7,4 @@ typedef struct values
     int health;
     int timer;
     char time[50];
-} Values;
+} Values;*/

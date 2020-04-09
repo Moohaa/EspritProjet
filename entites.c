@@ -1,4 +1,4 @@
-#include "personnage.h"
+/*#include "personnage.h"
 
 void affichePersonnage(Personnage personnage, SDL_Surface *background)
 {
@@ -26,3 +26,4 @@ void loadSprite(Personnage *personnage)
     {
     }
 }
+*/
