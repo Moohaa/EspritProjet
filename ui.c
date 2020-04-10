@@ -1,4 +1,4 @@
-#include "ui.h"
+/*#include "ui.h"
 #include "utils.h"
 UI initUI()
 {
@@ -38,4 +38,4 @@ SDL_Surface *generateSurfaces(UI ui)
 UI initTimer(SDL_Surface timer, UI ui)
 {
     sprintf(ui.secondsChar, "%d", seconds);
-}
+}*/

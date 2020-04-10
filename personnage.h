@@ -3,19 +3,16 @@
 
 typedef struct personnage
 {
-    int hp;
-    int velocity;
-    int acceleration;
+
     int speed;
     int frameImmuninty;
     int posX;
     int posY;
     int animationFrame;
-    int animationFramesTotal;
-    int direction;
+    int direction; // 0 : right / 1 : left
     SDL_Surface *currentFrame;
 } Personnage;
 
 void affichePersonnage(Personnage personnage, SDL_Surface *background);
 Personnage initPersonnage();
-void loadSprite(Personnage *personnage);
+Personnage loadSprite(Personnage personnage, int direction);

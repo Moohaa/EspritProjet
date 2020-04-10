@@ -79,11 +79,9 @@ int enigmeEventHandler(Enigme enigme, int type)
             switch (event.key.keysym.sym)
             {
             case (SDLK_a):
-                printf("AAAAAAAAAAAAAAAAA");
                 reponse = 1;
                 break;
             case (SDLK_z):
-                printf("ZZZZZZZZZZZZZZZZZZZZZ");
                 reponse = 2;
                 break;
             case (SDLK_e):
@@ -93,7 +91,6 @@ int enigmeEventHandler(Enigme enigme, int type)
                 reponse = 4;
                 break;
             case (SDLK_RETURN):
-                printf(" //reponse : %d / continueEnigme %d ", reponse, continueEnigme);
                 continueEnigme = 0;
                 return reponse;
                 break;
@@ -105,11 +102,11 @@ int enigmeEventHandler(Enigme enigme, int type)
     }
 }
 
-void EnigmePipeline()
+int EnigmePipeline()
 {
     Enigme enigme;
-
-    enigme = generateEnigme(1);
+    int a = rand() % 2;
+    enigme = generateEnigme(a);
     afficherEnigme(enigme, screen);
     int reponse = enigmeEventHandler(enigme, 0);
     SDL_Surface *reponseSurface;
@@ -124,4 +121,5 @@ void EnigmePipeline()
     apply_surface(0, 0, reponseSurface, screen, NULL);
     SDL_Flip(screen);
     SDL_Delay(3000);
+    return reponse;
 }

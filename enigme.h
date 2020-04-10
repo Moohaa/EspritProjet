@@ -21,4 +21,4 @@ Enigme loadRandomEnigmeFile();
 
 int randomEnigmeType();
 void afficherReponseEnigme(Enigme enigme, SDL_Surface *screen);
-void EnigmePipeline();
+int EnigmePipeline();
