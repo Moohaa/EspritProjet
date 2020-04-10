@@ -1,6 +1,7 @@
 #include "utils.h"
 #include "inits.h"
 #include "enigme.h"
+#include "gameplay.h"
 
 SDL_Surface *load_image(char filename[], int colorKey)
 {
@@ -302,6 +303,7 @@ void menuHandler(SDL_Event event, int state)
 
 void renderFrame(State state)
 {
+
     color.b = 255;
     if (!playState)
         initBg(screen, background);
@@ -317,7 +319,17 @@ void renderFrame(State state)
     }
     if (playState)
     {
-        EnigmePipeline();
+
+        if (inits == 0)
+        {
+            initGameplay();
+            inits = 1;
+        }
+        else
+        {
+            gameplayPipeline();
+        }
+        //EnigmePipeline();
     }
 }
 

@@ -84,3 +84,5 @@ int settingsState = 0;
 int volumeSlider = 0;
 
 int score = 0;
+
+int inits = 0;

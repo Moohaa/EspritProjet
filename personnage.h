@@ -13,6 +13,8 @@ typedef struct personnage
     SDL_Surface *currentFrame;
 } Personnage;
 
+extern Personnage personnage;
+
 void affichePersonnage(Personnage personnage, SDL_Surface *background);
 Personnage initPersonnage();
 Personnage loadSprite(Personnage personnage, int direction);

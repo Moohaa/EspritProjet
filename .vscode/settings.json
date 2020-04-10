@@ -13,6 +13,7 @@
         "numeric": "c",
         "inits.h": "c",
         "animation.h": "c",
-        "enig.h": "c"
+        "enig.h": "c",
+        "enigme.h": "c"
     }
 }

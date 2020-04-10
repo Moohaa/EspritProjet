@@ -26,7 +26,6 @@ typedef int State;
 #define ENIGMESTATIQUE 8
 
 #define MENU_FONT "assets/ttf/BMYEONSUNG_ttf.ttf"
-typedef struct personnage Personnage;
 extern SDL_Surface *hello;
 extern SDL_Surface *message;
 extern SDL_Surface *image;
@@ -41,8 +40,6 @@ extern SDL_Surface *menu3;
 extern SDL_Surface *menu1Hover;
 extern SDL_Surface *menu2Hover;
 extern SDL_Surface *menu3Hover;
-
-extern Personnage personnage;
 
 extern SDL_Surface *menuBackground;
 extern SDL_Surface *menuButtonNormalState;
@@ -119,3 +116,4 @@ extern int keyPressed;
 extern int score;
 
 extern Uint32 next_time;
+extern int inits;
