@@ -74,7 +74,9 @@ SDL_Surface *text2;
 SDL_Surface *text3;
 
 int FPS = 30;
-int musicVolume = 50;
+//////////////////////////////////////////////////
+int musicVolume = 0;
+//////////////////////////////////////////////////
 int frame = 1;
 int quit = 0;
 int menuSelect = 0;
