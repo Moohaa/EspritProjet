@@ -10,9 +10,8 @@ typedef struct enigme
     int reponseInt;
     int a;
     int b;
-    SDL_Surface *background;
     SDL_Surface *enigme;
-
+    int startTicks;
 } Enigme;
 
 void afficherEnigme(Enigme enigme, SDL_Surface *screen);

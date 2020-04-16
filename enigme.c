@@ -4,8 +4,10 @@ void afficherEnigme(Enigme enigme, SDL_Surface *screen)
 {
     if (enigme.type == 1)
     {
+
         apply_surface(0, 0, enigme.enigme, screen, NULL);
         SDL_Flip(screen);
+        apply_surface(0, 0, screen, enigmeTempImage, NULL);
         return;
     }
 
@@ -34,12 +36,14 @@ void afficherEnigme(Enigme enigme, SDL_Surface *screen)
     apply_surface(400, 300, question2, enigmeBackground, NULL);
     apply_surface(400, 400, question3, enigmeBackground, NULL);
     apply_surface(0, 0, enigmeBackground, screen, NULL);
+    apply_surface(0, 0, enigmeBackground, enigmeTempImage, NULL);
     SDL_Flip(screen);
 }
 
 Enigme generateEnigme(int type)
 {
     Enigme enigme;
+    enigme.startTicks = SDL_GetTicks();
     if (type == 0)
     {
         int a = rand() % 10 + 1;
@@ -59,6 +63,7 @@ Enigme loadRandomEnigmeFile()
 {
     Enigme enigme;
     enigme.type = 1;
+    enigme.startTicks = SDL_GetTicks();
     int a = rand() % 4 + 1;
     char filePath[50];
     sprintf(filePath, "assets/enigmes/%d.png", a);
@@ -72,7 +77,24 @@ int enigmeEventHandler(Enigme enigme, int type)
     int continueEnigme = 1;
     while (continueEnigme)
     {
-        SDL_WaitEvent(&event);
+
+        ////////////////////////////
+        int ticksNow = (SDL_GetTicks() - enigme.startTicks);
+        char timeString[40];
+        sprintf(timeString, "%d", ticksNow);
+        if (ticksNow > 2000)
+        {
+            return 1;
+        }
+        SDL_Surface *timeStringSurface = generateFontSurface(32, timeString, n_selected);
+        apply_surface(0, 0, enigmeTempImage, screen, NULL);
+        apply_surface(220, 500, timeStringSurface, screen, NULL);
+        SDL_Flip(screen);
+        SDL_FreeSurface(timeStringSurface);
+        SDL_FreeSurface(screen);
+        ////////////////////////////////
+
+        SDL_PollEvent(&event);
         switch (event.type)
         {
         case SDL_KEYDOWN:
@@ -108,9 +130,9 @@ int EnigmePipeline()
     int a = rand() % 2;
     enigme = generateEnigme(a);
     afficherEnigme(enigme, screen);
-    int reponse = enigmeEventHandler(enigme, 0);
+    int reponseX = enigmeEventHandler(enigme, 0);
     SDL_Surface *reponseSurface;
-    if (reponse == 4)
+    if (reponseX == 4)
     {
         reponseSurface = load_image("assets/enigmes/reponseOK.png", 0);
     }
@@ -120,6 +142,6 @@ int EnigmePipeline()
     }
     apply_surface(0, 0, reponseSurface, screen, NULL);
     SDL_Flip(screen);
-    SDL_Delay(3000);
-    return reponse;
+    SDL_Delay(500);
+    return reponseX;
 }

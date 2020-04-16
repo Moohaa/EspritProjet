@@ -9,8 +9,11 @@ void afficherPersonnage(Personnage personnage, SDL_Surface *screen)
 
 void initGameplay()
 {
+    int keyrepeat = SDL_EnableKeyRepeat(20, 64);
     personnage = initPersonnage();
     initEnnemi();
+    offsetBG = 0;
+    gameplayStartTick = SDL_GetTicks();
 }
 
 Personnage gameplayEventHandler(Personnage personnage)
@@ -22,12 +25,16 @@ Personnage gameplayEventHandler(Personnage personnage)
         switch (event.key.keysym.sym)
         {
         case SDLK_RIGHT:
+            offsetBG = offsetBG - 15;
+            ennemi1.posX = ennemi1.posX - 7;
+            ennemi2.posX = ennemi2.posX - 7;
             personnage.direction = 0;
-            personnage.posX = personnage.posX + 15;
             break;
         case SDLK_LEFT:
+            offsetBG = offsetBG + 15;
+            ennemi1.posX = ennemi1.posX + 7;
+            ennemi2.posX = ennemi2.posX + 7;
             personnage.direction = 1;
-            personnage.posX = personnage.posX - 15;
         default:
             break;
         }
@@ -35,7 +42,6 @@ Personnage gameplayEventHandler(Personnage personnage)
     case SDL_MOUSEBUTTONDOWN:
         if (mouseX > personnage.posX)
         {
-
             personnage.direction = 0;
             personnage.posX = personnage.posX + 15;
         }
@@ -94,14 +100,14 @@ int boundingBoxCollision(SDL_Rect A, SDL_Rect B)
     rightB = B.x + B.w;
     topB = B.y;
     bottomB = B.y + B.h;
-    /*  if (bottomA <= topB)
+    if (bottomA <= topB)
     {
         return 0;
     }
     if (topA >= bottomB)
     {
         return 0;
-    }*/
+    }
     if (rightA <= leftB)
     {
         return 0;
@@ -110,7 +116,6 @@ int boundingBoxCollision(SDL_Rect A, SDL_Rect B)
     {
         return 0;
     }
-    //If none of the sides from A are outside B
     return 1;
 }
 
@@ -135,24 +140,47 @@ int collisionDetection(Personnage personnage)
     if (boundingBoxCollision(a, b) == 1)
     {
         printf("Collision !\n");
+        return 1;
     }
     if (boundingBoxCollision(a, c) == 1)
     {
         printf("Collision !\n");
+        return 1;
     }
-    return 1;
+    return 0;
 }
 
-int perfectPixelCollision(SDL_Rect a, int x, int y)
+int perfectPixelCollision(Personnage personnage, int x, int y)
 {
-    return;
+    SDL_Color collisionColor;
+    collisionColor.b = 0;
+    collisionColor.r = 0;
+    collisionColor.g = 255;
+    int X5 = personnage.posX;
+    int Y5 = personnage.posY + personnage.currentFrame->h;
+    int X6 = (personnage.posX + personnage.currentFrame->w) / 2;
+    int X7 = personnage.posX + personnage.currentFrame->w;
+    SDL_Color color1 = GetPixel(gameBackgroundMask, X5, Y5);
+    SDL_Color color2 = GetPixel(gameBackgroundMask, X6, Y5);
+    SDL_Color color3 = GetPixel(gameBackgroundMask, X7, Y5);
+    if ((collisionColor.b == color1.b && collisionColor.r == color1.r && collisionColor.g == color1.g))
+    {
+        return 1;
+    }
+    if ((collisionColor.b == color2.b && collisionColor.r == color2.r && collisionColor.g == color2.g))
+    {
+        return 1;
+    }
+    if ((collisionColor.b == color3.b && collisionColor.r == color3.r && collisionColor.g == color3.g))
+    {
+        return 1;
+    }
+    return 0;
 }
 
 void gameplayPipeline()
 {
-    SDL_Surface *background;
-    background = load_image("assets/bgGameplay.png", 0);
-    apply_surface(0, 0, background, screen, NULL);
+    apply_surface(offsetBG, 0, gameBackground, screen, NULL);
     personnage = loadSprite(personnage, personnage.direction);
     ennemi1 = loadSpriteEnnemi(ennemi1, 1);
     ennemi2 = loadSpriteEnnemi(ennemi2, 1);
@@ -160,5 +188,36 @@ void gameplayPipeline()
     personnage = gameplayEventHandler(personnage);
     afficherEntitiesSecondaires();
     moveEnnemies();
-    collisionDetection(personnage);
+    char uiString[40];
+
+    sprintf(uiString, "Vies: %d || Score : %d", vies, score);
+    SDL_Color colorUI;
+    colorUI.b = 0;
+    colorUI.r = 255;
+    colorUI.g = 0;
+
+    char gameplayTimeString[20];
+    sprintf(gameplayTimeString, "%d", SDL_GetTicks() - gameplayStartTick);
+    SDL_Surface *gameplayTimeSurface = generateFontSurface(32, gameplayTimeString, n_selected);
+    apply_surface(220, 500, gameplayTimeString, screen, NULL);
+
+    SDL_Flip(screen);
+    SDL_Surface *uiStringSurface = generateFontSurface(32, uiString, colorUI);
+    apply_surface(SCREEN_WIDTH / 2, 20, uiStringSurface, screen, NULL);
+    if (collisionDetection(personnage) == 1)
+    {
+        int enigmeReponse = EnigmePipeline();
+        if (enigmeReponse == 4)
+        {
+            personnage.posX = personnage.posX + 200;
+            ennemi1 = killEnnemy(ennemi1);
+            score = score + 100;
+        }
+        else if (enigmeReponse == 1 || enigmeReponse == 2 || enigmeReponse == 3)
+        {
+            vies = vies - 1;
+            score = score - 100;
+        }
+        printf("vies %d score %d", vies, score);
+    }
 }

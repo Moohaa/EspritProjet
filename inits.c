@@ -11,6 +11,8 @@ int initAll()
     loadMenuFiles();
     Mix_Volume(-1, musicVolume);
     Mix_VolumeMusic(musicVolume);
+    gameBackground = load_image("assets/back.png", 0);
+    gameBackgroundMask = load_image("assets/back_m.png", 0);
 }
 
 int loadMusic()

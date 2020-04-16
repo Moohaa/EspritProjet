@@ -1,3 +1,4 @@
+
 #include "SDL/SDL.h"
 #include "SDL/SDL_image.h"
 #include "SDL/SDL_ttf.h"
@@ -113,7 +114,15 @@ extern SDL_Surface *exitText;
 
 extern int keyPressed;
 
-extern int score;
-
 extern Uint32 next_time;
 extern int inits;
+
+extern SDL_Surface *gameBackground;
+extern SDL_Surface *gameBackgroundMask;
+
+extern int offsetBG;
+extern int score;
+extern int vies;
+
+extern SDL_Surface *enigmeTempImage;
+extern int gameplayStartTick;

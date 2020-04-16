@@ -8,8 +8,8 @@ void initEnnemi()
 {
     ennemi1.posX = 700;
     ennemi2.posX = 400;
-    ennemi1.posY = 600;
-    ennemi2.posY = 600;
+    ennemi1.posY = 485;
+    ennemi2.posY = 485;
     ennemi1.posXDeb = 700;
     ennemi1.posXFin = 900;
     ennemi2.posXDeb = 350;
@@ -28,14 +28,16 @@ Ennemi loadSpriteEnnemi(Ennemi ennemi, int direction)
     char filepath[50];
     if (direction == 1)
     {
-        sprintf(filepath, "personnages/ennemi/%d/el%d.png", direction, ennemi.animationFrame);
+        sprintf(filepath, "personnagesG/ennemi/%d/el%d.png", direction, ennemi.animationFrame);
     }
     else
     {
-        sprintf(filepath, "personnages/ennemi/%d/er%d.png", direction, ennemi.animationFrame);
+        sprintf(filepath, "personnagesG/ennemi/%d/er%d.png", direction, ennemi.animationFrame);
     }
 
     ennemi.currentFrame = load_image(filepath, 0);
+    Uint32 colorkey = SDL_MapRGB(ennemi.currentFrame->format, 0, 0xFF, 0);
+    SDL_SetColorKey(ennemi.currentFrame, SDL_SRCCOLORKEY, colorkey);
     ennemi.animationFrame = ennemi.animationFrame + 1;
     if (ennemi.animationFrame > 7)
     {
@@ -47,4 +49,10 @@ void remplirTableauEnnemi()
 {
     ennemis[0] = ennemi1;
     ennemis[1] = ennemi2;
+}
+
+Ennemi killEnnemy(Ennemi ennemi)
+{
+    ennemi.posY = -100;
+    return ennemi;
 }

@@ -20,3 +20,4 @@ void afficheEnnemi(Ennemi ennemi, SDL_Surface *background);
 void initEnnemi();
 Ennemi loadSpriteEnnemi(Ennemi ennemi, int direction);
 void remplirTableauEnnemi();
+Ennemi killEnnemy(Ennemi ennemi);

@@ -1,3 +1,4 @@
+
 #include "utils.h"
 #include "inits.h"
 #include "enigme.h"
@@ -328,8 +329,8 @@ void renderFrame(State state)
         else
         {
             gameplayPipeline();
+            //EnigmePipeline();
         }
-        //EnigmePipeline();
     }
 }
 
@@ -339,4 +340,18 @@ void renderGameFrame()
 
 void gameHandler(SDL_Event event, int state)
 {
+}
+
+SDL_Color GetPixel(SDL_Surface *pSurface, int x, int y)
+{
+    SDL_Color color;
+    Uint32 col = 0;
+    //Determine position
+    char *pPosition = (char *)pSurface->pixels;
+    pPosition += (pSurface->pitch * y);
+    pPosition += (pSurface->format->BytesPerPixel * x);
+    memcpy(&col, pPosition, pSurface->format->BytesPerPixel);
+    //convertir color
+    SDL_GetRGB(col, pSurface->format, &color.r, &color.g, &color.b);
+    return (color);
 }

@@ -15,6 +15,9 @@
         "animation.h": "c",
         "enig.h": "c",
         "enigme.h": "c",
-        "gameplay.h": "c"
+        "gameplay.h": "c",
+        "ennemies.h": "c",
+        "personnage.h": "c",
+        "random": "c"
     }
 }

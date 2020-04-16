@@ -1,13 +1,15 @@
+
+direction ennemi ma3adech tekhdem for some reason ????
+
+
 ------------after----------
 Gestion de temps dans le jeu et dans l'énigme	2 AHMED	
+-------------- DONE 3---------------------------
 Scrolling (verticale et/ou horizontale)	3 AHMED
-Gestion de vie et score	1  RAED //
-Détection de collision entre un personnage et le background (perfect pixel) 2 NASSIM 
 integration
------------TODO--------------
-
-
-------DONE 2-------------
+Détection de collision entre un personnage et le background (perfect pixel) 2 NASSIM 
+Gestion de vie et score	1  RAED //
+------------DONE 2-------------
 Initialiser personnage	1 MAHMOUD
 Détection de collision entre deux entités en mouvement: Bounding box 2 : MAHMOUD
 Déplacer aléatoirement une entité secondaire	3
@@ -18,7 +20,7 @@ Afficher les entités secondaires 1 AHMED
 Animation Personnage (à gauche et à droite)	3 MAHMOUD
 Déplacer Personnage moyennant la souris	3 	RAED
 Afficher Personnage : HOUSSEM 
------------DONE----------------
+------------DONE----------------
 Génération aléatoire de l'enigme (avec ou sans fichier)	3 	HAZEM //
 Génération automatique d'une réponse à l'enigme ( si sans fichier ) 3 NASSIM //
 Résolution Énigme	2 HAZEM ///

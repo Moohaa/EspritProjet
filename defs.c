@@ -85,6 +85,15 @@ int keyPressed = 0;
 int settingsState = 0;
 int volumeSlider = 0;
 
-int score = 0;
-
 int inits = 0;
+
+SDL_Surface *gameBackground;
+SDL_Surface *gameBackgroundMask;
+
+int offsetBG = 0;
+int score = 500;
+int vies = 3;
+
+SDL_Surface *enigmeTempImage;
+
+int gameplayStartTick;
