@@ -1,3 +1,13 @@
+/**
+* @file enigme.c
+* @brief riddle functions
+* @author Creative Sparks
+* @version 2.0
+* @date 2020
+*
+*
+*/
+
 #include "enigme.h"
 
 void afficherEnigme(Enigme enigme, SDL_Surface *screen)

@@ -1,3 +1,13 @@
+/**
+* @file personnage.c
+* @brief  game character functions implementation 
+* @author Creative Sparks
+* @version 2.0
+* @date 2020
+*
+*
+*/
+
 #include "personnage.h"
 
 void affichePersonnage(Personnage personnage, SDL_Surface *screen)

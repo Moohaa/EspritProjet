@@ -1,3 +1,13 @@
+/**
+* @file defs.c
+* @brief global variables
+* @author Creative Sparks
+* @version 2.0
+* @date 2020
+*
+* declaration of global variables used by the game
+*/
+
 #include "defs.h"
 
 SDL_Surface *hello;

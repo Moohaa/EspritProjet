@@ -1,3 +1,14 @@
+/**
+* @file main.c
+* @brief main program file.
+* @author Creative Sparks
+* @version 2.0
+* @date 2020
+*
+* main program 
+*
+*/
+
 #include "utils.h"
 #include "inits.h"
 

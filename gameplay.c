@@ -1,3 +1,14 @@
+/**
+* @file gameplay.c
+* @brief in-game gameplay source code 
+* @author Creative Sparks
+* @version 2.0
+* @date 2020
+*
+* 
+*
+*/
+
 #include "gameplay.h"
 
 Personnage personnage;
@@ -18,7 +29,7 @@ void initGameplay()
 
 Personnage gameplayEventHandler(Personnage personnage)
 {
-    SDL_WaitEvent(&event);
+    SDL_PollEvent(&event);
     switch (event.type)
     {
     case SDL_KEYDOWN:
@@ -62,18 +73,23 @@ void moveEnnemies()
     if (a == 0)
     {
         ennemi1.posX = ennemi1.posX - 10;
+        ennemi1.direction = 1;
     }
     else
     {
+        ennemi1.direction = 0;
         ennemi1.posX = ennemi1.posX + 10;
     }
     a = rand() % 2;
     if (a == 0)
     {
+        ennemi2.direction = 1;
         ennemi2.posX = ennemi2.posX - 10;
     }
     else
     {
+
+        ennemi2.direction = 0;
         ennemi2.posX = ennemi2.posX + 10;
     }
 }
@@ -178,12 +194,27 @@ int perfectPixelCollision(Personnage personnage, int x, int y)
     return 0;
 }
 
+int ennemyVision(Ennemi ennemi)
+{
+    if (ennemi.posX - personnage.posX < 200 && ennemi.posX - personnage.posX > 0)
+    {
+        ennemi.posX = ennemi.posX - 10;
+        return 1;
+    }
+    else if (ennemi.posX - personnage.posX > -200 && ennemi.posX - personnage.posX < 0)
+    {
+        ennemi.posX = ennemi.posX + 10;
+        return 1;
+    }
+    return 0;
+}
+
 void gameplayPipeline()
 {
     apply_surface(offsetBG, 0, gameBackground, screen, NULL);
     personnage = loadSprite(personnage, personnage.direction);
-    ennemi1 = loadSpriteEnnemi(ennemi1, 1);
-    ennemi2 = loadSpriteEnnemi(ennemi2, 1);
+    ennemi1 = loadSpriteEnnemi(ennemi1, ennemi1.direction);
+    ennemi2 = loadSpriteEnnemi(ennemi2, ennemi1.direction);
     affichePersonnage(personnage, screen);
     personnage = gameplayEventHandler(personnage);
     afficherEntitiesSecondaires();
@@ -196,14 +227,17 @@ void gameplayPipeline()
     colorUI.r = 255;
     colorUI.g = 0;
 
+    ///////////////
     char gameplayTimeString[20];
-    sprintf(gameplayTimeString, "%d", SDL_GetTicks() - gameplayStartTick);
-    SDL_Surface *gameplayTimeSurface = generateFontSurface(32, gameplayTimeString, n_selected);
-    apply_surface(220, 500, gameplayTimeString, screen, NULL);
+    sprintf(gameplayTimeString, "Temps passe : %d ", (SDL_GetTicks() - gameplayStartTick) / 1000);
+    SDL_Surface *gameplayTimeSurface = generateFontSurface(32, gameplayTimeString, colorUI);
+    apply_surface(50, 650, gameplayTimeSurface, screen, NULL);
+    SDL_FreeSurface(gameplayTimeSurface);
+    ////////////////
 
     SDL_Flip(screen);
     SDL_Surface *uiStringSurface = generateFontSurface(32, uiString, colorUI);
-    apply_surface(SCREEN_WIDTH / 2, 20, uiStringSurface, screen, NULL);
+    apply_surface(SCREEN_WIDTH / 2, 650, uiStringSurface, screen, NULL);
     if (collisionDetection(personnage) == 1)
     {
         int enigmeReponse = EnigmePipeline();

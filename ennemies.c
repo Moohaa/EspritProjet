@@ -1,3 +1,13 @@
+/**
+* @file ennemies.c
+* @brief game ennemies functions
+* @author Creative Sparks
+* @version 2.0
+* @date 2020
+*
+*
+*/
+
 #include "ennemies.h"
 
 Ennemi ennemi1;
@@ -7,7 +17,7 @@ Ennemi ennemis[2];
 void initEnnemi()
 {
     ennemi1.posX = 700;
-    ennemi2.posX = 400;
+    ennemi2.posX = 1400;
     ennemi1.posY = 485;
     ennemi2.posY = 485;
     ennemi1.posXDeb = 700;

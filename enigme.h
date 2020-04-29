@@ -1,3 +1,13 @@
+/**
+* @file enigme.h
+* @brief riddle struct and function prototypes
+* @author Creative Sparks
+* @version 2.0
+* @date 2020
+*
+*
+*/
+
 #include "defs.h"
 #include "utils.h"
 

@@ -1,3 +1,13 @@
+/**
+* @file utils.h
+* @brief many utilities and helper functions
+* @author Creative Sparks
+* @version 2.0
+* @date 2020
+*
+* Functions that simplify SDL default functions and other function used by the game 
+*
+*/
 
 #include "defs.h"
 

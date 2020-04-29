@@ -1,3 +1,13 @@
+/**
+* @file gameplay.h
+* @brief in-game function prototypes
+* @author Creative Sparks
+* @version 2.0
+* @date 2020
+*
+*
+*/
+
 #include "defs.h"
 #include "personnage.h"
 #include "ennemies.h"
@@ -10,3 +20,4 @@ int perfectPixelCollision(Personnage personnage, int x, int y);
 void initGameplay();
 void moveEnnemies();
 void gameplayPipeline();
+int ennemyVision(Ennemi ennemi);

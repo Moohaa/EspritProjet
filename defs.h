@@ -1,3 +1,12 @@
+/**
+* @file defs.h
+* @brief global variables definitions
+* @author Creative Sparks
+* @version 2.0
+* @date 2020
+*
+*
+*/
 
 #include "SDL/SDL.h"
 #include "SDL/SDL_image.h"

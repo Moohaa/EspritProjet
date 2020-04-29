@@ -53,7 +53,6 @@ Uint32 time_left(void)
 
 void frameLimiter(Uint32 start_time)
 {
-
     unsigned int elapsed;
     unsigned int lasttime = SDL_GetTicks();
     SDL_Flip(screen);

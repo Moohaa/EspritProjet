@@ -1,3 +1,13 @@
+/**
+* @file inits.c
+* @brief  initialisation functions implementation 
+* @author Creative Sparks
+* @version 2.0
+* @date 2020
+*
+*
+*/
+
 #include "utils.h"
 #include "inits.h"
 
