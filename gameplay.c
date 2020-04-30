@@ -25,6 +25,8 @@ void initGameplay()
     initEnnemi();
     offsetBG = 0;
     gameplayStartTick = SDL_GetTicks();
+    minimap = load_image("assets/minimap.png", 0);
+    minimapIcon = load_image("assets/minimap icon.png", 0);
 }
 
 Personnage gameplayEventHandler(Personnage personnage)
@@ -97,7 +99,6 @@ void afficherEntitiesSecondaires()
 {
     afficheEnnemi(ennemi1, screen);
     afficheEnnemi(ennemi2, screen);
-    SDL_Flip(screen);
 }
 
 int boundingBoxCollision(SDL_Rect A, SDL_Rect B)
@@ -209,6 +210,50 @@ int ennemyVision(Ennemi ennemi)
     return 0;
 }
 
+void moveSeenEnnemies()
+{
+    if (ennemyVision(ennemi2) == 1)
+    {
+        if (ennemi2.direction == 1)
+        {
+            ennemi2.posX = ennemi2.posX - 50;
+        }
+        else
+        {
+            ennemi2.posX = ennemi2.posX + 50;
+        }
+    }
+    if (ennemyVision(ennemi1) == 1)
+    {
+        if (ennemi1.direction == 1)
+        {
+            ennemi1.posX = ennemi1.posX - 50;
+        }
+        else
+        {
+            ennemi1.posX = ennemi1.posX + 50;
+        }
+    }
+}
+
+void showGameOverScreen()
+{
+    SDL_Surface *endScreen;
+    endScreen = load_image("assets/enigmes/enigme1F.png", 0);
+    apply_surface(0, 0, endScreen, screen, NULL);
+    SDL_Surface *gameOverText;
+    char gameOver[50];
+    sprintf(gameOver, "Game Over, Score: %d , Time : %d", score, 1);
+    gameOverText = generateFontSurface(32, gameOver, n_selected);
+    apply_surface(200, 200, gameOverText, screen, NULL);
+    SDL_FreeSurface(gameOverText);
+    SDL_Flip(screen);
+}
+
+void showMinimap()
+{
+}
+
 void gameplayPipeline()
 {
     apply_surface(offsetBG, 0, gameBackground, screen, NULL);
@@ -218,7 +263,10 @@ void gameplayPipeline()
     affichePersonnage(personnage, screen);
     personnage = gameplayEventHandler(personnage);
     afficherEntitiesSecondaires();
-    moveEnnemies();
+    //moveEnnemies();
+    /////////////////
+    moveSeenEnnemies();
+    ////////////////////
     char uiString[40];
 
     sprintf(uiString, "Vies: %d || Score : %d", vies, score);
@@ -234,7 +282,14 @@ void gameplayPipeline()
     apply_surface(50, 650, gameplayTimeSurface, screen, NULL);
     SDL_FreeSurface(gameplayTimeSurface);
     ////////////////
+    ///////////////////////
+    //showGameOverScreen();
+    ////////////////////////
 
+    ////////ROTOZOOM
+
+    apply_surface(SCREEN_WIDTH - minimap->w, 0, minimap, screen, NULL);
+    apply_surface(SCREEN_WIDTH - minimap->w - (offsetBG / 14.5), 30, minimapIcon, screen, NULL);
     SDL_Flip(screen);
     SDL_Surface *uiStringSurface = generateFontSurface(32, uiString, colorUI);
     apply_surface(SCREEN_WIDTH / 2, 650, uiStringSurface, screen, NULL);

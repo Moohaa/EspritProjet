@@ -107,3 +107,8 @@ int vies = 3;
 SDL_Surface *enigmeTempImage;
 
 int gameplayStartTick;
+
+SDL_Surface *minimap;
+SDL_Surface *minimapIcon;
+int posXminimapIcon;
+int posYminimapIcon;

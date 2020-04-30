@@ -15,12 +15,16 @@ typedef struct personnage
 {
 
     int speed;
-    int frameImmuninty;
     int posX;
     int posY;
     int animationFrame;
     int direction; // 0 : right / 1 : left
     SDL_Surface *currentFrame;
+    int model;
+    int acceleration;
+    int maxSpeed;
+    int currentSpeed;
+    int resetSpeed;
 } Personnage;
 
 extern Personnage personnage;
@@ -28,3 +32,4 @@ extern Personnage personnage;
 void affichePersonnage(Personnage personnage, SDL_Surface *background);
 Personnage initPersonnage();
 Personnage loadSprite(Personnage personnage, int direction);
+Personnage setModel(Personnage personngage, int model);

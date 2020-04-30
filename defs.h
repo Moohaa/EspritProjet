@@ -14,6 +14,7 @@
 #include "SDL/SDL_mixer.h"
 #include "SDL/SDL_timer.h"
 #include "SDL/SDL_audio.h"
+#include "SDL/SDL_rotozoom.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -135,3 +136,8 @@ extern int vies;
 
 extern SDL_Surface *enigmeTempImage;
 extern int gameplayStartTick;
+
+extern SDL_Surface *minimap;
+extern SDL_Surface *minimapIcon;
+extern int posXminimapIcon;
+extern int posYminimapIcon;

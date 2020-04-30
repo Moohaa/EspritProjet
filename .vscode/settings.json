@@ -18,6 +18,9 @@
         "gameplay.h": "c",
         "ennemies.h": "c",
         "personnage.h": "c",
-        "random": "c"
+        "random": "c",
+        "sdl_audio.h": "c",
+        "sdl_rotozoom.h": "c",
+        "sdl_ttf.h": "c"
     }
 }
