@@ -104,6 +104,10 @@ int offsetBG = 0;
 int score = 500;
 int vies = 3;
 
+int offsetBG2 = 0;
+int score2 = 500;
+int vies2 = 3;
+
 SDL_Surface *enigmeTempImage;
 
 int gameplayStartTick;

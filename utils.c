@@ -327,7 +327,9 @@ void renderFrame(State state)
         }
         else
         {
-            gameplayPipeline();
+            //gameplayPipeline();
+            gameplayPipelineMulti();
+
             //EnigmePipeline();
         }
     }

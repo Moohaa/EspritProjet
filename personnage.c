@@ -26,6 +26,17 @@ Personnage initPersonnage()
     return personnage;
 }
 
+Personnage initPersonnage2()
+{
+    Personnage personnage;
+    personnage.animationFrame = 1;
+    personnage.direction = 0;
+    personnage.posX = 100;
+    personnage.posY = 485 - 378;
+    personnage.model = 1;
+    return personnage;
+}
+
 Personnage loadSprite(Personnage personnage, int direction)
 {
 
@@ -59,7 +70,6 @@ Personnage loadSprite(Personnage personnage, int direction)
     }
     return personnage;
 }
-
 Personnage setModel(Personnage personngage, int model)
 {
     personnage.model = model;

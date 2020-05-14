@@ -24,6 +24,9 @@ typedef struct ennemi
 
 extern Ennemi ennemi1;
 extern Ennemi ennemi2;
+extern Ennemi ennemi3;
+extern Ennemi ennemi4;
+
 extern Ennemi ennemis[2];
 
 void afficheEnnemi(Ennemi ennemi, SDL_Surface *background);

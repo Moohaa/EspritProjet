@@ -12,6 +12,8 @@
 
 Ennemi ennemi1;
 Ennemi ennemi2;
+Ennemi ennemi3;
+Ennemi ennemi4;
 Ennemi ennemis[2];
 
 void initEnnemi()
@@ -26,6 +28,17 @@ void initEnnemi()
     ennemi2.posXDeb = 500;
     ennemi1.animationFrame = 0;
     ennemi2.animationFrame = 0;
+    ///
+    ennemi3.posX = 700;
+    ennemi4.posX = 1400;
+    ennemi3.posY = 485 - 378;
+    ennemi4.posY = 485 - 378;
+    ennemi3.posXDeb = 700;
+    ennemi3.posXFin = 900;
+    ennemi4.posXDeb = 350;
+    ennemi4.posXDeb = 500;
+    ennemi3.animationFrame = 0;
+    ennemi4.animationFrame = 0;
 }
 
 void afficheEnnemi(Ennemi ennemi, SDL_Surface *background)

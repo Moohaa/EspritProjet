@@ -12,6 +12,7 @@
 #include "gameplay.h"
 
 Personnage personnage;
+Personnage personnage2;
 
 void afficherPersonnage(Personnage personnage, SDL_Surface *screen)
 {
@@ -22,8 +23,10 @@ void initGameplay()
 {
     int keyrepeat = SDL_EnableKeyRepeat(20, 64);
     personnage = initPersonnage();
+    personnage2 = initPersonnage2();
     initEnnemi();
     offsetBG = 0;
+    offsetBG2 = 0;
     gameplayStartTick = SDL_GetTicks();
     minimap = load_image("assets/minimap.png", 0);
     minimapIcon = load_image("assets/minimap icon.png", 0);
@@ -48,6 +51,19 @@ Personnage gameplayEventHandler(Personnage personnage)
             ennemi1.posX = ennemi1.posX + 7;
             ennemi2.posX = ennemi2.posX + 7;
             personnage.direction = 1;
+            break;
+        case SDLK_q:
+            offsetBG2 = offsetBG2 + 15;
+            ennemi3.posX = ennemi3.posX + 7;
+            ennemi4.posX = ennemi4.posX + 7;
+            personnage2.direction = 1;
+            break;
+        case SDLK_d:
+            offsetBG2 = offsetBG2 - 15;
+            ennemi3.posX = ennemi3.posX - 7;
+            ennemi4.posX = ennemi4.posX - 7;
+            personnage2.direction = 0;
+            break;
         default:
             break;
         }
@@ -90,7 +106,6 @@ void moveEnnemies()
     }
     else
     {
-
         ennemi2.direction = 0;
         ennemi2.posX = ennemi2.posX + 10;
     }
@@ -99,6 +114,8 @@ void afficherEntitiesSecondaires()
 {
     afficheEnnemi(ennemi1, screen);
     afficheEnnemi(ennemi2, screen);
+    afficheEnnemi(ennemi3, screen);
+    afficheEnnemi(ennemi4, screen);
 }
 
 int boundingBoxCollision(SDL_Rect A, SDL_Rect B)
@@ -254,12 +271,84 @@ void showMinimap()
 {
 }
 
+void aiMove()
+{
+    offsetBG2 = offsetBG2 - 7;
+}
+
+void gameplayPipelineMulti()
+{
+    apply_surface(offsetBG, 0, gameBackground, screen, NULL);
+    apply_surface(offsetBG2, -375, gameBackground, screen, NULL);
+
+    personnage = loadSprite(personnage, personnage.direction);
+    personnage2 = loadSprite(personnage2, personnage2.direction);
+
+    ennemi1 = loadSpriteEnnemi(ennemi1, ennemi1.direction);
+    ennemi2 = loadSpriteEnnemi(ennemi2, ennemi2.direction);
+    ennemi3 = loadSpriteEnnemi(ennemi3, ennemi3.direction);
+    ennemi4 = loadSpriteEnnemi(ennemi4, ennemi4.direction);
+
+    affichePersonnage(personnage, screen);
+    affichePersonnage(personnage2, screen);
+
+    //aiMove();
+    personnage = gameplayEventHandler(personnage);
+    afficherEntitiesSecondaires();
+    //moveEnnemies();
+    /////////////////
+    moveSeenEnnemies();
+    ////////////////////
+    char uiString[40];
+
+    sprintf(uiString, "Vies: %d || Score : %d", vies, score);
+    SDL_Color colorUI;
+    colorUI.b = 0;
+    colorUI.r = 255;
+    colorUI.g = 0;
+
+    ///////////////
+    char gameplayTimeString[20];
+    sprintf(gameplayTimeString, "Temps passe : %d ", (SDL_GetTicks() - gameplayStartTick) / 1000);
+    SDL_Surface *gameplayTimeSurface = generateFontSurface(32, gameplayTimeString, colorUI);
+    apply_surface(50, 650, gameplayTimeSurface, screen, NULL);
+    SDL_FreeSurface(gameplayTimeSurface);
+    ////////////////
+    ///////////////////////
+    //showGameOverScreen();
+    ////////////////////////
+
+    ////////ROTOZOOM
+
+    apply_surface(SCREEN_WIDTH - minimap->w, 0, minimap, screen, NULL);
+    apply_surface(SCREEN_WIDTH - minimap->w - (offsetBG / 14.5), 30, minimapIcon, screen, NULL);
+    SDL_Flip(screen);
+    SDL_Surface *uiStringSurface = generateFontSurface(32, uiString, colorUI);
+    apply_surface(SCREEN_WIDTH / 2, 650, uiStringSurface, screen, NULL);
+    if (collisionDetection(personnage) == 1)
+    {
+        int enigmeReponse = EnigmePipeline();
+        if (enigmeReponse == 4)
+        {
+            personnage.posX = personnage.posX + 200;
+            ennemi1 = killEnnemy(ennemi1);
+            score = score + 100;
+        }
+        else if (enigmeReponse == 1 || enigmeReponse == 2 || enigmeReponse == 3)
+        {
+            vies = vies - 1;
+            score = score - 100;
+        }
+        printf("vies %d score %d", vies, score);
+    }
+}
+
 void gameplayPipeline()
 {
     apply_surface(offsetBG, 0, gameBackground, screen, NULL);
     personnage = loadSprite(personnage, personnage.direction);
     ennemi1 = loadSpriteEnnemi(ennemi1, ennemi1.direction);
-    ennemi2 = loadSpriteEnnemi(ennemi2, ennemi1.direction);
+    ennemi2 = loadSpriteEnnemi(ennemi2, ennemi2.direction);
     affichePersonnage(personnage, screen);
     personnage = gameplayEventHandler(personnage);
     afficherEntitiesSecondaires();

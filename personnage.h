@@ -28,8 +28,10 @@ typedef struct personnage
 } Personnage;
 
 extern Personnage personnage;
+extern Personnage personnage2;
 
 void affichePersonnage(Personnage personnage, SDL_Surface *background);
 Personnage initPersonnage();
+Personnage initPersonnage2();
 Personnage loadSprite(Personnage personnage, int direction);
 Personnage setModel(Personnage personngage, int model);

@@ -20,4 +20,5 @@ int perfectPixelCollision(Personnage personnage, int x, int y);
 void initGameplay();
 void moveEnnemies();
 void gameplayPipeline();
+void gameplayPipelineMulti();
 int ennemyVision(Ennemi ennemi);

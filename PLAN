@@ -1,23 +1,22 @@
 Amélioration du menu (choix des touches/ manette/souris ), choix du personnage 2
-Partage d'écran 2
-IA 2: jouer contre ordinateur 3
+Ajout de la vitesse et l'accélération. 2
 Ajout d'autres énigmes (consistance selon difficulte) *
+ajout du saut du personnage principal 3
 
 Utilisation de l'allocation dynamique optionnelle
 ////////////////////////////////
 DOABLE
 
-Ajout de la vitesse et l'accélération. 2
-ajout du saut du personnage principal 3
-Ajout du sous menu de sauvegarde :
-    1. Suite à l'appui sur la touche échap : Sauvegarder ? oui ou non
-    2. Lors du lancement du jeu : Jouer une nouvelle partie, ou Continuer une ancienne partie 3
-
+Partage d'écran 2
+IA 2: jouer contre ordinateur 3
 
 Intégration finale 3
 //////////////////////////////////
 DONE
 
+Ajout du sous menu de sauvegarde :
+    1. Suite à l'appui sur la touche échap : Sauvegarder ? oui ou non
+    2. Lors du lancement du jeu : Jouer une nouvelle partie, ou Continuer une ancienne partie 3
 
 Mini Map: Affichage d'un petite interface au milieu de l'écran indiquant la position d'un joueur par rapport a l'autre dans la Map 2
 Ajout d'un deuxième personnage : declaration d'une deuxieme variable perso + appel des fonctions 3

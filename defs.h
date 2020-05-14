@@ -134,6 +134,10 @@ extern int offsetBG;
 extern int score;
 extern int vies;
 
+extern int offsetBG2;
+extern int score2;
+extern int vies2;
+
 extern SDL_Surface *enigmeTempImage;
 extern int gameplayStartTick;
 
