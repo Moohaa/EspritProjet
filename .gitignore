@@ -22,14 +22,6 @@
 *.la
 *.lo
 
-# Assets
-*.jpg
-*.png
-*.mp3
-*.wav
-*.bmp
-*.ttf
-
 # Shared objects (inc. Windows DLLs)
 *.dll
 *.so
@@ -54,15 +46,11 @@
 *.mod*
 *.cmd
 .tmp_versions/
-assets/
+assets/newan/
 modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
 html/
 latex/
-personnages/
-personnagesG/
-m1/
-m2/
 .vscode/

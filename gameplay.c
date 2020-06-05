@@ -292,7 +292,7 @@ void gameplayPipelineMulti()
     affichePersonnage(personnage, screen);
     affichePersonnage(personnage2, screen);
 
-    //aiMove();
+    aiMove();
     personnage = gameplayEventHandler(personnage);
     afficherEntitiesSecondaires();
     //moveEnnemies();

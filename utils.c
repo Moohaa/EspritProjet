@@ -329,7 +329,6 @@ void renderFrame(State state)
         {
             //gameplayPipeline();
             gameplayPipelineMulti();
-
             //EnigmePipeline();
         }
     }
