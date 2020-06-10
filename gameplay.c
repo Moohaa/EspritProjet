@@ -14,6 +14,40 @@
 Personnage personnage;
 Personnage personnage2;
 
+void loadVars()
+{
+    SaveFile savefile;
+    FILE *file = fopen("save", "rb");
+    if (file != NULL)
+        if (file != NULL)
+        {
+            fread(&savefile, sizeof(SaveFile), 1, file);
+            fclose(file);
+        }
+    offsetBG = savefile.posX;
+    score = savefile.score;
+    personnage = savefile.personnage;
+    vies = savefile.vies;
+    ennemi1 = savefile.ennemi;
+    ennemi2 = savefile.ennemi2;
+}
+void SaveVars()
+{
+    SaveFile savefile;
+    savefile.posX = offsetBG;
+    savefile.score = score;
+    savefile.vies = vies;
+    savefile.personnage = personnage;
+    savefile.ennemi = ennemi1;
+    savefile.ennemi2 = ennemi2;
+    FILE *file = fopen("save", "wb");
+    if (file != NULL)
+    {
+        fwrite(&savefile, sizeof(SaveFile), 1, file);
+        fclose(file);
+    }
+}
+
 void afficherPersonnage(Personnage personnage, SDL_Surface *screen)
 {
     apply_surface(personnage.posX, personnage.posY, personnage.currentFrame, screen, NULL);
@@ -57,6 +91,14 @@ Personnage gameplayEventHandler(Personnage personnage)
             ennemi3.posX = ennemi3.posX + 7;
             ennemi4.posX = ennemi4.posX + 7;
             personnage2.direction = 1;
+            break;
+        case SDLK_u:
+            SaveVars();
+            printf("saved  ? ");
+            break;
+        case SDLK_i:
+            loadVars();
+            printf("Loaded ? ");
             break;
         case SDLK_d:
             offsetBG2 = offsetBG2 - 15;
@@ -320,8 +362,8 @@ void gameplayPipelineMulti()
 
     ////////ROTOZOOM
 
-    apply_surface(SCREEN_WIDTH - minimap->w, 0, minimap, screen, NULL);
-    apply_surface(SCREEN_WIDTH - minimap->w - (offsetBG / 14.5), 30, minimapIcon, screen, NULL);
+    //apply_surface(SCREEN_WIDTH - minimap->w, 0, minimap, screen, NULL);
+    //apply_surface(SCREEN_WIDTH - minimap->w - (offsetBG / 14.5), 30, minimapIcon, screen, NULL);
     SDL_Flip(screen);
     SDL_Surface *uiStringSurface = generateFontSurface(32, uiString, colorUI);
     apply_surface(SCREEN_WIDTH / 2, 650, uiStringSurface, screen, NULL);
