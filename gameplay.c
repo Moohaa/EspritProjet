@@ -283,22 +283,22 @@ void moveSeenEnnemies()
     {
         if (ennemi2.direction == 1)
         {
-            ennemi2.posX = ennemi2.posX - 50;
+            ennemi2.posX = ennemi2.posX - 5;
         }
         else
         {
-            ennemi2.posX = ennemi2.posX + 50;
+            ennemi2.posX = ennemi2.posX + 5;
         }
     }
     if (ennemyVision(ennemi1) == 1)
     {
         if (ennemi1.direction == 1)
         {
-            ennemi1.posX = ennemi1.posX - 50;
+            ennemi1.posX = ennemi1.posX - 5;
         }
         else
         {
-            ennemi1.posX = ennemi1.posX + 50;
+            ennemi1.posX = ennemi1.posX + 5;
         }
     }
 }
@@ -341,8 +341,10 @@ void gameplayPipelineMulti()
 
     affichePersonnage(personnage, screen);
     affichePersonnage(personnage2, screen);
-
-    aiMove();
+    if (choiceSelect == 4)
+    {
+        aiMove();
+    }
     personnage = gameplayEventHandler(personnage);
     afficherEntitiesSecondaires();
     //moveEnnemies();
@@ -365,7 +367,7 @@ void gameplayPipelineMulti()
     SDL_FreeSurface(gameplayTimeSurface);
     ////////////////
     ///////////////////////
-    showGameOverScreen();
+    //showGameOverScreen();
     ////////////////////////
 
     ////////ROTOZOOM

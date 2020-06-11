@@ -126,7 +126,7 @@ SDL_Surface *selectionText6;
 SDL_Surface *selectionText7;
 
 int modelSelected;
-int choiceSelect;
+int choiceSelect = -1;
 
 int gameSelector = 1;
 int chosenMode = -1;

@@ -320,31 +320,40 @@ void renderFrame(State state)
 
         if (inits == 0)
         {
+
             initGameplay();
             inits = 1;
         }
-        else
+        else if (choiceSelect == -1)
         {
             //gameplayPipeline();
-            gameplayPipelineMulti();
+            //gameplayPipelineMulti();
             //EnigmePipeline();
-            //selectionMenu();
+            selectionMenu();
             //SaveMenu();
         }
-        if (choiceSelect == 1)
+        else if (choiceSelect == 1)
         {
+            modelSelected = 1;
+            gameplayPipeline();
         }
         else if (choiceSelect == 2)
         {
+            modelSelected = 0;
+            gameplayPipeline();
         }
         else if (choiceSelect == 3)
-        {
+        { //MULTIPLAYER
+            gameplayPipelineMulti();
         }
         else if (choiceSelect == 4)
-        {
+        { //AI AI
+            gameplayPipelineMulti();
         }
         else if (choiceSelect == 5)
-        {
+        { //LOAD
+            loadVars();
+            gameplayPipeline();
         }
     }
 }
@@ -482,23 +491,15 @@ void selectionMenu()
     switch (selection)
     {
     case 1:
-        modelSelected = 0;
-        break;
+        choiceSelect = 1;
     case 2:
-        modelSelected = 1;
-        break;
+        choiceSelect = 2;
     case 3:
-        chosenMode = 1;
-        modelSelected = 0;
-        break;
+        choiceSelect = 3;
     case 4:
-        chosenMode = 2;
-        modelSelected = 0;
-        break;
+        choiceSelect = 4;
     case 5:
-        chosenMode = 3;
-        modelSelected = 0;
-        break;
+        choiceSelect = 5;
     default:
         break;
     }
