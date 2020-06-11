@@ -325,20 +325,20 @@ void renderFrame(State state)
         }
         else if (choiceSelect == -1)
         {
-            gameplayPipeline();
+            //gameplayPipeline();
             //gameplayPipelineMulti();
             //EnigmePipeline();
-            //selectionMenu();
+            selectionMenu();
             //SaveMenu();
         }
         else if (choiceSelect == 1)
         {
-            modelSelected = 1;
+            modelSelected = 0;
             gameplayPipeline();
         }
         else if (choiceSelect == 2)
         {
-            modelSelected = 0;
+            modelSelected = 1;
             gameplayPipeline();
         }
         else if (choiceSelect == 3)
@@ -452,13 +452,11 @@ void selectionMenu()
     apply_surface(300, 150, perso1, screen, NULL);
     apply_surface(600, 150, perso2, screen, NULL);
 
-    //SDL_Surface *bouton3 = load_image("assets/menu/b_ns.png", 0);
     SDL_Surface *bouton1 = load_image("assets/menu/b_ns.png", 0);
     SDL_Surface *bouton2 = load_image("assets/menu/b_ns.png", 0);
     SDL_Surface *bouton4 = load_image("assets/menu/b_ns.png", 0);
     SDL_Surface *bouton5 = load_image("assets/menu/b_ns.png", 0);
     SDL_Surface *bouton6 = load_image("assets/menu/b_ns.png", 0);
-    //SDL_Surface *bouton7 = load_image("assets/menu/b_ns.png", 0);
     selectionText1 = generateFontSurface(32, "Perso 1", n_selected);
     selectionText2 = generateFontSurface(32, "Perso 2", n_selected);
     selectionText4 = generateFontSurface(32, "Multiplayer", n_selected);
@@ -484,22 +482,24 @@ void selectionMenu()
     default:
         break;
     }
-    //selectionText3 = generateFontSurface(32, "Solo", selected);
     SDL_Surface *separator;
     apply_surface(20, bouton1->h * 0.10, selectionText1, bouton1, NULL);
     apply_surface(20, bouton2->h * 0.10, selectionText2, bouton2, NULL);
-    //apply_surface(20, bouton3->h * 0.10, selectionText3, bouton3, NULL);
     apply_surface(20, bouton4->h * 0.10, selectionText4, bouton4, NULL);
     apply_surface(20, bouton5->h * 0.10, selectionText5, bouton5, NULL);
     apply_surface(20, bouton6->h * 0.10, selectionText6, bouton6, NULL);
-    //apply_surface(20, bouton7->h * 0.10, selectionText7, bouton7, NULL);
     apply_surface(250, 250, bouton1, screen, NULL);
     apply_surface(550, 250, bouton2, screen, NULL);
-    //apply_surface(350, 250, bouton3, screen, NULL);
     apply_surface(250, 350, bouton4, screen, NULL);
     apply_surface(550, 350, bouton5, screen, NULL);
     apply_surface(400, 450, bouton6, screen, NULL);
     int selection = -1;
+    //selectionText3 = generateFontSurface(32, "Solo", selected);
+    //apply_surface(20, bouton3->h * 0.10, selectionText3, bouton3, NULL);
+    //apply_surface(20, bouton7->h * 0.10, selectionText7, bouton7, NULL);
+    //apply_surface(350, 250, bouton3, screen, NULL);
+    //SDL_Surface *bouton3 = load_image("assets/menu/b_ns.png", 0);
+    //SDL_Surface *bouton7 = load_image("assets/menu/b_ns.png", 0);
     selection = selectEventHandler();
     switch (selection)
     {

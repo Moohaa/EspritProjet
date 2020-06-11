@@ -426,6 +426,14 @@ void gameplayPipelineMulti()
     }
 }
 
+void gameOver()
+{
+    gameover = load_image("stage complete.png", 0);
+    apply_surface(0, 0, gameover, screen, NULL);
+    SDL_Flip(screen);
+    SDL_Delay(5000);
+    exit(0);
+}
 void gameplayPipeline()
 { /*
     if (vies < 1)
@@ -436,6 +444,7 @@ void gameplayPipeline()
         inits = 0;
         return;
     }*/
+    personnage.model = modelSelected;
     apply_surface(offsetBG, 0, gameBackground, screen, NULL);
     personnage = loadSprite(personnage, personnage.direction);
     ennemi1 = loadSpriteEnnemi(ennemi1, ennemi1.direction);
@@ -454,6 +463,11 @@ void gameplayPipeline()
     colorUI.b = 0;
     colorUI.r = 255;
     colorUI.g = 0;
+    printf("%d", offsetBG);
+    if (offsetBG < -4800)
+    {
+        gameOver();
+    }
 
     ///////////////
     char gameplayTimeString[20];

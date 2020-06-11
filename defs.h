@@ -162,3 +162,4 @@ extern int inSaveMenu;
 extern int saveMenuSelector;
 extern int selectedSaveMenu;
 extern int choiceSelect;
+extern SDL_Surface *gameover;

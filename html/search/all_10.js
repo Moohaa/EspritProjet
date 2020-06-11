@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['question_152',['question',['../structenigme.html#ac5f266cc0f0376564e4707b072e9ed5e',1,'enigme']]],
-  ['quit_153',['quit',['../defs_8c.html#a2896431d6a80cd39b3d24b40237612ee',1,'quit():&#160;defs.c'],['../defs_8h.html#a2896431d6a80cd39b3d24b40237612ee',1,'quit():&#160;defs.c']]],
-  ['quitbutton_154',['quitButton',['../defs_8c.html#a69599d632161dfcb6f030e1db3d8eed5',1,'quitButton():&#160;defs.c'],['../defs_8h.html#a69599d632161dfcb6f030e1db3d8eed5',1,'quitButton():&#160;defs.c']]]
+  ['question_153',['question',['../structenigme.html#ac5f266cc0f0376564e4707b072e9ed5e',1,'enigme']]],
+  ['quit_154',['quit',['../defs_8c.html#a2896431d6a80cd39b3d24b40237612ee',1,'quit():&#160;defs.c'],['../defs_8h.html#a2896431d6a80cd39b3d24b40237612ee',1,'quit():&#160;defs.c']]],
+  ['quitbutton_155',['quitButton',['../defs_8c.html#a69599d632161dfcb6f030e1db3d8eed5',1,'quitButton():&#160;defs.c'],['../defs_8h.html#a69599d632161dfcb6f030e1db3d8eed5',1,'quitButton():&#160;defs.c']]]
 ];

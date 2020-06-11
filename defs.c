@@ -133,3 +133,4 @@ int chosenMode = -1;
 int inSaveMenu = 0;
 int saveMenuSelector;
 int selectedSaveMenu;
+SDL_Surface *gameover;

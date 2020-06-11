@@ -155,6 +155,6 @@ int EnigmePipeline()
     }
     apply_surface(0, 0, reponseSurface, screen, NULL);
     SDL_Flip(screen);
-    SDL_Delay(500);
+    SDL_Delay(1500);
     return reponseX;
 }
