@@ -320,7 +320,6 @@ void renderFrame(State state)
 
         if (inits == 0)
         {
-
             initGameplay();
             inits = 1;
         }
@@ -372,8 +371,7 @@ SDL_Color GetPixel(SDL_Surface *pSurface, int x, int y)
 
 int selectEventHandler()
 {
-    SDL_PollEvent(&event);
-    printf("1");
+    SDL_WaitEvent(&event);
     switch (event.type)
     {
     case SDL_KEYDOWN:
@@ -488,22 +486,30 @@ void selectionMenu()
     apply_surface(400, 450, bouton6, screen, NULL);
     int selection = -1;
     selection = selectEventHandler();
-    switch (selection)
+    switch (gameSelector)
     {
     case 1:
         choiceSelect = 1;
+        break;
     case 2:
         choiceSelect = 2;
+        break;
+
     case 3:
         choiceSelect = 3;
+        break;
+
     case 4:
         choiceSelect = 4;
+        break;
+
     case 5:
         choiceSelect = 5;
+        break;
+
     default:
         break;
     }
-
     //apply_surface(550, 350, bouton7, screen, NULL);
     SDL_Flip(screen);
 }
