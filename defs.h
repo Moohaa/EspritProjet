@@ -159,3 +159,5 @@ extern int gameSelector;
 extern int modelSelected;
 extern int chosenMode;
 extern int inSaveMenu;
+extern int saveMenuSelector;
+extern int selectedSaveMenu;

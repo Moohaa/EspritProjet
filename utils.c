@@ -503,7 +503,21 @@ void SaveMenu()
     selectionText1 = generateFontSurface(32, "Save Game", n_selected);
     selectionText2 = generateFontSurface(32, "Resume", n_selected);
     selectionText3 = generateFontSurface(32, "Main Menu", n_selected);
+    switch (saveMenuSelector)
+    {
+    case 1:
+        selectionText1 = generateFontSurface(32, "Save Game", selected);
+        break;
+    case 2:
+        selectionText2 = generateFontSurface(32, "Resume", selected);
+        break;
+    case 3:
+        selectionText3 = generateFontSurface(32, "Main Menu", selected);
+        break;
 
+    default:
+        break;
+    }
     SDL_Surface *separator;
     apply_surface(20, bouton1->h * 0.10, selectionText1, bouton1, NULL);
     apply_surface(20, bouton2->h * 0.10, selectionText2, bouton2, NULL);
@@ -512,7 +526,7 @@ void SaveMenu()
     apply_surface(400, 300, bouton2, screen, NULL);
     apply_surface(400, 400, bouton3, screen, NULL);
     int selection = -1;
-    selection = selectEventHandler();
+    selection = saveMenuHandler();
     switch (selection)
     {
     case 1:
@@ -521,9 +535,59 @@ void SaveMenu()
     case 2:
         modelSelected = 1;
         break;
+    case 3:
+        break;
     default:
         break;
     }
 
     SDL_Flip(screen);
+}
+
+int saveMenuHandler()
+{
+    SDL_PollEvent(&event);
+    printf("1");
+    switch (event.type)
+    {
+    case SDL_KEYDOWN:
+        switch (event.key.keysym.sym)
+        {
+        case SDLK_UP:
+            saveMenuSelector = saveMenuSelector - 1;
+            if (saveMenuSelector < 1)
+            {
+                saveMenuSelector = 1;
+            }
+            break;
+        case SDLK_DOWN:
+            saveMenuSelector = saveMenuSelector + 1;
+            if (saveMenuSelector > 3)
+            {
+                saveMenuSelector = 3;
+            }
+            break;
+        case SDLK_RETURN:
+        case SDL_MOUSEBUTTONDOWN:
+            selectedSaveMenu = saveMenuSelector;
+            return selectedSaveMenu;
+            break;
+        }
+        break;
+
+    default:
+        break;
+    }
+    if ((mouseX > 400) && (mouseY > 200) && (mouseX < 400 + 112) && (mouseY < 200 + 37))
+    {
+        saveMenuSelector = 1;
+    }
+    else if ((mouseX > 400) && (mouseY > 300) && (mouseX < 400 + 112) && (mouseY < 300 + 37))
+    {
+        saveMenuSelector = 2;
+    }
+    else if ((mouseX > 400) && (mouseY > 400) && (mouseX < 400 + 112) && (mouseY < 400 + 37))
+    {
+        saveMenuSelector = 3;
+    }
 }

@@ -131,3 +131,5 @@ int choiceSelect;
 int gameSelector = 1;
 int chosenMode = -1;
 int inSaveMenu = 0;
+int saveMenuSelector;
+int selectedSaveMenu;
