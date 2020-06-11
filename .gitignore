@@ -51,6 +51,4 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
-html/
-latex/
 .vscode/

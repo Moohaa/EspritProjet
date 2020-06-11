@@ -326,10 +326,10 @@ void renderFrame(State state)
         }
         else if (choiceSelect == -1)
         {
-            //gameplayPipeline();
+            gameplayPipeline();
             //gameplayPipelineMulti();
             //EnigmePipeline();
-            selectionMenu();
+            //selectionMenu();
             //SaveMenu();
         }
         else if (choiceSelect == 1)

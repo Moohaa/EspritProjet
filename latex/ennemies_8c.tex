@@ -1,0 +1,153 @@
+\hypertarget{ennemies_8c}{}\section{ennemies.\+c File Reference}
+\label{ennemies_8c}\index{ennemies.\+c@{ennemies.\+c}}
+
+
+game ennemies functions  
+
+
+{\ttfamily \#include \char`\"{}ennemies.\+h\char`\"{}}\newline
+Include dependency graph for ennemies.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ennemies_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ennemies_8c_a6d3dff72d16d48b241a64beec64bec02}{init\+Ennemi} ()
+\item 
+void \hyperlink{ennemies_8c_aeb2c0786744d55f91bc0dec00529aa7e}{affiche\+Ennemi} (\hyperlink{ennemies_8h_af688767ec0f4fdaa755e7f542c2d272d}{Ennemi} \hyperlink{structennemi}{ennemi}, S\+D\+L\+\_\+\+Surface $\ast$\hyperlink{defs_8h_a68389876c2746622931d187c587f9c4d}{background})
+\item 
+\hyperlink{ennemies_8h_af688767ec0f4fdaa755e7f542c2d272d}{Ennemi} \hyperlink{ennemies_8c_aa135ada285717b081855f13fb28bc66d}{load\+Sprite\+Ennemi} (\hyperlink{ennemies_8h_af688767ec0f4fdaa755e7f542c2d272d}{Ennemi} \hyperlink{structennemi}{ennemi}, int direction)
+\item 
+void \hyperlink{ennemies_8c_a3e7af8f799598c7440a820f5ba987187}{remplir\+Tableau\+Ennemi} ()
+\item 
+\hyperlink{ennemies_8h_af688767ec0f4fdaa755e7f542c2d272d}{Ennemi} \hyperlink{ennemies_8c_a67e4532e5a85ff89b0c393eb8cc7d614}{kill\+Ennemy} (\hyperlink{ennemies_8h_af688767ec0f4fdaa755e7f542c2d272d}{Ennemi} \hyperlink{structennemi}{ennemi})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ennemies_8h_af688767ec0f4fdaa755e7f542c2d272d}{Ennemi} \hyperlink{ennemies_8c_a3265575f87f7ec5947038321649ab4f2}{ennemi1}
+\item 
+\hyperlink{ennemies_8h_af688767ec0f4fdaa755e7f542c2d272d}{Ennemi} \hyperlink{ennemies_8c_a8b157a88dfbb24c7429fe2402dd445cd}{ennemi2}
+\item 
+\hyperlink{ennemies_8h_af688767ec0f4fdaa755e7f542c2d272d}{Ennemi} \hyperlink{ennemies_8c_a141ba58c74a730d20dd02bcd067daf0a}{ennemis} \mbox{[}2\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+game ennemies functions 
+
+\begin{DoxyAuthor}{Author}
+Creative Sparks 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2020 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{ennemies_8c_aeb2c0786744d55f91bc0dec00529aa7e}\label{ennemies_8c_aeb2c0786744d55f91bc0dec00529aa7e}} 
+\index{ennemies.\+c@{ennemies.\+c}!affiche\+Ennemi@{affiche\+Ennemi}}
+\index{affiche\+Ennemi@{affiche\+Ennemi}!ennemies.\+c@{ennemies.\+c}}
+\subsubsection{\texorpdfstring{affiche\+Ennemi()}{afficheEnnemi()}}
+{\footnotesize\ttfamily void affiche\+Ennemi (\begin{DoxyParamCaption}\item[{\hyperlink{ennemies_8h_af688767ec0f4fdaa755e7f542c2d272d}{Ennemi}}]{ennemi,  }\item[{S\+D\+L\+\_\+\+Surface $\ast$}]{background }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{ennemies_8c_aeb2c0786744d55f91bc0dec00529aa7e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ennemies_8c_aeb2c0786744d55f91bc0dec00529aa7e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ennemies_8c_a6d3dff72d16d48b241a64beec64bec02}\label{ennemies_8c_a6d3dff72d16d48b241a64beec64bec02}} 
+\index{ennemies.\+c@{ennemies.\+c}!init\+Ennemi@{init\+Ennemi}}
+\index{init\+Ennemi@{init\+Ennemi}!ennemies.\+c@{ennemies.\+c}}
+\subsubsection{\texorpdfstring{init\+Ennemi()}{initEnnemi()}}
+{\footnotesize\ttfamily void init\+Ennemi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ennemies_8c_a6d3dff72d16d48b241a64beec64bec02_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ennemies_8c_a67e4532e5a85ff89b0c393eb8cc7d614}\label{ennemies_8c_a67e4532e5a85ff89b0c393eb8cc7d614}} 
+\index{ennemies.\+c@{ennemies.\+c}!kill\+Ennemy@{kill\+Ennemy}}
+\index{kill\+Ennemy@{kill\+Ennemy}!ennemies.\+c@{ennemies.\+c}}
+\subsubsection{\texorpdfstring{kill\+Ennemy()}{killEnnemy()}}
+{\footnotesize\ttfamily \hyperlink{ennemies_8h_af688767ec0f4fdaa755e7f542c2d272d}{Ennemi} kill\+Ennemy (\begin{DoxyParamCaption}\item[{\hyperlink{ennemies_8h_af688767ec0f4fdaa755e7f542c2d272d}{Ennemi}}]{ennemi }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ennemies_8c_a67e4532e5a85ff89b0c393eb8cc7d614_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ennemies_8c_aa135ada285717b081855f13fb28bc66d}\label{ennemies_8c_aa135ada285717b081855f13fb28bc66d}} 
+\index{ennemies.\+c@{ennemies.\+c}!load\+Sprite\+Ennemi@{load\+Sprite\+Ennemi}}
+\index{load\+Sprite\+Ennemi@{load\+Sprite\+Ennemi}!ennemies.\+c@{ennemies.\+c}}
+\subsubsection{\texorpdfstring{load\+Sprite\+Ennemi()}{loadSpriteEnnemi()}}
+{\footnotesize\ttfamily \hyperlink{ennemies_8h_af688767ec0f4fdaa755e7f542c2d272d}{Ennemi} load\+Sprite\+Ennemi (\begin{DoxyParamCaption}\item[{\hyperlink{ennemies_8h_af688767ec0f4fdaa755e7f542c2d272d}{Ennemi}}]{ennemi,  }\item[{int}]{direction }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{ennemies_8c_aa135ada285717b081855f13fb28bc66d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ennemies_8c_aa135ada285717b081855f13fb28bc66d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ennemies_8c_a3e7af8f799598c7440a820f5ba987187}\label{ennemies_8c_a3e7af8f799598c7440a820f5ba987187}} 
+\index{ennemies.\+c@{ennemies.\+c}!remplir\+Tableau\+Ennemi@{remplir\+Tableau\+Ennemi}}
+\index{remplir\+Tableau\+Ennemi@{remplir\+Tableau\+Ennemi}!ennemies.\+c@{ennemies.\+c}}
+\subsubsection{\texorpdfstring{remplir\+Tableau\+Ennemi()}{remplirTableauEnnemi()}}
+{\footnotesize\ttfamily void remplir\+Tableau\+Ennemi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{ennemies_8c_a3265575f87f7ec5947038321649ab4f2}\label{ennemies_8c_a3265575f87f7ec5947038321649ab4f2}} 
+\index{ennemies.\+c@{ennemies.\+c}!ennemi1@{ennemi1}}
+\index{ennemi1@{ennemi1}!ennemies.\+c@{ennemies.\+c}}
+\subsubsection{\texorpdfstring{ennemi1}{ennemi1}}
+{\footnotesize\ttfamily \hyperlink{ennemies_8h_af688767ec0f4fdaa755e7f542c2d272d}{Ennemi} ennemi1}
+
+\mbox{\Hypertarget{ennemies_8c_a8b157a88dfbb24c7429fe2402dd445cd}\label{ennemies_8c_a8b157a88dfbb24c7429fe2402dd445cd}} 
+\index{ennemies.\+c@{ennemies.\+c}!ennemi2@{ennemi2}}
+\index{ennemi2@{ennemi2}!ennemies.\+c@{ennemies.\+c}}
+\subsubsection{\texorpdfstring{ennemi2}{ennemi2}}
+{\footnotesize\ttfamily \hyperlink{ennemies_8h_af688767ec0f4fdaa755e7f542c2d272d}{Ennemi} ennemi2}
+
+\mbox{\Hypertarget{ennemies_8c_a141ba58c74a730d20dd02bcd067daf0a}\label{ennemies_8c_a141ba58c74a730d20dd02bcd067daf0a}} 
+\index{ennemies.\+c@{ennemies.\+c}!ennemis@{ennemis}}
+\index{ennemis@{ennemis}!ennemies.\+c@{ennemies.\+c}}
+\subsubsection{\texorpdfstring{ennemis}{ennemis}}
+{\footnotesize\ttfamily \hyperlink{ennemies_8h_af688767ec0f4fdaa755e7f542c2d272d}{Ennemi} ennemis\mbox{[}2\mbox{]}}
+
