@@ -1,11 +1,4 @@
 var searchData=
 [
-  ['load_5ffiles',['load_files',['../inits_8c.html#a8a47b8642736fcad746fbac37ca33d5c',1,'load_files():&#160;inits.c'],['../inits_8h.html#a8a47b8642736fcad746fbac37ca33d5c',1,'load_files():&#160;inits.c']]],
-  ['load_5fimage',['load_image',['../utils_8c.html#a9675116dbf2131bef174fdb72be0bef2',1,'load_image(char filename[], int colorKey):&#160;utils.c'],['../utils_8h.html#a9675116dbf2131bef174fdb72be0bef2',1,'load_image(char filename[], int colorKey):&#160;utils.c']]],
-  ['loadanimationfile',['loadAnimationFile',['../inits_8c.html#ae04b28adfecb025289c260a143ea823a',1,'loadAnimationFile(int frame):&#160;inits.c'],['../inits_8h.html#ae04b28adfecb025289c260a143ea823a',1,'loadAnimationFile(int frame):&#160;inits.c']]],
-  ['loadmenufiles',['loadMenuFiles',['../inits_8c.html#a37cf69fc69bf92b93b4bdaeb8d256a36',1,'loadMenuFiles():&#160;inits.c'],['../inits_8h.html#a37cf69fc69bf92b93b4bdaeb8d256a36',1,'loadMenuFiles():&#160;inits.c']]],
-  ['loadmusic',['loadMusic',['../inits_8c.html#a2598bdbeb803b9f2a75096f6ff53d37e',1,'loadMusic():&#160;inits.c'],['../inits_8h.html#a2598bdbeb803b9f2a75096f6ff53d37e',1,'loadMusic():&#160;inits.c']]],
-  ['loadrandomenigmefile',['loadRandomEnigmeFile',['../enigme_8c.html#abc96cc4f6bd7fb91d730b1f1645d48fa',1,'loadRandomEnigmeFile():&#160;enigme.c'],['../enigme_8h.html#abc96cc4f6bd7fb91d730b1f1645d48fa',1,'loadRandomEnigmeFile():&#160;enigme.c']]],
-  ['loadsprite',['loadSprite',['../personnage_8c.html#aa9a71678eee1bf41c31f7c97c1591a78',1,'loadSprite(Personnage personnage, int direction):&#160;personnage.c'],['../personnage_8h.html#aa9a71678eee1bf41c31f7c97c1591a78',1,'loadSprite(Personnage personnage, int direction):&#160;personnage.c']]],
-  ['loadspriteennemi',['loadSpriteEnnemi',['../ennemies_8c.html#aa135ada285717b081855f13fb28bc66d',1,'loadSpriteEnnemi(Ennemi ennemi, int direction):&#160;ennemies.c'],['../ennemies_8h.html#aa135ada285717b081855f13fb28bc66d',1,'loadSpriteEnnemi(Ennemi ennemi, int direction):&#160;ennemies.c']]]
+  ['killennemy_272',['killEnnemy',['../ennemies_8c.html#a67e4532e5a85ff89b0c393eb8cc7d614',1,'killEnnemy(Ennemi ennemi):&#160;ennemies.c'],['../ennemies_8h.html#a67e4532e5a85ff89b0c393eb8cc7d614',1,'killEnnemy(Ennemi ennemi):&#160;ennemies.c']]]
 ];

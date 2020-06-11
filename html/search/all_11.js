@@ -1,20 +1,13 @@
 var searchData=
 [
-  ['score',['score',['../defs_8c.html#aef160b7437d94056f1dc59646cd5b87d',1,'score():&#160;defs.c'],['../defs_8h.html#aef160b7437d94056f1dc59646cd5b87d',1,'score():&#160;defs.c']]],
-  ['screen',['screen',['../defs_8c.html#a78fa3957d73de49cb81d047857504218',1,'screen():&#160;defs.c'],['../defs_8h.html#a78fa3957d73de49cb81d047857504218',1,'screen():&#160;defs.c']]],
-  ['screen_5fbpp',['SCREEN_BPP',['../defs_8h.html#aeb696ed3736a3c9f76e7fd8193d3966f',1,'defs.h']]],
-  ['screen_5fheight',['SCREEN_HEIGHT',['../defs_8h.html#a6974d08a74da681b3957b2fead2608b8',1,'defs.h']]],
-  ['screen_5fwidth',['SCREEN_WIDTH',['../defs_8h.html#a2cd109632a6dcccaa80b43561b1ab700',1,'defs.h']]],
-  ['seconds',['seconds',['../defs_8c.html#a77bd4f876bdc3afed5acdd936f775d34',1,'seconds():&#160;defs.c'],['../defs_8h.html#a77bd4f876bdc3afed5acdd936f775d34',1,'seconds():&#160;defs.c']]],
-  ['selected',['selected',['../defs_8c.html#a355224f147f9e7c339a0b8758b349e12',1,'selected():&#160;defs.c'],['../defs_8h.html#a355224f147f9e7c339a0b8758b349e12',1,'selected():&#160;defs.c']]],
-  ['settings',['SETTINGS',['../defs_8h.html#aa2d5c758628dddfa26e73ca5a245222a',1,'defs.h']]],
-  ['settingsbutton',['settingsButton',['../defs_8c.html#ace1af332d79a0b6a47e8c597c1028776',1,'settingsButton():&#160;defs.c'],['../defs_8h.html#ace1af332d79a0b6a47e8c597c1028776',1,'settingsButton():&#160;defs.c']]],
-  ['settingsstate',['settingsState',['../defs_8c.html#ab5fd9003c5db26855fcce82ddc169de3',1,'settingsState():&#160;defs.c'],['../defs_8h.html#ab5fd9003c5db26855fcce82ddc169de3',1,'settingsState():&#160;defs.c']]],
-  ['settingstext',['settingsText',['../defs_8c.html#abf63c96eaa5561e71eb0449c2485bc2d',1,'settingsText():&#160;defs.c'],['../defs_8h.html#abf63c96eaa5561e71eb0449c2485bc2d',1,'settingsText():&#160;defs.c']]],
-  ['slider',['slider',['../defs_8c.html#af40d2934209209a2bbdfc52395907442',1,'slider():&#160;defs.c'],['../defs_8h.html#af40d2934209209a2bbdfc52395907442',1,'slider():&#160;defs.c']]],
-  ['sliderbar',['sliderBar',['../defs_8c.html#a5026584637c9ab6c7453b6d06e7a8865',1,'sliderBar():&#160;defs.c'],['../defs_8h.html#a5026584637c9ab6c7453b6d06e7a8865',1,'sliderBar():&#160;defs.c']]],
-  ['speed',['speed',['../structpersonnage.html#acb8e0ece93e2c7c15a1672e2867edc19',1,'personnage']]],
-  ['startticks',['startTicks',['../structenigme.html#a1e1e6c58f33ffed48b4eda090889ca38',1,'enigme']]],
-  ['state',['state',['../defs_8c.html#a876b486d3a5241a126bd5751c5f70f79',1,'state():&#160;defs.c'],['../defs_8h.html#a876b486d3a5241a126bd5751c5f70f79',1,'state():&#160;defs.c'],['../defs_8h.html#abf38e439d63c2001b8bbb96dbab1bd86',1,'State():&#160;defs.h']]],
-  ['switcher',['switcher',['../defs_8c.html#af6976f3ff02b82755e3db73f9b3f93d9',1,'switcher():&#160;defs.c'],['../defs_8h.html#af6976f3ff02b82755e3db73f9b3f93d9',1,'switcher():&#160;defs.c']]]
+  ['readme_155',['README',['../md_README.html',1,'']]],
+  ['randomenigmetype_156',['randomEnigmeType',['../enigme_8h.html#a7050b8ac91da82758cff189babf9eb7b',1,'enigme.h']]],
+  ['readme_2emd_157',['README.md',['../README_8md.html',1,'']]],
+  ['rect_158',['rect',['../defs_8h.html#ac4c2a6228bd5522d3d403763262b9a22',1,'defs.h']]],
+  ['remplirtableauennemi_159',['remplirTableauEnnemi',['../ennemies_8c.html#a3e7af8f799598c7440a820f5ba987187',1,'remplirTableauEnnemi():&#160;ennemies.c'],['../ennemies_8h.html#a3e7af8f799598c7440a820f5ba987187',1,'remplirTableauEnnemi():&#160;ennemies.c']]],
+  ['renderframe_160',['renderFrame',['../utils_8c.html#aa9c2e8f04f81530bf96f7152f6713d52',1,'renderFrame(State state):&#160;utils.c'],['../utils_8h.html#aa9c2e8f04f81530bf96f7152f6713d52',1,'renderFrame(State state):&#160;utils.c']]],
+  ['reponse_161',['reponse',['../structenigme.html#ac5068c8be72169b27a39df8e82577b0d',1,'enigme']]],
+  ['reponseint_162',['reponseInt',['../structenigme.html#ab0fa044155e2331723b3a74822ccb6b0',1,'enigme']]],
+  ['reponses_163',['reponses',['../structenigme.html#acbdf1b2afa5727b3e237f0930df1038c',1,'enigme']]],
+  ['resetspeed_164',['resetSpeed',['../structpersonnage.html#a6729ea8dd5e255a8597d8a76cdf05148',1,'personnage']]]
 ];

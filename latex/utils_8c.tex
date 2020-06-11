@@ -1,5 +1,5 @@
-\hypertarget{utils_8c}{}\section{utils.\+c File Reference}
-\label{utils_8c}\index{utils.\+c@{utils.\+c}}
+\hypertarget{utils_8c}{}\doxysection{utils.\+c File Reference}
+\label{utils_8c}\index{utils.c@{utils.c}}
 {\ttfamily \#include \char`\"{}utils.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}inits.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}enigme.\+h\char`\"{}}\newline
@@ -12,36 +12,40 @@ Include dependency graph for utils.\+c\+:
 \includegraphics[width=350pt]{utils_8c__incl}
 \end{center}
 \end{figure}
-\subsection*{Functions}
+\doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-S\+D\+L\+\_\+\+Surface $\ast$ \hyperlink{utils_8c_a9675116dbf2131bef174fdb72be0bef2}{load\+\_\+image} (char filename\mbox{[}$\,$\mbox{]}, int color\+Key)
+S\+D\+L\+\_\+\+Surface $\ast$ \mbox{\hyperlink{utils_8c_a9675116dbf2131bef174fdb72be0bef2}{load\+\_\+image}} (char filename\mbox{[}$\,$\mbox{]}, int color\+Key)
 \item 
-void \hyperlink{utils_8c_ad888a3d29e77238573439160c5e69a46}{apply\+\_\+surface} (int x, int y, S\+D\+L\+\_\+\+Surface $\ast$source, S\+D\+L\+\_\+\+Surface $\ast$destination, S\+D\+L\+\_\+\+Rect $\ast$clip)
+void \mbox{\hyperlink{utils_8c_ad888a3d29e77238573439160c5e69a46}{apply\+\_\+surface}} (int x, int y, S\+D\+L\+\_\+\+Surface $\ast$source, S\+D\+L\+\_\+\+Surface $\ast$destination, S\+D\+L\+\_\+\+Rect $\ast$clip)
 \item 
-S\+D\+L\+\_\+\+Surface $\ast$ \hyperlink{utils_8c_a6cf6720da07e14d4c2473d8e05a20085}{generate\+Font\+Surface} (int size, char text\mbox{[}50\mbox{]}, S\+D\+L\+\_\+\+Color \hyperlink{defs_8h_a631bf4babe4c1825a2cdc0c19c2bd04f}{color})
+S\+D\+L\+\_\+\+Surface $\ast$ \mbox{\hyperlink{utils_8c_a6cf6720da07e14d4c2473d8e05a20085}{generate\+Font\+Surface}} (int size, char text\mbox{[}50\mbox{]}, S\+D\+L\+\_\+\+Color \mbox{\hyperlink{defs_8h_a631bf4babe4c1825a2cdc0c19c2bd04f}{color}})
 \item 
-Uint32 \hyperlink{utils_8c_ac98de08d2d8c2fe9f05ef530aa802cac}{time\+\_\+left} (void)
+Uint32 \mbox{\hyperlink{utils_8c_ac98de08d2d8c2fe9f05ef530aa802cac}{time\+\_\+left}} (void)
 \item 
-void \hyperlink{utils_8c_af6ef5ba278fd1c7549ba7ae2b64facef}{frame\+Limiter} (Uint32 start\+\_\+time)
+void \mbox{\hyperlink{utils_8c_af6ef5ba278fd1c7549ba7ae2b64facef}{frame\+Limiter}} (Uint32 start\+\_\+time)
 \item 
-void \hyperlink{utils_8c_ad3fe594754633bc23da68d0b0359e6e8}{menu\+Handler} (S\+D\+L\+\_\+\+Event \hyperlink{defs_8h_a6b57f01d3c576db5368dd0efc2f435a4}{event}, int \hyperlink{defs_8h_a876b486d3a5241a126bd5751c5f70f79}{state})
+void \mbox{\hyperlink{utils_8c_ad3fe594754633bc23da68d0b0359e6e8}{menu\+Handler}} (S\+D\+L\+\_\+\+Event \mbox{\hyperlink{defs_8h_a6b57f01d3c576db5368dd0efc2f435a4}{event}}, int \mbox{\hyperlink{defs_8h_a876b486d3a5241a126bd5751c5f70f79}{state}})
 \item 
-void \hyperlink{utils_8c_aa9c2e8f04f81530bf96f7152f6713d52}{render\+Frame} (\hyperlink{defs_8h_abf38e439d63c2001b8bbb96dbab1bd86}{State} \hyperlink{defs_8h_a876b486d3a5241a126bd5751c5f70f79}{state})
+void \mbox{\hyperlink{utils_8c_aa9c2e8f04f81530bf96f7152f6713d52}{render\+Frame}} (\mbox{\hyperlink{defs_8h_abf38e439d63c2001b8bbb96dbab1bd86}{State}} \mbox{\hyperlink{defs_8h_a876b486d3a5241a126bd5751c5f70f79}{state}})
 \item 
-void \hyperlink{utils_8c_a38b3e16c85b4013b2624c570284ebcc5}{render\+Game\+Frame} ()
+S\+D\+L\+\_\+\+Color \mbox{\hyperlink{utils_8c_a9ec79b71532402381966fc93325d3e52}{Get\+Pixel}} (S\+D\+L\+\_\+\+Surface $\ast$p\+Surface, int x, int y)
 \item 
-void \hyperlink{utils_8c_a91245000c5ea49f85314a6ac45ca59fc}{game\+Handler} (S\+D\+L\+\_\+\+Event \hyperlink{defs_8h_a6b57f01d3c576db5368dd0efc2f435a4}{event}, int \hyperlink{defs_8h_a876b486d3a5241a126bd5751c5f70f79}{state})
+int \mbox{\hyperlink{utils_8c_ac2832bc31fb2f6c2d493b7b5db188786}{select\+Event\+Handler}} ()
 \item 
-S\+D\+L\+\_\+\+Color \hyperlink{utils_8c_a9ec79b71532402381966fc93325d3e52}{Get\+Pixel} (S\+D\+L\+\_\+\+Surface $\ast$p\+Surface, int x, int y)
+void \mbox{\hyperlink{utils_8c_a913e5dae6cc9a8481c1cfc30f6e17a08}{selection\+Menu}} ()
+\item 
+void \mbox{\hyperlink{utils_8c_a49461f715996321c480bc851fcb5a092}{Save\+Menu}} ()
+\item 
+int \mbox{\hyperlink{utils_8c_a4d07d66b313b7dd8ec5846004d2f8059}{save\+Menu\+Handler}} ()
 \end{DoxyCompactItemize}
 
 
-\subsection{Function Documentation}
+\doxysubsection{Function Documentation}
 \mbox{\Hypertarget{utils_8c_ad888a3d29e77238573439160c5e69a46}\label{utils_8c_ad888a3d29e77238573439160c5e69a46}} 
-\index{utils.\+c@{utils.\+c}!apply\+\_\+surface@{apply\+\_\+surface}}
-\index{apply\+\_\+surface@{apply\+\_\+surface}!utils.\+c@{utils.\+c}}
-\subsubsection{\texorpdfstring{apply\+\_\+surface()}{apply\_surface()}}
+\index{utils.c@{utils.c}!apply\_surface@{apply\_surface}}
+\index{apply\_surface@{apply\_surface}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{apply\_surface()}{apply\_surface()}}
 {\footnotesize\ttfamily void apply\+\_\+surface (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{S\+D\+L\+\_\+\+Surface $\ast$}]{source,  }\item[{S\+D\+L\+\_\+\+Surface $\ast$}]{destination,  }\item[{S\+D\+L\+\_\+\+Rect $\ast$}]{clip }\end{DoxyParamCaption})}
 
 Here is the caller graph for this function\+:
@@ -53,9 +57,9 @@ Here is the caller graph for this function\+:
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{utils_8c_af6ef5ba278fd1c7549ba7ae2b64facef}\label{utils_8c_af6ef5ba278fd1c7549ba7ae2b64facef}} 
-\index{utils.\+c@{utils.\+c}!frame\+Limiter@{frame\+Limiter}}
-\index{frame\+Limiter@{frame\+Limiter}!utils.\+c@{utils.\+c}}
-\subsubsection{\texorpdfstring{frame\+Limiter()}{frameLimiter()}}
+\index{utils.c@{utils.c}!frameLimiter@{frameLimiter}}
+\index{frameLimiter@{frameLimiter}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{frameLimiter()}{frameLimiter()}}
 {\footnotesize\ttfamily void frame\+Limiter (\begin{DoxyParamCaption}\item[{Uint32}]{start\+\_\+time }\end{DoxyParamCaption})}
 
 Here is the caller graph for this function\+:
@@ -63,19 +67,13 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=225pt]{utils_8c_af6ef5ba278fd1c7549ba7ae2b64facef_icgraph}
+\includegraphics[width=237pt]{utils_8c_af6ef5ba278fd1c7549ba7ae2b64facef_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{utils_8c_a91245000c5ea49f85314a6ac45ca59fc}\label{utils_8c_a91245000c5ea49f85314a6ac45ca59fc}} 
-\index{utils.\+c@{utils.\+c}!game\+Handler@{game\+Handler}}
-\index{game\+Handler@{game\+Handler}!utils.\+c@{utils.\+c}}
-\subsubsection{\texorpdfstring{game\+Handler()}{gameHandler()}}
-{\footnotesize\ttfamily void game\+Handler (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Event}]{event,  }\item[{int}]{state }\end{DoxyParamCaption})}
-
 \mbox{\Hypertarget{utils_8c_a6cf6720da07e14d4c2473d8e05a20085}\label{utils_8c_a6cf6720da07e14d4c2473d8e05a20085}} 
-\index{utils.\+c@{utils.\+c}!generate\+Font\+Surface@{generate\+Font\+Surface}}
-\index{generate\+Font\+Surface@{generate\+Font\+Surface}!utils.\+c@{utils.\+c}}
-\subsubsection{\texorpdfstring{generate\+Font\+Surface()}{generateFontSurface()}}
+\index{utils.c@{utils.c}!generateFontSurface@{generateFontSurface}}
+\index{generateFontSurface@{generateFontSurface}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{generateFontSurface()}{generateFontSurface()}}
 {\footnotesize\ttfamily S\+D\+L\+\_\+\+Surface$\ast$ generate\+Font\+Surface (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{char}]{text\mbox{[}50\mbox{]},  }\item[{S\+D\+L\+\_\+\+Color}]{color }\end{DoxyParamCaption})}
 
 Here is the caller graph for this function\+:
@@ -87,9 +85,9 @@ Here is the caller graph for this function\+:
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{utils_8c_a9ec79b71532402381966fc93325d3e52}\label{utils_8c_a9ec79b71532402381966fc93325d3e52}} 
-\index{utils.\+c@{utils.\+c}!Get\+Pixel@{Get\+Pixel}}
-\index{Get\+Pixel@{Get\+Pixel}!utils.\+c@{utils.\+c}}
-\subsubsection{\texorpdfstring{Get\+Pixel()}{GetPixel()}}
+\index{utils.c@{utils.c}!GetPixel@{GetPixel}}
+\index{GetPixel@{GetPixel}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{GetPixel()}{GetPixel()}}
 {\footnotesize\ttfamily S\+D\+L\+\_\+\+Color Get\+Pixel (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Surface $\ast$}]{p\+Surface,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
 
 Here is the caller graph for this function\+:
@@ -97,13 +95,13 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=276pt]{utils_8c_a9ec79b71532402381966fc93325d3e52_icgraph}
+\includegraphics[width=289pt]{utils_8c_a9ec79b71532402381966fc93325d3e52_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{utils_8c_a9675116dbf2131bef174fdb72be0bef2}\label{utils_8c_a9675116dbf2131bef174fdb72be0bef2}} 
-\index{utils.\+c@{utils.\+c}!load\+\_\+image@{load\+\_\+image}}
-\index{load\+\_\+image@{load\+\_\+image}!utils.\+c@{utils.\+c}}
-\subsubsection{\texorpdfstring{load\+\_\+image()}{load\_image()}}
+\index{utils.c@{utils.c}!load\_image@{load\_image}}
+\index{load\_image@{load\_image}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{load\_image()}{load\_image()}}
 {\footnotesize\ttfamily S\+D\+L\+\_\+\+Surface$\ast$ load\+\_\+image (\begin{DoxyParamCaption}\item[{char}]{filename\mbox{[}$\,$\mbox{]},  }\item[{int}]{color\+Key }\end{DoxyParamCaption})}
 
 Here is the caller graph for this function\+:
@@ -115,9 +113,9 @@ Here is the caller graph for this function\+:
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{utils_8c_ad3fe594754633bc23da68d0b0359e6e8}\label{utils_8c_ad3fe594754633bc23da68d0b0359e6e8}} 
-\index{utils.\+c@{utils.\+c}!menu\+Handler@{menu\+Handler}}
-\index{menu\+Handler@{menu\+Handler}!utils.\+c@{utils.\+c}}
-\subsubsection{\texorpdfstring{menu\+Handler()}{menuHandler()}}
+\index{utils.c@{utils.c}!menuHandler@{menuHandler}}
+\index{menuHandler@{menuHandler}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{menuHandler()}{menuHandler()}}
 {\footnotesize\ttfamily void menu\+Handler (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Event}]{event,  }\item[{int}]{state }\end{DoxyParamCaption})}
 
 Here is the caller graph for this function\+:
@@ -125,14 +123,14 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=228pt]{utils_8c_ad3fe594754633bc23da68d0b0359e6e8_icgraph}
+\includegraphics[width=240pt]{utils_8c_ad3fe594754633bc23da68d0b0359e6e8_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{utils_8c_aa9c2e8f04f81530bf96f7152f6713d52}\label{utils_8c_aa9c2e8f04f81530bf96f7152f6713d52}} 
-\index{utils.\+c@{utils.\+c}!render\+Frame@{render\+Frame}}
-\index{render\+Frame@{render\+Frame}!utils.\+c@{utils.\+c}}
-\subsubsection{\texorpdfstring{render\+Frame()}{renderFrame()}}
-{\footnotesize\ttfamily void render\+Frame (\begin{DoxyParamCaption}\item[{\hyperlink{defs_8h_abf38e439d63c2001b8bbb96dbab1bd86}{State}}]{state }\end{DoxyParamCaption})}
+\index{utils.c@{utils.c}!renderFrame@{renderFrame}}
+\index{renderFrame@{renderFrame}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{renderFrame()}{renderFrame()}}
+{\footnotesize\ttfamily void render\+Frame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{defs_8h_abf38e439d63c2001b8bbb96dbab1bd86}{State}}}]{state }\end{DoxyParamCaption})}
 
 Here is the call graph for this function\+:
 \nopagebreak
@@ -147,18 +145,84 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=225pt]{utils_8c_aa9c2e8f04f81530bf96f7152f6713d52_icgraph}
+\includegraphics[width=236pt]{utils_8c_aa9c2e8f04f81530bf96f7152f6713d52_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{utils_8c_a38b3e16c85b4013b2624c570284ebcc5}\label{utils_8c_a38b3e16c85b4013b2624c570284ebcc5}} 
-\index{utils.\+c@{utils.\+c}!render\+Game\+Frame@{render\+Game\+Frame}}
-\index{render\+Game\+Frame@{render\+Game\+Frame}!utils.\+c@{utils.\+c}}
-\subsubsection{\texorpdfstring{render\+Game\+Frame()}{renderGameFrame()}}
-{\footnotesize\ttfamily void render\+Game\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{utils_8c_a49461f715996321c480bc851fcb5a092}\label{utils_8c_a49461f715996321c480bc851fcb5a092}} 
+\index{utils.c@{utils.c}!SaveMenu@{SaveMenu}}
+\index{SaveMenu@{SaveMenu}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{SaveMenu()}{SaveMenu()}}
+{\footnotesize\ttfamily void Save\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{utils_8c_a49461f715996321c480bc851fcb5a092_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{utils_8c_a49461f715996321c480bc851fcb5a092_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utils_8c_a4d07d66b313b7dd8ec5846004d2f8059}\label{utils_8c_a4d07d66b313b7dd8ec5846004d2f8059}} 
+\index{utils.c@{utils.c}!saveMenuHandler@{saveMenuHandler}}
+\index{saveMenuHandler@{saveMenuHandler}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{saveMenuHandler()}{saveMenuHandler()}}
+{\footnotesize\ttfamily int save\+Menu\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils_8c_a4d07d66b313b7dd8ec5846004d2f8059_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utils_8c_ac2832bc31fb2f6c2d493b7b5db188786}\label{utils_8c_ac2832bc31fb2f6c2d493b7b5db188786}} 
+\index{utils.c@{utils.c}!selectEventHandler@{selectEventHandler}}
+\index{selectEventHandler@{selectEventHandler}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{selectEventHandler()}{selectEventHandler()}}
+{\footnotesize\ttfamily int select\+Event\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils_8c_ac2832bc31fb2f6c2d493b7b5db188786_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{utils_8c_a913e5dae6cc9a8481c1cfc30f6e17a08}\label{utils_8c_a913e5dae6cc9a8481c1cfc30f6e17a08}} 
+\index{utils.c@{utils.c}!selectionMenu@{selectionMenu}}
+\index{selectionMenu@{selectionMenu}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{selectionMenu()}{selectionMenu()}}
+{\footnotesize\ttfamily void selection\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{utils_8c_a913e5dae6cc9a8481c1cfc30f6e17a08_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils_8c_a913e5dae6cc9a8481c1cfc30f6e17a08_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{utils_8c_ac98de08d2d8c2fe9f05ef530aa802cac}\label{utils_8c_ac98de08d2d8c2fe9f05ef530aa802cac}} 
-\index{utils.\+c@{utils.\+c}!time\+\_\+left@{time\+\_\+left}}
-\index{time\+\_\+left@{time\+\_\+left}!utils.\+c@{utils.\+c}}
-\subsubsection{\texorpdfstring{time\+\_\+left()}{time\_left()}}
+\index{utils.c@{utils.c}!time\_left@{time\_left}}
+\index{time\_left@{time\_left}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{time\_left()}{time\_left()}}
 {\footnotesize\ttfamily Uint32 time\+\_\+left (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 

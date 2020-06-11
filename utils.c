@@ -325,10 +325,10 @@ void renderFrame(State state)
         }
         else if (choiceSelect == -1)
         {
-            gameplayPipeline();
+            //gameplayPipeline();
             //gameplayPipelineMulti();
             //EnigmePipeline();
-            //selectionMenu();
+            selectionMenu();
             //SaveMenu();
         }
         else if (choiceSelect == 1)
@@ -354,6 +354,10 @@ void renderFrame(State state)
             loadVars();
             gameplayPipeline();
         }
+        else if (choiceSelect == 6)
+        {
+            SaveMenu();
+        }
     }
 }
 
@@ -374,27 +378,37 @@ int selectEventHandler()
     SDL_WaitEvent(&event);
     switch (event.type)
     {
+    case SDL_MOUSEBUTTONUP:
+        keyPressed = 0;
+        break;
+    case SDL_KEYUP:
+        keyPressed = 0;
     case SDL_KEYDOWN:
-        switch (event.key.keysym.sym)
+        if (keyPressed == 0)
         {
-        case SDLK_UP:
-            gameSelector = gameSelector - 1;
-            if (gameSelector < 1)
+            switch (event.key.keysym.sym)
             {
-                gameSelector = 1;
+            case SDLK_UP:
+                gameSelector = gameSelector - 1;
+                if (gameSelector < 1)
+                {
+                    gameSelector = 1;
+                }
+                break;
+            case SDLK_DOWN:
+                gameSelector = gameSelector + 1;
+                if (gameSelector > 5)
+                {
+                    gameSelector = 5;
+                }
+                break;
+            case SDLK_RETURN:
+            case SDL_MOUSEBUTTONDOWN:
+                keyPressed = 1;
+                return gameSelector;
+                break;
             }
-            break;
-        case SDLK_DOWN:
-            gameSelector = gameSelector + 1;
-            if (gameSelector > 5)
-            {
-                gameSelector = 5;
-            }
-            break;
-        case SDLK_RETURN:
-        case SDL_MOUSEBUTTONDOWN:
-            return gameSelector;
-            break;
+            keyPressed = 1;
         }
         break;
 
@@ -421,6 +435,7 @@ int selectEventHandler()
     {
         gameSelector = 5;
     }
+    return -1;
 }
 void selectionMenu()
 {
@@ -486,7 +501,7 @@ void selectionMenu()
     apply_surface(400, 450, bouton6, screen, NULL);
     int selection = -1;
     selection = selectEventHandler();
-    switch (gameSelector)
+    switch (selection)
     {
     case 1:
         choiceSelect = 1;
@@ -555,9 +570,11 @@ void SaveMenu()
         SaveVars();
         break;
     case 2:
-        modelSelected = 1;
+        choiceSelect = 1;
         break;
     case 3:
+        choiceSelect = -1;
+        playState = !playState;
         break;
     default:
         break;
@@ -568,7 +585,7 @@ void SaveMenu()
 
 int saveMenuHandler()
 {
-    SDL_PollEvent(&event);
+    SDL_WaitEvent(&event);
     printf("1");
     switch (event.type)
     {

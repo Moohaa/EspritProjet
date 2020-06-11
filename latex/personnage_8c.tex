@@ -1,30 +1,35 @@
-\hypertarget{personnage_8c}{}\section{personnage.\+c File Reference}
-\label{personnage_8c}\index{personnage.\+c@{personnage.\+c}}
+\hypertarget{personnage_8c}{}\doxysection{personnage.\+c File Reference}
+\label{personnage_8c}\index{personnage.c@{personnage.c}}
 
 
 game character functions implementation  
 
 
 {\ttfamily \#include \char`\"{}personnage.\+h\char`\"{}}\newline
-Include dependency graph for personnage.\+c\+:\nopagebreak
+Include dependency graph for personnage.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{personnage_8c__incl}
 \end{center}
 \end{figure}
-\subsection*{Functions}
+\doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{personnage_8c_a958d98ed585b5080ac42949c66538315}{affiche\+Personnage} (\hyperlink{personnage_8h_a097667804f8d8a354d31250b985561fb}{Personnage} \hyperlink{structpersonnage}{personnage}, S\+D\+L\+\_\+\+Surface $\ast$\hyperlink{defs_8h_a78fa3957d73de49cb81d047857504218}{screen})
+void \mbox{\hyperlink{personnage_8c_a958d98ed585b5080ac42949c66538315}{affiche\+Personnage}} (\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} \mbox{\hyperlink{structpersonnage}{personnage}}, S\+D\+L\+\_\+\+Surface $\ast$\mbox{\hyperlink{defs_8h_a78fa3957d73de49cb81d047857504218}{screen}})
 \item 
-\hyperlink{personnage_8h_a097667804f8d8a354d31250b985561fb}{Personnage} \hyperlink{personnage_8c_abbe84ae9ce10824be36e1715a79492c2}{init\+Personnage} ()
+\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} \mbox{\hyperlink{personnage_8c_abbe84ae9ce10824be36e1715a79492c2}{init\+Personnage}} ()
 \item 
-\hyperlink{personnage_8h_a097667804f8d8a354d31250b985561fb}{Personnage} \hyperlink{personnage_8c_aa9a71678eee1bf41c31f7c97c1591a78}{load\+Sprite} (\hyperlink{personnage_8h_a097667804f8d8a354d31250b985561fb}{Personnage} \hyperlink{structpersonnage}{personnage}, int direction)
+\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} \mbox{\hyperlink{personnage_8c_a7536de70c0e212c3f0403881ab1aad8a}{init\+Personnage2}} ()
+\item 
+\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} \mbox{\hyperlink{personnage_8c_aa9a71678eee1bf41c31f7c97c1591a78}{load\+Sprite}} (\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} \mbox{\hyperlink{structpersonnage}{personnage}}, int direction)
+\item 
+\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} \mbox{\hyperlink{personnage_8c_a3b1e3ab31095396319839fe980920a07}{set\+Model}} (\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} personngage, int model)
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\doxysubsection{Detailed Description}
 game character functions implementation 
 
 \begin{DoxyAuthor}{Author}
@@ -38,19 +43,19 @@ Creative Sparks
 \end{DoxyDate}
 
 
-\subsection{Function Documentation}
+\doxysubsection{Function Documentation}
 \mbox{\Hypertarget{personnage_8c_a958d98ed585b5080ac42949c66538315}\label{personnage_8c_a958d98ed585b5080ac42949c66538315}} 
-\index{personnage.\+c@{personnage.\+c}!affiche\+Personnage@{affiche\+Personnage}}
-\index{affiche\+Personnage@{affiche\+Personnage}!personnage.\+c@{personnage.\+c}}
-\subsubsection{\texorpdfstring{affiche\+Personnage()}{affichePersonnage()}}
-{\footnotesize\ttfamily void affiche\+Personnage (\begin{DoxyParamCaption}\item[{\hyperlink{personnage_8h_a097667804f8d8a354d31250b985561fb}{Personnage}}]{personnage,  }\item[{S\+D\+L\+\_\+\+Surface $\ast$}]{screen }\end{DoxyParamCaption})}
+\index{personnage.c@{personnage.c}!affichePersonnage@{affichePersonnage}}
+\index{affichePersonnage@{affichePersonnage}!personnage.c@{personnage.c}}
+\doxysubsubsection{\texorpdfstring{affichePersonnage()}{affichePersonnage()}}
+{\footnotesize\ttfamily void affiche\+Personnage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}}}]{personnage,  }\item[{S\+D\+L\+\_\+\+Surface $\ast$}]{screen }\end{DoxyParamCaption})}
 
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=291pt]{personnage_8c_a958d98ed585b5080ac42949c66538315_cgraph}
+\includegraphics[width=308pt]{personnage_8c_a958d98ed585b5080ac42949c66538315_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:
@@ -62,10 +67,10 @@ Here is the caller graph for this function\+:
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{personnage_8c_abbe84ae9ce10824be36e1715a79492c2}\label{personnage_8c_abbe84ae9ce10824be36e1715a79492c2}} 
-\index{personnage.\+c@{personnage.\+c}!init\+Personnage@{init\+Personnage}}
-\index{init\+Personnage@{init\+Personnage}!personnage.\+c@{personnage.\+c}}
-\subsubsection{\texorpdfstring{init\+Personnage()}{initPersonnage()}}
-{\footnotesize\ttfamily \hyperlink{personnage_8h_a097667804f8d8a354d31250b985561fb}{Personnage} init\+Personnage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\index{personnage.c@{personnage.c}!initPersonnage@{initPersonnage}}
+\index{initPersonnage@{initPersonnage}!personnage.c@{personnage.c}}
+\doxysubsubsection{\texorpdfstring{initPersonnage()}{initPersonnage()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} init\+Personnage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Here is the caller graph for this function\+:
 \nopagebreak
@@ -75,18 +80,32 @@ Here is the caller graph for this function\+:
 \includegraphics[width=350pt]{personnage_8c_abbe84ae9ce10824be36e1715a79492c2_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{personnage_8c_a7536de70c0e212c3f0403881ab1aad8a}\label{personnage_8c_a7536de70c0e212c3f0403881ab1aad8a}} 
+\index{personnage.c@{personnage.c}!initPersonnage2@{initPersonnage2}}
+\index{initPersonnage2@{initPersonnage2}!personnage.c@{personnage.c}}
+\doxysubsubsection{\texorpdfstring{initPersonnage2()}{initPersonnage2()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} init\+Personnage2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{personnage_8c_a7536de70c0e212c3f0403881ab1aad8a_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{personnage_8c_aa9a71678eee1bf41c31f7c97c1591a78}\label{personnage_8c_aa9a71678eee1bf41c31f7c97c1591a78}} 
-\index{personnage.\+c@{personnage.\+c}!load\+Sprite@{load\+Sprite}}
-\index{load\+Sprite@{load\+Sprite}!personnage.\+c@{personnage.\+c}}
-\subsubsection{\texorpdfstring{load\+Sprite()}{loadSprite()}}
-{\footnotesize\ttfamily \hyperlink{personnage_8h_a097667804f8d8a354d31250b985561fb}{Personnage} load\+Sprite (\begin{DoxyParamCaption}\item[{\hyperlink{personnage_8h_a097667804f8d8a354d31250b985561fb}{Personnage}}]{personnage,  }\item[{int}]{direction }\end{DoxyParamCaption})}
+\index{personnage.c@{personnage.c}!loadSprite@{loadSprite}}
+\index{loadSprite@{loadSprite}!personnage.c@{personnage.c}}
+\doxysubsubsection{\texorpdfstring{loadSprite()}{loadSprite()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} load\+Sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}}}]{personnage,  }\item[{int}]{direction }\end{DoxyParamCaption})}
 
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=242pt]{personnage_8c_aa9a71678eee1bf41c31f7c97c1591a78_cgraph}
+\includegraphics[width=256pt]{personnage_8c_aa9a71678eee1bf41c31f7c97c1591a78_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:
@@ -97,3 +116,9 @@ Here is the caller graph for this function\+:
 \includegraphics[width=350pt]{personnage_8c_aa9a71678eee1bf41c31f7c97c1591a78_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{personnage_8c_a3b1e3ab31095396319839fe980920a07}\label{personnage_8c_a3b1e3ab31095396319839fe980920a07}} 
+\index{personnage.c@{personnage.c}!setModel@{setModel}}
+\index{setModel@{setModel}!personnage.c@{personnage.c}}
+\doxysubsubsection{\texorpdfstring{setModel()}{setModel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} set\+Model (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}}}]{personngage,  }\item[{int}]{model }\end{DoxyParamCaption})}
+

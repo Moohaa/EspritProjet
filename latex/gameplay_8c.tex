@@ -1,47 +1,68 @@
-\hypertarget{gameplay_8c}{}\section{gameplay.\+c File Reference}
-\label{gameplay_8c}\index{gameplay.\+c@{gameplay.\+c}}
+\hypertarget{gameplay_8c}{}\doxysection{gameplay.\+c File Reference}
+\label{gameplay_8c}\index{gameplay.c@{gameplay.c}}
 
 
 in-\/game gameplay source code  
 
 
 {\ttfamily \#include \char`\"{}gameplay.\+h\char`\"{}}\newline
-Include dependency graph for gameplay.\+c\+:\nopagebreak
+Include dependency graph for gameplay.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{gameplay_8c__incl}
 \end{center}
 \end{figure}
-\subsection*{Functions}
+\doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{gameplay_8c_ac9fb5524a1af1a6a5f5e62aed8e2aec2}{afficher\+Personnage} (\hyperlink{personnage_8h_a097667804f8d8a354d31250b985561fb}{Personnage} \hyperlink{structpersonnage}{personnage}, S\+D\+L\+\_\+\+Surface $\ast$\hyperlink{defs_8h_a78fa3957d73de49cb81d047857504218}{screen})
+\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} \mbox{\hyperlink{gameplay_8c_a012cc3152aaa6256d7016eda4576e3e1}{jump}} (\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} \mbox{\hyperlink{structpersonnage}{personnage}})
 \item 
-void \hyperlink{gameplay_8c_aa3ab2db1ce3de55f90421f28085dfaa0}{init\+Gameplay} ()
+void \mbox{\hyperlink{gameplay_8c_ab12073167d36c929c41b6cf0862ab342}{load\+Vars}} ()
 \item 
-\hyperlink{personnage_8h_a097667804f8d8a354d31250b985561fb}{Personnage} \hyperlink{gameplay_8c_a19d24c21fe97bb7e71860600f57692c0}{gameplay\+Event\+Handler} (\hyperlink{personnage_8h_a097667804f8d8a354d31250b985561fb}{Personnage} \hyperlink{structpersonnage}{personnage})
+void \mbox{\hyperlink{gameplay_8c_a4acf497b379b922113b92fbc7846f6cc}{Save\+Vars}} ()
 \item 
-void \hyperlink{gameplay_8c_af5d079532bfd9c1e16366b419fd9b81c}{move\+Ennemies} ()
+void \mbox{\hyperlink{gameplay_8c_ac9fb5524a1af1a6a5f5e62aed8e2aec2}{afficher\+Personnage}} (\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} \mbox{\hyperlink{structpersonnage}{personnage}}, S\+D\+L\+\_\+\+Surface $\ast$\mbox{\hyperlink{defs_8h_a78fa3957d73de49cb81d047857504218}{screen}})
 \item 
-void \hyperlink{gameplay_8c_a1b0a0f001ccd6cbe4c186b9d6ea7a9a7}{afficher\+Entities\+Secondaires} ()
+void \mbox{\hyperlink{gameplay_8c_aa3ab2db1ce3de55f90421f28085dfaa0}{init\+Gameplay}} ()
 \item 
-int \hyperlink{gameplay_8c_a2feec1d542e8b5cd6d712de11cbb3e20}{bounding\+Box\+Collision} (S\+D\+L\+\_\+\+Rect A, S\+D\+L\+\_\+\+Rect B)
+\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} \mbox{\hyperlink{gameplay_8c_a19d24c21fe97bb7e71860600f57692c0}{gameplay\+Event\+Handler}} (\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} \mbox{\hyperlink{structpersonnage}{personnage}})
 \item 
-int \hyperlink{gameplay_8c_a35ea5988cc7898b2c33b60749e31dbbf}{collision\+Detection} (\hyperlink{personnage_8h_a097667804f8d8a354d31250b985561fb}{Personnage} \hyperlink{structpersonnage}{personnage})
+void \mbox{\hyperlink{gameplay_8c_af5d079532bfd9c1e16366b419fd9b81c}{move\+Ennemies}} ()
 \item 
-int \hyperlink{gameplay_8c_acb81255bb5e5e4902254dc8f54ff20ab}{perfect\+Pixel\+Collision} (\hyperlink{personnage_8h_a097667804f8d8a354d31250b985561fb}{Personnage} \hyperlink{structpersonnage}{personnage}, int x, int y)
+void \mbox{\hyperlink{gameplay_8c_a1b0a0f001ccd6cbe4c186b9d6ea7a9a7}{afficher\+Entities\+Secondaires}} ()
 \item 
-void \hyperlink{gameplay_8c_a53f6e90f75c04f6d7214ef60dfdf9dee}{gameplay\+Pipeline} ()
+int \mbox{\hyperlink{gameplay_8c_a2feec1d542e8b5cd6d712de11cbb3e20}{bounding\+Box\+Collision}} (S\+D\+L\+\_\+\+Rect A, S\+D\+L\+\_\+\+Rect B)
+\item 
+int \mbox{\hyperlink{gameplay_8c_a35ea5988cc7898b2c33b60749e31dbbf}{collision\+Detection}} (\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} \mbox{\hyperlink{structpersonnage}{personnage}})
+\item 
+int \mbox{\hyperlink{gameplay_8c_acb81255bb5e5e4902254dc8f54ff20ab}{perfect\+Pixel\+Collision}} (\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} \mbox{\hyperlink{structpersonnage}{personnage}}, int x, int y)
+\item 
+int \mbox{\hyperlink{gameplay_8c_a9b7cf0f7c2443726f0b4bb6012c09dda}{ennemy\+Vision}} (\mbox{\hyperlink{ennemies_8h_abc1d765bf177d92e054b9d9300b3ccef}{Ennemi}} \mbox{\hyperlink{structennemi}{ennemi}})
+\item 
+void \mbox{\hyperlink{gameplay_8c_a724ec64eedf57914a022a604b0251bba}{move\+Seen\+Ennemies}} ()
+\item 
+void \mbox{\hyperlink{gameplay_8c_aa4bbed40276a5850dab617b6e320a2dc}{show\+Game\+Over\+Screen}} ()
+\item 
+void \mbox{\hyperlink{gameplay_8c_a51e5ed834efb6cf170a430f12d1a234b}{show\+Minimap}} ()
+\item 
+void \mbox{\hyperlink{gameplay_8c_a22c68820a323b39d7ccb0b9f08ca8b06}{ai\+Move}} ()
+\item 
+void \mbox{\hyperlink{gameplay_8c_aceb86c980514c6c76f3e4f557c94560e}{gameplay\+Pipeline\+Multi}} ()
+\item 
+void \mbox{\hyperlink{gameplay_8c_a53f6e90f75c04f6d7214ef60dfdf9dee}{gameplay\+Pipeline}} ()
 \end{DoxyCompactItemize}
-\subsection*{Variables}
+\doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{personnage_8h_a097667804f8d8a354d31250b985561fb}{Personnage} \hyperlink{gameplay_8c_abd0321820747a312cdec82d73f26f9fa}{personnage}
+\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} \mbox{\hyperlink{gameplay_8c_abd0321820747a312cdec82d73f26f9fa}{personnage}}
+\item 
+\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} \mbox{\hyperlink{gameplay_8c_a1175b0457a2ae93a8ee11f07f199f66e}{personnage2}}
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\doxysubsection{Detailed Description}
 in-\/game gameplay source code 
 
 \begin{DoxyAuthor}{Author}
@@ -55,11 +76,11 @@ Creative Sparks
 \end{DoxyDate}
 
 
-\subsection{Function Documentation}
+\doxysubsection{Function Documentation}
 \mbox{\Hypertarget{gameplay_8c_a1b0a0f001ccd6cbe4c186b9d6ea7a9a7}\label{gameplay_8c_a1b0a0f001ccd6cbe4c186b9d6ea7a9a7}} 
-\index{gameplay.\+c@{gameplay.\+c}!afficher\+Entities\+Secondaires@{afficher\+Entities\+Secondaires}}
-\index{afficher\+Entities\+Secondaires@{afficher\+Entities\+Secondaires}!gameplay.\+c@{gameplay.\+c}}
-\subsubsection{\texorpdfstring{afficher\+Entities\+Secondaires()}{afficherEntitiesSecondaires()}}
+\index{gameplay.c@{gameplay.c}!afficherEntitiesSecondaires@{afficherEntitiesSecondaires}}
+\index{afficherEntitiesSecondaires@{afficherEntitiesSecondaires}!gameplay.c@{gameplay.c}}
+\doxysubsubsection{\texorpdfstring{afficherEntitiesSecondaires()}{afficherEntitiesSecondaires()}}
 {\footnotesize\ttfamily void afficher\+Entities\+Secondaires (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Here is the call graph for this function\+:
@@ -79,23 +100,37 @@ Here is the caller graph for this function\+:
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{gameplay_8c_ac9fb5524a1af1a6a5f5e62aed8e2aec2}\label{gameplay_8c_ac9fb5524a1af1a6a5f5e62aed8e2aec2}} 
-\index{gameplay.\+c@{gameplay.\+c}!afficher\+Personnage@{afficher\+Personnage}}
-\index{afficher\+Personnage@{afficher\+Personnage}!gameplay.\+c@{gameplay.\+c}}
-\subsubsection{\texorpdfstring{afficher\+Personnage()}{afficherPersonnage()}}
-{\footnotesize\ttfamily void afficher\+Personnage (\begin{DoxyParamCaption}\item[{\hyperlink{personnage_8h_a097667804f8d8a354d31250b985561fb}{Personnage}}]{personnage,  }\item[{S\+D\+L\+\_\+\+Surface $\ast$}]{screen }\end{DoxyParamCaption})}
+\index{gameplay.c@{gameplay.c}!afficherPersonnage@{afficherPersonnage}}
+\index{afficherPersonnage@{afficherPersonnage}!gameplay.c@{gameplay.c}}
+\doxysubsubsection{\texorpdfstring{afficherPersonnage()}{afficherPersonnage()}}
+{\footnotesize\ttfamily void afficher\+Personnage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}}}]{personnage,  }\item[{S\+D\+L\+\_\+\+Surface $\ast$}]{screen }\end{DoxyParamCaption})}
 
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=294pt]{gameplay_8c_ac9fb5524a1af1a6a5f5e62aed8e2aec2_cgraph}
+\includegraphics[width=311pt]{gameplay_8c_ac9fb5524a1af1a6a5f5e62aed8e2aec2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{gameplay_8c_a22c68820a323b39d7ccb0b9f08ca8b06}\label{gameplay_8c_a22c68820a323b39d7ccb0b9f08ca8b06}} 
+\index{gameplay.c@{gameplay.c}!aiMove@{aiMove}}
+\index{aiMove@{aiMove}!gameplay.c@{gameplay.c}}
+\doxysubsubsection{\texorpdfstring{aiMove()}{aiMove()}}
+{\footnotesize\ttfamily void ai\+Move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gameplay_8c_a22c68820a323b39d7ccb0b9f08ca8b06_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{gameplay_8c_a2feec1d542e8b5cd6d712de11cbb3e20}\label{gameplay_8c_a2feec1d542e8b5cd6d712de11cbb3e20}} 
-\index{gameplay.\+c@{gameplay.\+c}!bounding\+Box\+Collision@{bounding\+Box\+Collision}}
-\index{bounding\+Box\+Collision@{bounding\+Box\+Collision}!gameplay.\+c@{gameplay.\+c}}
-\subsubsection{\texorpdfstring{bounding\+Box\+Collision()}{boundingBoxCollision()}}
+\index{gameplay.c@{gameplay.c}!boundingBoxCollision@{boundingBoxCollision}}
+\index{boundingBoxCollision@{boundingBoxCollision}!gameplay.c@{gameplay.c}}
+\doxysubsubsection{\texorpdfstring{boundingBoxCollision()}{boundingBoxCollision()}}
 {\footnotesize\ttfamily int bounding\+Box\+Collision (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Rect}]{A,  }\item[{S\+D\+L\+\_\+\+Rect}]{B }\end{DoxyParamCaption})}
 
 Here is the caller graph for this function\+:
@@ -107,17 +142,17 @@ Here is the caller graph for this function\+:
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{gameplay_8c_a35ea5988cc7898b2c33b60749e31dbbf}\label{gameplay_8c_a35ea5988cc7898b2c33b60749e31dbbf}} 
-\index{gameplay.\+c@{gameplay.\+c}!collision\+Detection@{collision\+Detection}}
-\index{collision\+Detection@{collision\+Detection}!gameplay.\+c@{gameplay.\+c}}
-\subsubsection{\texorpdfstring{collision\+Detection()}{collisionDetection()}}
-{\footnotesize\ttfamily int collision\+Detection (\begin{DoxyParamCaption}\item[{\hyperlink{personnage_8h_a097667804f8d8a354d31250b985561fb}{Personnage}}]{personnage }\end{DoxyParamCaption})}
+\index{gameplay.c@{gameplay.c}!collisionDetection@{collisionDetection}}
+\index{collisionDetection@{collisionDetection}!gameplay.c@{gameplay.c}}
+\doxysubsubsection{\texorpdfstring{collisionDetection()}{collisionDetection()}}
+{\footnotesize\ttfamily int collision\+Detection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}}}]{personnage }\end{DoxyParamCaption})}
 
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=320pt]{gameplay_8c_a35ea5988cc7898b2c33b60749e31dbbf_cgraph}
+\includegraphics[width=342pt]{gameplay_8c_a35ea5988cc7898b2c33b60749e31dbbf_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:
@@ -128,12 +163,34 @@ Here is the caller graph for this function\+:
 \includegraphics[width=350pt]{gameplay_8c_a35ea5988cc7898b2c33b60749e31dbbf_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{gameplay_8c_a19d24c21fe97bb7e71860600f57692c0}\label{gameplay_8c_a19d24c21fe97bb7e71860600f57692c0}} 
-\index{gameplay.\+c@{gameplay.\+c}!gameplay\+Event\+Handler@{gameplay\+Event\+Handler}}
-\index{gameplay\+Event\+Handler@{gameplay\+Event\+Handler}!gameplay.\+c@{gameplay.\+c}}
-\subsubsection{\texorpdfstring{gameplay\+Event\+Handler()}{gameplayEventHandler()}}
-{\footnotesize\ttfamily \hyperlink{personnage_8h_a097667804f8d8a354d31250b985561fb}{Personnage} gameplay\+Event\+Handler (\begin{DoxyParamCaption}\item[{\hyperlink{personnage_8h_a097667804f8d8a354d31250b985561fb}{Personnage}}]{personnage }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{gameplay_8c_a9b7cf0f7c2443726f0b4bb6012c09dda}\label{gameplay_8c_a9b7cf0f7c2443726f0b4bb6012c09dda}} 
+\index{gameplay.c@{gameplay.c}!ennemyVision@{ennemyVision}}
+\index{ennemyVision@{ennemyVision}!gameplay.c@{gameplay.c}}
+\doxysubsubsection{\texorpdfstring{ennemyVision()}{ennemyVision()}}
+{\footnotesize\ttfamily int ennemy\+Vision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ennemies_8h_abc1d765bf177d92e054b9d9300b3ccef}{Ennemi}}}]{ennemi }\end{DoxyParamCaption})}
 
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gameplay_8c_a9b7cf0f7c2443726f0b4bb6012c09dda_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{gameplay_8c_a19d24c21fe97bb7e71860600f57692c0}\label{gameplay_8c_a19d24c21fe97bb7e71860600f57692c0}} 
+\index{gameplay.c@{gameplay.c}!gameplayEventHandler@{gameplayEventHandler}}
+\index{gameplayEventHandler@{gameplayEventHandler}!gameplay.c@{gameplay.c}}
+\doxysubsubsection{\texorpdfstring{gameplayEventHandler()}{gameplayEventHandler()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} gameplay\+Event\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}}}]{personnage }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gameplay_8c_a19d24c21fe97bb7e71860600f57692c0_cgraph}
+\end{center}
+\end{figure}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -143,9 +200,9 @@ Here is the caller graph for this function\+:
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{gameplay_8c_a53f6e90f75c04f6d7214ef60dfdf9dee}\label{gameplay_8c_a53f6e90f75c04f6d7214ef60dfdf9dee}} 
-\index{gameplay.\+c@{gameplay.\+c}!gameplay\+Pipeline@{gameplay\+Pipeline}}
-\index{gameplay\+Pipeline@{gameplay\+Pipeline}!gameplay.\+c@{gameplay.\+c}}
-\subsubsection{\texorpdfstring{gameplay\+Pipeline()}{gameplayPipeline()}}
+\index{gameplay.c@{gameplay.c}!gameplayPipeline@{gameplayPipeline}}
+\index{gameplayPipeline@{gameplayPipeline}!gameplay.c@{gameplay.c}}
+\doxysubsubsection{\texorpdfstring{gameplayPipeline()}{gameplayPipeline()}}
 {\footnotesize\ttfamily void gameplay\+Pipeline (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Here is the call graph for this function\+:
@@ -164,18 +221,18 @@ Here is the caller graph for this function\+:
 \includegraphics[width=350pt]{gameplay_8c_a53f6e90f75c04f6d7214ef60dfdf9dee_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{gameplay_8c_aa3ab2db1ce3de55f90421f28085dfaa0}\label{gameplay_8c_aa3ab2db1ce3de55f90421f28085dfaa0}} 
-\index{gameplay.\+c@{gameplay.\+c}!init\+Gameplay@{init\+Gameplay}}
-\index{init\+Gameplay@{init\+Gameplay}!gameplay.\+c@{gameplay.\+c}}
-\subsubsection{\texorpdfstring{init\+Gameplay()}{initGameplay()}}
-{\footnotesize\ttfamily void init\+Gameplay (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{gameplay_8c_aceb86c980514c6c76f3e4f557c94560e}\label{gameplay_8c_aceb86c980514c6c76f3e4f557c94560e}} 
+\index{gameplay.c@{gameplay.c}!gameplayPipelineMulti@{gameplayPipelineMulti}}
+\index{gameplayPipelineMulti@{gameplayPipelineMulti}!gameplay.c@{gameplay.c}}
+\doxysubsubsection{\texorpdfstring{gameplayPipelineMulti()}{gameplayPipelineMulti()}}
+{\footnotesize\ttfamily void gameplay\+Pipeline\+Multi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=271pt]{gameplay_8c_aa3ab2db1ce3de55f90421f28085dfaa0_cgraph}
+\includegraphics[width=350pt]{gameplay_8c_aceb86c980514c6c76f3e4f557c94560e_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:
@@ -183,13 +240,71 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=335pt]{gameplay_8c_aa3ab2db1ce3de55f90421f28085dfaa0_icgraph}
+\includegraphics[width=350pt]{gameplay_8c_aceb86c980514c6c76f3e4f557c94560e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{gameplay_8c_aa3ab2db1ce3de55f90421f28085dfaa0}\label{gameplay_8c_aa3ab2db1ce3de55f90421f28085dfaa0}} 
+\index{gameplay.c@{gameplay.c}!initGameplay@{initGameplay}}
+\index{initGameplay@{initGameplay}!gameplay.c@{gameplay.c}}
+\doxysubsubsection{\texorpdfstring{initGameplay()}{initGameplay()}}
+{\footnotesize\ttfamily void init\+Gameplay (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{gameplay_8c_aa3ab2db1ce3de55f90421f28085dfaa0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gameplay_8c_aa3ab2db1ce3de55f90421f28085dfaa0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{gameplay_8c_a012cc3152aaa6256d7016eda4576e3e1}\label{gameplay_8c_a012cc3152aaa6256d7016eda4576e3e1}} 
+\index{gameplay.c@{gameplay.c}!jump@{jump}}
+\index{jump@{jump}!gameplay.c@{gameplay.c}}
+\doxysubsubsection{\texorpdfstring{jump()}{jump()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} jump (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}}}]{personnage }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gameplay_8c_a012cc3152aaa6256d7016eda4576e3e1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gameplay_8c_a012cc3152aaa6256d7016eda4576e3e1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{gameplay_8c_ab12073167d36c929c41b6cf0862ab342}\label{gameplay_8c_ab12073167d36c929c41b6cf0862ab342}} 
+\index{gameplay.c@{gameplay.c}!loadVars@{loadVars}}
+\index{loadVars@{loadVars}!gameplay.c@{gameplay.c}}
+\doxysubsubsection{\texorpdfstring{loadVars()}{loadVars()}}
+{\footnotesize\ttfamily void load\+Vars (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gameplay_8c_ab12073167d36c929c41b6cf0862ab342_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{gameplay_8c_af5d079532bfd9c1e16366b419fd9b81c}\label{gameplay_8c_af5d079532bfd9c1e16366b419fd9b81c}} 
-\index{gameplay.\+c@{gameplay.\+c}!move\+Ennemies@{move\+Ennemies}}
-\index{move\+Ennemies@{move\+Ennemies}!gameplay.\+c@{gameplay.\+c}}
-\subsubsection{\texorpdfstring{move\+Ennemies()}{moveEnnemies()}}
+\index{gameplay.c@{gameplay.c}!moveEnnemies@{moveEnnemies}}
+\index{moveEnnemies@{moveEnnemies}!gameplay.c@{gameplay.c}}
+\doxysubsubsection{\texorpdfstring{moveEnnemies()}{moveEnnemies()}}
 {\footnotesize\ttfamily void move\+Ennemies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Here is the caller graph for this function\+:
@@ -200,26 +315,96 @@ Here is the caller graph for this function\+:
 \includegraphics[width=350pt]{gameplay_8c_af5d079532bfd9c1e16366b419fd9b81c_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{gameplay_8c_acb81255bb5e5e4902254dc8f54ff20ab}\label{gameplay_8c_acb81255bb5e5e4902254dc8f54ff20ab}} 
-\index{gameplay.\+c@{gameplay.\+c}!perfect\+Pixel\+Collision@{perfect\+Pixel\+Collision}}
-\index{perfect\+Pixel\+Collision@{perfect\+Pixel\+Collision}!gameplay.\+c@{gameplay.\+c}}
-\subsubsection{\texorpdfstring{perfect\+Pixel\+Collision()}{perfectPixelCollision()}}
-{\footnotesize\ttfamily int perfect\+Pixel\+Collision (\begin{DoxyParamCaption}\item[{\hyperlink{personnage_8h_a097667804f8d8a354d31250b985561fb}{Personnage}}]{personnage,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{gameplay_8c_a724ec64eedf57914a022a604b0251bba}\label{gameplay_8c_a724ec64eedf57914a022a604b0251bba}} 
+\index{gameplay.c@{gameplay.c}!moveSeenEnnemies@{moveSeenEnnemies}}
+\index{moveSeenEnnemies@{moveSeenEnnemies}!gameplay.c@{gameplay.c}}
+\doxysubsubsection{\texorpdfstring{moveSeenEnnemies()}{moveSeenEnnemies()}}
+{\footnotesize\ttfamily void move\+Seen\+Ennemies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=276pt]{gameplay_8c_acb81255bb5e5e4902254dc8f54ff20ab_cgraph}
+\includegraphics[width=318pt]{gameplay_8c_a724ec64eedf57914a022a604b0251bba_cgraph}
 \end{center}
 \end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gameplay_8c_a724ec64eedf57914a022a604b0251bba_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{gameplay_8c_acb81255bb5e5e4902254dc8f54ff20ab}\label{gameplay_8c_acb81255bb5e5e4902254dc8f54ff20ab}} 
+\index{gameplay.c@{gameplay.c}!perfectPixelCollision@{perfectPixelCollision}}
+\index{perfectPixelCollision@{perfectPixelCollision}!gameplay.c@{gameplay.c}}
+\doxysubsubsection{\texorpdfstring{perfectPixelCollision()}{perfectPixelCollision()}}
+{\footnotesize\ttfamily int perfect\+Pixel\+Collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}}}]{personnage,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{gameplay_8c_acb81255bb5e5e4902254dc8f54ff20ab_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{gameplay_8c_a4acf497b379b922113b92fbc7846f6cc}\label{gameplay_8c_a4acf497b379b922113b92fbc7846f6cc}} 
+\index{gameplay.c@{gameplay.c}!SaveVars@{SaveVars}}
+\index{SaveVars@{SaveVars}!gameplay.c@{gameplay.c}}
+\doxysubsubsection{\texorpdfstring{SaveVars()}{SaveVars()}}
+{\footnotesize\ttfamily void Save\+Vars (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gameplay_8c_a4acf497b379b922113b92fbc7846f6cc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{gameplay_8c_aa4bbed40276a5850dab617b6e320a2dc}\label{gameplay_8c_aa4bbed40276a5850dab617b6e320a2dc}} 
+\index{gameplay.c@{gameplay.c}!showGameOverScreen@{showGameOverScreen}}
+\index{showGameOverScreen@{showGameOverScreen}!gameplay.c@{gameplay.c}}
+\doxysubsubsection{\texorpdfstring{showGameOverScreen()}{showGameOverScreen()}}
+{\footnotesize\ttfamily void show\+Game\+Over\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gameplay_8c_aa4bbed40276a5850dab617b6e320a2dc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gameplay_8c_aa4bbed40276a5850dab617b6e320a2dc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{gameplay_8c_a51e5ed834efb6cf170a430f12d1a234b}\label{gameplay_8c_a51e5ed834efb6cf170a430f12d1a234b}} 
+\index{gameplay.c@{gameplay.c}!showMinimap@{showMinimap}}
+\index{showMinimap@{showMinimap}!gameplay.c@{gameplay.c}}
+\doxysubsubsection{\texorpdfstring{showMinimap()}{showMinimap()}}
+{\footnotesize\ttfamily void show\+Minimap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
-\subsection{Variable Documentation}
+
+\doxysubsection{Variable Documentation}
 \mbox{\Hypertarget{gameplay_8c_abd0321820747a312cdec82d73f26f9fa}\label{gameplay_8c_abd0321820747a312cdec82d73f26f9fa}} 
-\index{gameplay.\+c@{gameplay.\+c}!personnage@{personnage}}
-\index{personnage@{personnage}!gameplay.\+c@{gameplay.\+c}}
-\subsubsection{\texorpdfstring{personnage}{personnage}}
-{\footnotesize\ttfamily \hyperlink{personnage_8h_a097667804f8d8a354d31250b985561fb}{Personnage} \hyperlink{structpersonnage}{personnage}}
+\index{gameplay.c@{gameplay.c}!personnage@{personnage}}
+\index{personnage@{personnage}!gameplay.c@{gameplay.c}}
+\doxysubsubsection{\texorpdfstring{personnage}{personnage}}
+{\footnotesize\ttfamily \mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} \mbox{\hyperlink{structpersonnage}{personnage}}}
+
+\mbox{\Hypertarget{gameplay_8c_a1175b0457a2ae93a8ee11f07f199f66e}\label{gameplay_8c_a1175b0457a2ae93a8ee11f07f199f66e}} 
+\index{gameplay.c@{gameplay.c}!personnage2@{personnage2}}
+\index{personnage2@{personnage2}!gameplay.c@{gameplay.c}}
+\doxysubsubsection{\texorpdfstring{personnage2}{personnage2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{personnage_8h_aae0cebaa519806b8e6c577443317f7c4}{Personnage}} personnage2}
 

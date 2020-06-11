@@ -16,119 +16,26 @@ Personnage personnage2;
 
 Personnage jump(Personnage personnage)
 {
-    apply_surface(offsetBG, 0, gameBackground, screen, NULL);
-    afficherEntitiesSecondaires();
-    offsetBG = offsetBG - 10;
-    personnage.posY = personnage.posY - 10;
-    affichePersonnage(personnage, screen);
-    SDL_Flip(screen);
-    SDL_Delay(20);
-    apply_surface(offsetBG, 0, gameBackground, screen, NULL);
-    afficherEntitiesSecondaires();
-    offsetBG = offsetBG - 10;
-    personnage.posY = personnage.posY - 10;
-    affichePersonnage(personnage, screen);
-    SDL_Flip(screen);
-    SDL_Delay(20);
-    apply_surface(offsetBG, 0, gameBackground, screen, NULL);
-    afficherEntitiesSecondaires();
-    offsetBG = offsetBG - 10;
-    personnage.posY = personnage.posY - 10;
-    affichePersonnage(personnage, screen);
-    SDL_Flip(screen);
-    SDL_Delay(20);
-    apply_surface(offsetBG, 0, gameBackground, screen, NULL);
-    afficherEntitiesSecondaires();
-    offsetBG = offsetBG - 10;
-    personnage.posY = personnage.posY - 10;
-    affichePersonnage(personnage, screen);
-    SDL_Flip(screen);
-    SDL_Delay(20);
-    apply_surface(offsetBG, 0, gameBackground, screen, NULL);
-    afficherEntitiesSecondaires();
-    offsetBG = offsetBG - 10;
-    personnage.posY = personnage.posY - 10;
-    affichePersonnage(personnage, screen);
-    SDL_Flip(screen);
-    SDL_Delay(20);
-    apply_surface(offsetBG, 0, gameBackground, screen, NULL);
-    afficherEntitiesSecondaires();
-    offsetBG = offsetBG - 10;
-    personnage.posY = personnage.posY - 10;
-    affichePersonnage(personnage, screen);
-    SDL_Flip(screen);
-    SDL_Delay(20);
-    apply_surface(offsetBG, 0, gameBackground, screen, NULL);
-    afficherEntitiesSecondaires();
-    offsetBG = offsetBG - 10;
-    personnage.posY = personnage.posY - 10;
-    affichePersonnage(personnage, screen);
-    SDL_Flip(screen);
-    SDL_Delay(20);
-    apply_surface(offsetBG, 0, gameBackground, screen, NULL);
-    afficherEntitiesSecondaires();
-    offsetBG = offsetBG - 10;
-    personnage.posY = personnage.posY - 10;
-    affichePersonnage(personnage, screen);
-    SDL_Flip(screen);
-    SDL_Delay(20);
-    /////
-    apply_surface(offsetBG, 0, gameBackground, screen, NULL);
-    afficherEntitiesSecondaires();
-    offsetBG = offsetBG - 10;
-    personnage.posY = personnage.posY + 10;
-    affichePersonnage(personnage, screen);
-    SDL_Flip(screen);
-    SDL_Delay(20);
-    apply_surface(offsetBG, 0, gameBackground, screen, NULL);
-    afficherEntitiesSecondaires();
-    offsetBG = offsetBG - 10;
-    personnage.posY = personnage.posY + 10;
-    affichePersonnage(personnage, screen);
-    SDL_Flip(screen);
-    SDL_Delay(20);
-    apply_surface(offsetBG, 0, gameBackground, screen, NULL);
-    afficherEntitiesSecondaires();
-    offsetBG = offsetBG - 10;
-    personnage.posY = personnage.posY + 10;
-    affichePersonnage(personnage, screen);
-    SDL_Flip(screen);
-    SDL_Delay(20);
-    apply_surface(offsetBG, 0, gameBackground, screen, NULL);
-    afficherEntitiesSecondaires();
-    offsetBG = offsetBG - 10;
-    personnage.posY = personnage.posY + 10;
-    affichePersonnage(personnage, screen);
-    SDL_Flip(screen);
-    SDL_Delay(20);
-    apply_surface(offsetBG, 0, gameBackground, screen, NULL);
-    afficherEntitiesSecondaires();
-    offsetBG = offsetBG - 10;
-    personnage.posY = personnage.posY + 10;
-    affichePersonnage(personnage, screen);
-    SDL_Flip(screen);
-    SDL_Delay(20);
-    apply_surface(offsetBG, 0, gameBackground, screen, NULL);
-    afficherEntitiesSecondaires();
-    offsetBG = offsetBG - 10;
-    personnage.posY = personnage.posY + 10;
-    affichePersonnage(personnage, screen);
-    SDL_Flip(screen);
-    SDL_Delay(20);
-    apply_surface(offsetBG, 0, gameBackground, screen, NULL);
-    afficherEntitiesSecondaires();
-    offsetBG = offsetBG - 10;
-    personnage.posY = personnage.posY + 10;
-    affichePersonnage(personnage, screen);
-    SDL_Flip(screen);
-    SDL_Delay(20);
-    apply_surface(offsetBG, 0, gameBackground, screen, NULL);
-    afficherEntitiesSecondaires();
-    offsetBG = offsetBG - 10;
-    personnage.posY = personnage.posY + 10;
-    affichePersonnage(personnage, screen);
-    SDL_Flip(screen);
-    SDL_Delay(20);
+    for (int i = 0; i < 10; i++)
+    {
+        apply_surface(offsetBG, 0, gameBackground, screen, NULL);
+        afficherEntitiesSecondaires();
+        offsetBG = offsetBG - 10;
+        personnage.posY = personnage.posY - 10;
+        affichePersonnage(personnage, screen);
+        SDL_Flip(screen);
+        SDL_Delay(20);
+    }
+    for (int i = 0; i < 10; i++)
+    {
+        apply_surface(offsetBG, 0, gameBackground, screen, NULL);
+        afficherEntitiesSecondaires();
+        offsetBG = offsetBG - 10;
+        personnage.posY = personnage.posY + 10;
+        affichePersonnage(personnage, screen);
+        SDL_Flip(screen);
+        SDL_Delay(20);
+    }
 }
 
 void loadVars()
@@ -213,6 +120,9 @@ Personnage gameplayEventHandler(Personnage personnage)
             ennemi3.posX = ennemi3.posX + 7;
             ennemi4.posX = ennemi4.posX + 7;
             personnage2.direction = 1;
+            break;
+        case SDLK_ESCAPE:
+            choiceSelect = 6;
             break;
         case SDLK_j:
             vies = vies - 1;
@@ -451,7 +361,7 @@ void gameplayPipelineMulti()
 {
     apply_surface(offsetBG, 0, gameBackground, screen, NULL);
     apply_surface(offsetBG2, -375, gameBackground, screen, NULL);
-
+    personnage.model = modelSelected;
     personnage = loadSprite(personnage, personnage.direction);
     personnage2 = loadSprite(personnage2, personnage2.direction);
 
