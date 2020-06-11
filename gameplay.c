@@ -64,6 +64,7 @@ void initGameplay()
     gameplayStartTick = SDL_GetTicks();
     minimap = load_image("assets/minimap.png", 0);
     minimapIcon = load_image("assets/minimap icon.png", 0);
+    vies = 3;
 }
 
 Personnage gameplayEventHandler(Personnage personnage)
@@ -92,6 +93,9 @@ Personnage gameplayEventHandler(Personnage personnage)
             ennemi4.posX = ennemi4.posX + 7;
             personnage2.direction = 1;
             break;
+        case SDLK_j:
+            vies = vies - 1;
+            break;
         case SDLK_u:
             SaveVars();
             printf("saved  ? ");
@@ -113,13 +117,17 @@ Personnage gameplayEventHandler(Personnage personnage)
     case SDL_MOUSEBUTTONDOWN:
         if (mouseX > personnage.posX)
         {
+            offsetBG = offsetBG - 15;
+            ennemi1.posX = ennemi1.posX - 7;
+            ennemi2.posX = ennemi2.posX - 7;
             personnage.direction = 0;
-            personnage.posX = personnage.posX + 15;
         }
         else if (mouseX < personnage.posX)
         {
+            offsetBG = offsetBG + 15;
+            ennemi1.posX = ennemi1.posX + 7;
+            ennemi2.posX = ennemi2.posX + 7;
             personnage.direction = 1;
-            personnage.posX = personnage.posX - 15;
         }
         break;
     default:
@@ -357,7 +365,7 @@ void gameplayPipelineMulti()
     SDL_FreeSurface(gameplayTimeSurface);
     ////////////////
     ///////////////////////
-    //showGameOverScreen();
+    showGameOverScreen();
     ////////////////////////
 
     ////////ROTOZOOM
@@ -387,6 +395,14 @@ void gameplayPipelineMulti()
 
 void gameplayPipeline()
 {
+    if (vies < 1)
+    {
+        showGameOverScreen();
+        SDL_Delay(3000);
+        playState = 0;
+        inits = 0;
+        return;
+    }
     apply_surface(offsetBG, 0, gameBackground, screen, NULL);
     personnage = loadSprite(personnage, personnage.direction);
     ennemi1 = loadSpriteEnnemi(ennemi1, ennemi1.direction);
@@ -394,7 +410,7 @@ void gameplayPipeline()
     affichePersonnage(personnage, screen);
     personnage = gameplayEventHandler(personnage);
     afficherEntitiesSecondaires();
-    //moveEnnemies();
+    moveEnnemies();
     /////////////////
     moveSeenEnnemies();
     ////////////////////
@@ -412,10 +428,6 @@ void gameplayPipeline()
     SDL_Surface *gameplayTimeSurface = generateFontSurface(32, gameplayTimeString, colorUI);
     apply_surface(50, 650, gameplayTimeSurface, screen, NULL);
     SDL_FreeSurface(gameplayTimeSurface);
-    ////////////////
-    ///////////////////////
-    //showGameOverScreen();
-    ////////////////////////
 
     ////////ROTOZOOM
 

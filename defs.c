@@ -116,3 +116,18 @@ SDL_Surface *minimap;
 SDL_Surface *minimapIcon;
 int posXminimapIcon;
 int posYminimapIcon;
+
+SDL_Surface *selectionText1;
+SDL_Surface *selectionText2;
+SDL_Surface *selectionText3;
+SDL_Surface *selectionText4;
+SDL_Surface *selectionText5;
+SDL_Surface *selectionText6;
+SDL_Surface *selectionText7;
+
+int modelSelected;
+int choiceSelect;
+
+int gameSelector = 1;
+int chosenMode = -1;
+int inSaveMenu = 0;

@@ -19,6 +19,4 @@ Uint32 time_left();
 void renderFrame(State state);
 void menuHandler(SDL_Event event, int state);
 
-void renderGameFrame();
-void gameHandler(SDL_Event event, int state);
 SDL_Color GetPixel(SDL_Surface *pSurface, int x, int y);

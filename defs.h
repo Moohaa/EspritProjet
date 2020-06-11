@@ -145,3 +145,17 @@ extern SDL_Surface *minimap;
 extern SDL_Surface *minimapIcon;
 extern int posXminimapIcon;
 extern int posYminimapIcon;
+
+extern SDL_Surface *selectionText1;
+extern SDL_Surface *selectionText2;
+extern SDL_Surface *selectionText3;
+extern SDL_Surface *selectionText4;
+extern SDL_Surface *selectionText5;
+extern SDL_Surface *selectionText6;
+extern SDL_Surface *selectionText7;
+
+extern int gameSelector;
+
+extern int modelSelected;
+extern int chosenMode;
+extern int inSaveMenu;
