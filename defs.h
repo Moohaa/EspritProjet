@@ -161,3 +161,4 @@ extern int chosenMode;
 extern int inSaveMenu;
 extern int saveMenuSelector;
 extern int selectedSaveMenu;
+extern int choiceSelect;
