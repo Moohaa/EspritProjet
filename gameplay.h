@@ -22,6 +22,11 @@ void moveEnnemies();
 void gameplayPipeline();
 void gameplayPipelineMulti();
 int ennemyVision(Ennemi ennemi);
+/**
+* @struct saveFile
+* @brief struct for file Saving
+*/
+
 typedef struct saveFile
 {
     Personnage personnage;

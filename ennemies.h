@@ -10,6 +10,10 @@
 
 #include "defs.h"
 #include "utils.h"
+/**
+* @struct ennemi
+* @brief struct for ennemi
+*/
 
 typedef struct ennemi
 {

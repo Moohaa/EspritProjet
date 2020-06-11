@@ -10,6 +10,10 @@
 
 #include "defs.h"
 #include "utils.h"
+/**
+* @struct personnage
+* @brief struct for personnage
+*/
 
 typedef struct personnage
 {

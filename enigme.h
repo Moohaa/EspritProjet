@@ -11,6 +11,11 @@
 #include "defs.h"
 #include "utils.h"
 
+/**
+* @struct enigme
+* @brief struct for riddles
+*/
+
 typedef struct enigme
 {
     int type; // 0 dynamique ; 1 Statique

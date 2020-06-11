@@ -427,7 +427,7 @@ void gameplayPipelineMulti()
 }
 
 void gameplayPipeline()
-{
+{ /*
     if (vies < 1)
     {
         showGameOverScreen();
@@ -435,7 +435,7 @@ void gameplayPipeline()
         playState = 0;
         inits = 0;
         return;
-    }
+    }*/
     apply_surface(offsetBG, 0, gameBackground, screen, NULL);
     personnage = loadSprite(personnage, personnage.direction);
     ennemi1 = loadSpriteEnnemi(ennemi1, ennemi1.direction);

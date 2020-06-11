@@ -14,10 +14,10 @@ void afficherEnigme(Enigme enigme, SDL_Surface *screen)
 {
     if (enigme.type == 1)
     {
-
+        printf("Enigme!!");
         apply_surface(0, 0, enigme.enigme, screen, NULL);
         SDL_Flip(screen);
-        apply_surface(0, 0, screen, enigmeTempImage, NULL);
+        //apply_surface(0, 0, enigmeTempImage, screen, NULL);
         return;
     }
 
@@ -138,6 +138,9 @@ int EnigmePipeline()
 {
     Enigme enigme;
     int a = rand() % 2;
+    enigme = generateEnigme(a);
+    enigme = generateEnigme(a);
+    enigme = generateEnigme(a);
     enigme = generateEnigme(a);
     afficherEnigme(enigme, screen);
     int reponseX = enigmeEventHandler(enigme, 0);

@@ -1,0 +1,22 @@
+/**
+* @file enigme.c
+* @brief riddle functions
+* @author Creative Sparks
+* @version 2.0
+* @date 2020
+*
+*
+*/
+
+/**
+* @brief To initialize the background b .
+* @param b the background
+* @param url the url of the image
+* @return Nothing
+*/
+
+
+/**
+* @struct Background
+* @brief struct for backround
+*/
