@@ -54,7 +54,7 @@ int loadMusic()
 void loadAnimationFile(int frame)
 {
     char filePath[50];
-    sprintf(filePath, "assets/newan/%d.png", frame);
+    sprintf(filePath, "newanjpg/%d.jpg", frame);
     SDL_FreeSurface(background);
     background = load_image(filePath, 0);
 }
