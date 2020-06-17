@@ -18,7 +18,6 @@ SDL_Surface *image;
 SDL_Event event;
 TTF_Font *font;
 SDL_Color color;
-SDL_Surface *buttons;
 Uint32 next_time;
 int fullscreen = 0;
 SDL_Surface *volumeSurface;

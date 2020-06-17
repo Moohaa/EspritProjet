@@ -76,7 +76,6 @@ extern int fxVolume;
 extern int musicVolume;
 extern int fullscreen;
 
-extern SDL_Surface *buttons;
 extern Mix_Music *music;
 extern int mouseX;
 extern int mouseY;

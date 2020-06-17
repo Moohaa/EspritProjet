@@ -61,12 +61,6 @@ void loadAnimationFile(int frame)
 
 void loadMenuFiles()
 {
-    menu1 = load_image("assets/png/buttons/ng_ns.png", 0);
-    menu2 = load_image("assets/png/buttons/s_ns.png", 0);
-    menu3 = load_image("assets/png/buttons/q_ns.png", 0);
-    menu1Hover = load_image("assets/png/buttons/ng_h.png", 0);
-    menu2Hover = load_image("assets/png/buttons/s_h.png", 0);
-    menu3Hover = load_image("assets/png/buttons/q_h.png", 0);
     newGameButton = load_image("assets/menu/b_ns.png", 0);
     settingsButton = load_image("assets/menu/b_ns.png", 0);
     quitButton = load_image("assets/menu/b_ns.png", 0);
@@ -192,7 +186,6 @@ int load_files()
 {
     background = load_image("assets/jpg/1.jpg", 0);
     hello = load_image("assets/bmp/hello.bmp", 0);
-    buttons = load_image("assets/png/restart.png", 0);
     menuBackground = load_image("assets/menu/bgm.png", 0);
     infoBar = load_image("assets/menu/ttlbar.png", 0);
     volumeSelector = load_image("assets/menu/bar.png", 0);
